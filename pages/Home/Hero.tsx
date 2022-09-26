@@ -2,10 +2,23 @@ import Image from "next/image";
 import me from "../../public/me.jpg";
 
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Hero = () => {
+  const [loading, setLoading] = useState(true);
+
   return (
     <div className="mt-20 lg:mt-0 px-8 !pt-0 pb-16 sm:p-16 flex flex-col lg:flex-row">
+      {loading ? (
+        <div className="absolute left-0 top-0 w-screen h-screen bg-white flex justify-center items-center z-50 ">
+          <style jsx global>{`
+            body {
+              overflow: ${loading} : "hidden" : "auto";
+            }
+          `}</style>
+          <span className="select-none text-2xl leading-[50%] load-spinner pl-1"></span>
+        </div>
+      ) : null}
       <motion.div
         className="mb-10 lg-mb-10 w-full lg:w-1/2 flex items-center justify-center text-center lg:text-left"
         initial={{ opacity: 0, y: -100 }}
@@ -30,6 +43,7 @@ const Hero = () => {
               layout="responsive"
               src={me}
               alt="picture of me"
+              onLoadingComplete={() => setLoading(false)}
               priority
             />
           </motion.div>
