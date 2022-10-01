@@ -67,3 +67,19 @@ a {
   color: inherit;
   content: '';
 }
+
+@keyframes squiggle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 260px 0;
+  }
+}
+
+.squiggle {
+  animation: squiggle 16s linear infinite;
+  background-image: url('/squiggle.svg');
+  background-repeat: repeat-x;
+  background-size: 50px
+}

@@ -8,7 +8,6 @@ interface CardProps {
   description: string;
   src: string;
   href: string;
-  image: boolean;
   inViewAnimationDelay: number;
 }
 
@@ -17,11 +16,9 @@ const Card = ({
   description,
   src,
   href,
-  image,
   inViewAnimationDelay,
 }: CardProps) => {
   const ref = useRef<HTMLDivElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
   const inView = useInView(ref, { once: true });
 
   return (
@@ -31,45 +28,33 @@ const Card = ({
       initial={{ opacity: 0, y: -100 }}
       animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : -100 }}
       transition={{
-        duration: 1,
+        duration: 1.5,
         type: "spring",
         delay: inViewAnimationDelay,
       }}
     >
       <Link href={href ?? ""} passHref>
         <a>
-          <div className="absolute left-0 top-0 opacity-0 hover:opacity-100 rounded-lg w-full h-full bg-[rgba(0,0,0,.9)] z-10 text-white flex items-center justify-center flex-col p-8 text-center">
+          <div className="absolute left-0 top-0 opacity-0 hover:opacity-100 rounded-lg w-full h-full bg-[rgba(0,0,0,.9)] z-10 text-white flex items-center justify-center flex-col p-8 text-center transition-opacity">
             <h2>{title}</h2>
             <h3>{description}</h3>
           </div>
         </a>
       </Link>
       <div className="border border-gray-300 rounded-lg">
-        {(image && (
-          <Image
-            src={src}
-            layout="responsive"
-            width={1.9}
-            height={1}
-            className="w-full h-full rounded-lg"
-            alt="Card"
-          />
-        )) || (
-          <video
-            ref={videoRef}
-            src={inView ? src : ""}
-            className="w-full h-full rounded-lg"
-            autoPlay
-            muted
-            loop
-          />
-        )}
+        <Image
+          src={src}
+          layout="responsive"
+          width={1.9}
+          height={1}
+          className="w-full h-full rounded-lg"
+          alt="Card"
+        />
       </div>
     </motion.div>
   );
 };
 Card.defaultProps = {
-  image: false,
   inViewAnimationDelay: 0,
 };
 

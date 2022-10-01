@@ -8,7 +8,7 @@ const Hero = () => {
   const [loading, setLoading] = useState(true);
 
   return (
-    <div className="mt-20 lg:mt-0 px-8 !pt-0 pb-16 sm:p-16 flex flex-col lg:flex-row">
+    <div className="mt-20 lg:mt-0 px-8 !pt-0 pb-16 sm:p-16 lg:p-24 flex flex-col lg:flex-row">
       {loading ? (
         <div className="absolute left-0 top-0 w-screen h-screen bg-white flex justify-center items-center z-50 ">
           <style jsx global>{`
@@ -25,8 +25,8 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: "spring" }}
       >
-        <h1 className="text-4xl sm:text-6xl">
-          hello, i&apos;m a software developer and designer.
+        <h1 className="text-4xl sm:text-6xl font-normal">
+          Hello, I&apos;m a software developer and designer.
         </h1>
       </motion.div>
       <div className="w-full lg:w-1/2 flex items-center justify-center relative sm:p-4 md:p-8 lg:p-16 xl:p-24 2xl:p-48">

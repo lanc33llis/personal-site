@@ -1,15 +1,21 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import { useRouter } from "next/router";
+
+interface HeaderProps {
+  forceOpen?: boolean;
+}
 
 type NavLink = [label: string, href: string];
 const navLinks: NavLink[] = [
-  ["about", "/about"],
-  ["contact", "/contact"],
+  ["About", "/about"],
+  ["Contact", "/contact"],
 ];
 
-const Header = () => {
+const Header = ({ forceOpen }: HeaderProps) => {
   const [isOpen, setIsOpen] = useState(false);
+  const router = useRouter();
 
   useEffect(() => {
     window.addEventListener("scroll", function me() {
@@ -20,19 +26,22 @@ const Header = () => {
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -100 }}
+      initial={{ opacity: forceOpen ? 1 : 0, y: forceOpen ? 0 : -100 }}
+      animate={{
+        opacity: isOpen || forceOpen ? 1 : 0,
+        y: isOpen || forceOpen ? 0 : -100,
+      }}
       transition={{ duration: 1, type: "spring" }}
-      className={`px-4 lg:px-16 py-2 fixed top-0 left-0 z-50 bg-white w-full border-gray-300 ${
-        isOpen ? "border-b" : ""
-      }`}
+      className={`flex justify-between px-8 sm:px-16 lg:px-24 pt-8 fixed top-0 left-0 z-50 w-full`}
     >
       <style jsx global>{`
         body {
           /* here we make the color transition */
           transition: border-color 0.5s ease-in-out;
           /* make this element do the scrolling */
-          border-color: ${isOpen ? "rgba(0,0,0,.1)" : "rgba(0, 0, 0, 0.0)"};
+          border-color: ${isOpen || forceOpen
+            ? "rgba(0,0,0,.1)"
+            : "rgba(0, 0, 0, 0.0)"};
         }
 
         ::-webkit-scrollbar {
@@ -54,17 +63,26 @@ const Header = () => {
           border-color: inherit;
         }
       `}</style>
-      <Link href="/" passHref>
-        <a>lance ellis</a>
-      </Link>
-      <span className="ml-1 text-gray-500">-</span>
-      {navLinks.map(([label, href]) => (
-        <Link href={href} key={label} passHref>
-          <a className="ml-1 text-gray-500 hover:text-black transition-colors">
-            {label}
+      <div>
+        <Link href="/" passHref>
+          <a className={`${router.asPath === "/" ? "squiggle" : ""}`}>
+            Lance Ellis
           </a>
         </Link>
-      ))}
+      </div>
+      <div>
+        {navLinks.map(([label, href]) => (
+          <Link href={href} key={label} passHref>
+            <a
+              className={`ml-12 transition-color ${
+                router.asPath === href ? "squiggle" : ""
+              }`}
+            >
+              {label}
+            </a>
+          </Link>
+        ))}
+      </div>
     </motion.div>
   );
 };
