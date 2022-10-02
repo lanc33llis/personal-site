@@ -4,6 +4,7 @@ import Hero from "./Hero";
 import Header from "../components/Header";
 import Card from "./Card";
 import Marquee from "react-fast-marquee";
+import { motion } from "framer-motion";
 
 type HomeCard = [title: string, description: string, src: string, href: string];
 // videos do bad stufff
@@ -38,32 +39,37 @@ const Home: NextPage = () => {
   return (
     <div>
       <Header />
-      <Hero />
-      <div className="border-y border-black py-8 mb-8">
-        <Marquee gradient={false}>
-          <span className="text-2xl px-2">
-            WE CHOOSE TO GO TO THE MOON IN THIS DECADE AND DO THE OTHER THINGS,
-            NOT BECAUSE THEY ARE EASY, BUT BECAUSE THEY ARE HARD.
-          </span>
-        </Marquee>
-      </div>
-      <div className="px-8 sm:px-16 lg:px-24">
-        <h2 className="text-4xl border-b-[1.5px] border-black py-6">
-          Projects
-        </h2>
-      </div>
-      <div className="flex flex-wrap px-8 sm:px-16 lg:px-24 gap-4 flex-col lg:flex-row items-center lg:items-start my-8">
-        {HomeCards.map((card, index) => (
-          <Card
-            key={index}
-            title={card[0]}
-            description={card[1]}
-            src={card[2]}
-            href={card[3]}
-            inViewAnimationDelay={index * 0.25}
-          />
-        ))}
-      </div>
+      <motion.div
+        exit={{ opacity: 0 }}
+        transition={{ type: "tween", duration: 0.7 }}
+      >
+        <Hero />
+        <div className="border-y border-black py-8 mb-8">
+          <Marquee gradient={false}>
+            <span className="text-2xl px-2">
+              WE CHOOSE TO GO TO THE MOON IN THIS DECADE AND DO THE OTHER
+              THINGS, NOT BECAUSE THEY ARE EASY, BUT BECAUSE THEY ARE HARD.
+            </span>
+          </Marquee>
+        </div>
+        <div className="px-8 sm:px-16 lg:px-24">
+          <h2 className="text-4xl border-b-[1.5px] border-black py-6">
+            Projects
+          </h2>
+        </div>
+        <div className="flex flex-wrap px-8 sm:px-16 lg:px-24 gap-4 flex-col lg:flex-row items-center lg:items-start my-8">
+          {HomeCards.map((card, index) => (
+            <Card
+              key={index}
+              title={card[0]}
+              description={card[1]}
+              src={card[2]}
+              href={card[3]}
+              inViewAnimationDelay={index * 0.25}
+            />
+          ))}
+        </div>
+      </motion.div>
     </div>
   );
 };

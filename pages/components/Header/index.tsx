@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, LayoutGroup } from "framer-motion";
 import { useRouter } from "next/router";
 
 interface HeaderProps {
@@ -25,65 +25,67 @@ const Header = ({ forceOpen }: HeaderProps) => {
   }, []);
 
   return (
-    <motion.div
-      initial={{ opacity: forceOpen ? 1 : 0, y: forceOpen ? 0 : -100 }}
-      animate={{
-        opacity: isOpen || forceOpen ? 1 : 0,
-        y: isOpen || forceOpen ? 0 : -100,
-      }}
-      transition={{ duration: 1, type: "spring" }}
-      className={`flex justify-between px-8 sm:px-16 lg:px-24 pt-8 fixed top-0 left-0 z-50 w-full`}
-    >
-      <style jsx global>{`
-        body {
-          /* here we make the color transition */
-          transition: border-color 0.5s ease-in-out;
-          /* make this element do the scrolling */
-          border-color: ${isOpen || forceOpen
-            ? "rgba(0,0,0,.1)"
-            : "rgba(0, 0, 0, 0.0)"};
-        }
+    <LayoutGroup>
+      <motion.div
+        initial={{ opacity: forceOpen ? 1 : 0, y: forceOpen ? 0 : -100 }}
+        animate={{
+          opacity: isOpen || forceOpen ? 1 : 0,
+          y: isOpen || forceOpen ? 0 : -100,
+        }}
+        transition={{ duration: 1, type: "spring" }}
+        className={`flex justify-between px-8 sm:px-16 lg:px-24 pt-8 fixed top-0 left-0 z-50 w-full`}
+      >
+        <style jsx global>{`
+          body {
+            /* here we make the color transition */
+            transition: border-color 0.5s ease-in-out;
+            /* make this element do the scrolling */
+            border-color: ${isOpen || forceOpen
+              ? "rgba(0,0,0,.1)"
+              : "rgba(0, 0, 0, 0.0)"};
+          }
 
-        ::-webkit-scrollbar {
-          width: 10px;
-        }
+          ::-webkit-scrollbar {
+            width: 10px;
+          }
 
-        ::-webkit-scrollbar-thumb {
-          border-radius: 10px;
-        }
+          ::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+          }
 
-        ::-webkit-scrollbar,
-        ::-webkit-scrollbar-thumb,
-        ::-webkit-scrollbar-corner {
-          /* add border to act as background-color */
-          border-right-style: inset;
-          /* sum viewport dimensions to guarantee border will fill scrollbar */
-          border-right-width: calc(100vw + 100vh);
-          /* inherit border-color to inherit transitions */
-          border-color: inherit;
-        }
-      `}</style>
-      <div>
-        <Link href="/" passHref>
-          <a className={`${router.asPath === "/" ? "squiggle" : ""}`}>
-            Lance Ellis
-          </a>
-        </Link>
-      </div>
-      <div>
-        {navLinks.map(([label, href]) => (
-          <Link href={href} key={label} passHref>
-            <a
-              className={`ml-12 transition-color ${
-                router.asPath === href ? "squiggle" : ""
-              }`}
-            >
-              {label}
+          ::-webkit-scrollbar,
+          ::-webkit-scrollbar-thumb,
+          ::-webkit-scrollbar-corner {
+            /* add border to act as background-color */
+            border-right-style: inset;
+            /* sum viewport dimensions to guarantee border will fill scrollbar */
+            border-right-width: calc(100vw + 100vh);
+            /* inherit border-color to inherit transitions */
+            border-color: inherit;
+          }
+        `}</style>
+        <div>
+          <Link href="/" passHref scroll={false}>
+            <a className={`py-1 ${router.asPath === "/" ? "squiggle" : ""}`}>
+              Lance Ellis
             </a>
           </Link>
-        ))}
-      </div>
-    </motion.div>
+        </div>
+        <div>
+          {navLinks.map(([label, href]) => (
+            <Link href={href} key={label} passHref scroll={false}>
+              <a
+                className={`py-1  ml-12 transition-color ${
+                  router.asPath === href ? "squiggle" : ""
+                }`}
+              >
+                {label}
+              </a>
+            </Link>
+          ))}
+        </div>
+      </motion.div>
+    </LayoutGroup>
   );
 };
 

@@ -4,7 +4,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        serif: ["DM Serif Text", "serif"],
+        serif: ["Spectral", "serif"],
       },
     },
   },

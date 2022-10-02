@@ -7,7 +7,12 @@ function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
-    <AnimatePresence>
+    <AnimatePresence
+      mode="wait"
+      onExitComplete={() => {
+        window.scrollTo(0, 0);
+      }}
+    >
       <Component {...pageProps} key={router.pathname} />
     </AnimatePresence>
   );
