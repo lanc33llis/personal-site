@@ -20,7 +20,7 @@ const Hero = () => {
         </div>
       ) : null}
       <motion.div
-        className="mb-10 lg-mb-10 w-full lg:w-1/2 flex items-center justify-center text-center lg:text-left"
+        className="w-full lg:w-1/2 flex items-center justify-center text-center lg:text-left"
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: "spring" }}
@@ -29,7 +29,7 @@ const Hero = () => {
           Hello, I&apos;m a software developer and designer.
         </h1>
       </motion.div>
-      <div className="w-full lg:w-1/2 flex items-center justify-center relative sm:p-4 md:p-8 lg:p-16 xl:p-24 2xl:p-48">
+      <div className="w-full h-screen lg:w-1/2 flex items-center justify-center relative sm:p-4 md:p-8 lg:p-16 xl:p-24 2xl:p-48">
         <div className="w-full h-full">
           <motion.div
             initial={{ opacity: 0, y: -100 }}

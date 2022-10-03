@@ -143,13 +143,11 @@ const About: NextPage = () => {
           </h1>
           <div className="flex justify-between">
             <div>
-              <h3 className="text-gray-500 text-sm">
-                Austin, TX, USA · He/Him
-              </h3>
-              <h3 className="text-gray-500 text-sm">
+              <h3 className=" text-sm">Austin, TX, USA · He/Him</h3>
+              <h3 className="text-sm">
                 University of Texas at Austin (UT), Spring 2025
               </h3>
-              <h3 className="text-gray-500 text-sm  pb-4">BS in Astronomy</h3>
+              <h3 className="text-sm  pb-4">BS in Astronomy</h3>
             </div>
             <div className="flex">
               {socialLinks.map(([label, href]) => (
@@ -173,7 +171,7 @@ const About: NextPage = () => {
             complex problems in software engineering.
           </p>
         </div>
-        <h2 className="text-3xl font-medium py-4 mb-8 border-b-[1.5px] border-black">
+        <h2 className="text-4xl font-medium py-4 mb-8 border-b-[1.5px] border-black">
           Resume
         </h2>
         <div className=" leading-none text-sm sm:text-base">

@@ -76,7 +76,7 @@ const Projects: NextPage = () => {
               Kiss was an project to test out the Canvas API. The background is
               created randomly from a monospace font with the ability to grow
               and diminish in brightness. The Canvas API is then used to
-              downnsample video additionally into grayscale.
+              downnsample video and convert the video into grayscale.
             </p>
           </div>
         </div>
@@ -99,8 +99,8 @@ const Projects: NextPage = () => {
             <p>
               UT Course Map is a web application that visualizes the courses of
               the University of Texas at Austin as a network graph. Directed
-              links are created between a course and its prerisquites. It
-              scraped data using a bot written in Python using Selenium.
+              links are created between a course and its prerisquites. Data is
+              scraped using a bot written in Python using Selenium.
             </p>
           </div>
         </div>
