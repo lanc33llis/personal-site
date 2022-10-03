@@ -9,7 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@svgr/webpack": "^6.4.0",
     "@types/rellax": "^1.7.4",
     "framer-motion": "^7.3.6",
     "next": "12.3.1",
