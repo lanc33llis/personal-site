@@ -10,7 +10,7 @@ const Footer = () => {
           viewBox="0 0 32.58 31.77"
           width={32}
           height={32}
-          className="fill-gray-500 hover:fill-black cursor-pointer"
+          className="fill-gray-500 hover:fill-black cursor-pointer transition-all"
         >
           <g id="Layer_2" data-name="Layer 2">
             <g id="Layer_1-2" data-name="Layer 1">
@@ -25,7 +25,7 @@ const Footer = () => {
           viewBox="0 0 350.81 354.96"
           width={32}
           height={32}
-          className="fill-gray-500 hover:fill-black cursor-pointer"
+          className="fill-gray-500 hover:fill-black cursor-pointer transition-all"
         >
           <g id="Layer_2" data-name="Layer 2">
             <g id="Layer_1-2" data-name="Layer 1">
