@@ -10,7 +10,7 @@ interface HeaderProps {
 type NavLink = [label: string, href: string];
 const navLinks: NavLink[] = [
   ["About", "/about"],
-  ["Contact", "/contact"],
+  ["Projects", "/projects"],
 ];
 
 const Header = ({ forceOpen }: HeaderProps) => {
@@ -76,7 +76,7 @@ const Header = ({ forceOpen }: HeaderProps) => {
             <Link href={href} key={label} passHref scroll={false}>
               <a
                 className={`py-1  ml-12 transition-color ${
-                  router.asPath === href ? "squiggle" : ""
+                  router.asPath.split("#")[0] === href ? "squiggle" : ""
                 }`}
               >
                 {label}

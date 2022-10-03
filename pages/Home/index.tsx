@@ -5,6 +5,7 @@ import Header from "../components/Header";
 import Card from "./Card";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
+import Footer from "../components/Footer";
 
 type HomeCard = [title: string, description: string, src: string, href: string];
 // videos do bad stufff
@@ -13,25 +14,25 @@ const HomeCards: HomeCard[] = [
     "Shipper",
     "Desktop application built with React and Rust that does 1-step deployments to any host using SSH",
     "/shipper.png",
-    "/project/shipper",
+    "/projects#shipper",
   ],
   [
     "KISS",
     "Experimental Image Manipulation using the canvas API",
     "/kiss.png",
-    "/project/kiss",
+    "/projects#kiss",
   ],
   [
     "UT Course Map",
     "A web app that allows you to view the courses offered at UT Austin as a network graph. Built with React, Next.js, and D3.js. Data scraped from UT with a Selenium bot",
     "/ut-course-map.png",
-    "/project/coursemap",
+    "/projects#coursemap",
   ],
   [
     "Allday",
     "Sketch of a startup relating to the mobile eCommerce industry. Built with React, Next.js, and Tailwind CSS",
     "/allday.png",
-    "/project/allday",
+    "/projects#allday",
   ],
 ];
 
@@ -70,6 +71,7 @@ const Home: NextPage = () => {
           ))}
         </div>
       </motion.div>
+      <Footer />
     </div>
   );
 };

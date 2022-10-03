@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Link from "next/link";
+import Footer from "../components/Footer";
 import Header from "../components/Header";
 
 type SocialLink = [label: string, href: string];
@@ -175,10 +176,10 @@ const About: NextPage = () => {
         <h2 className="text-3xl font-medium py-4 mb-8 border-b-[1.5px] border-black">
           Resume
         </h2>
-        <div className="font-serif leading-none text-sm sm:text-base">
+        <div className=" leading-none text-sm sm:text-base">
           {currentResume.sections.map(({ title, blocks }) => (
             <div key={title} className="mb-4">
-              <h3 className="text-xl pb-1 mb-4 border-b border-black">
+              <h3 className="text-xl pb-1 mb-4 border-b-[1.5px] border-black">
                 {title}
               </h3>
               {blocks?.map(
@@ -229,6 +230,7 @@ const About: NextPage = () => {
           ))}
         </div>
       </motion.div>
+      <Footer />
     </div>
   );
 };
