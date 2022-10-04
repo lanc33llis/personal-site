@@ -71,6 +71,30 @@ class MyDocument extends Document {
             name="description"
             content="Lance Ellis is a software engineer and designer from the United States. He works mostly on the web and is currently studying at the University of Texas at Austin."
           />
+          <meta property="og:url" content="https://www.lanc3.dev/" />
+          <meta property="og:type" content="website" />
+          <meta property="og:title" content="Lance Ellis" />
+          <meta
+            property="og:description"
+            content="Lance Ellis is a software engineer and designer from the United States. He works mostly on the web and is currently studying at the University of Texas at Austin."
+          />
+          <meta
+            property="og:image"
+            content="https://www.lanc3.dev/og-image.png"
+          />
+
+          <meta name="twitter:card" content="summary_large_image" />
+          <meta property="twitter:domain" content="lanc3.dev" />
+          <meta property="twitter:url" content="https://www.lanc3.dev/" />
+          <meta name="twitter:title" content="Lance Ellis" />
+          <meta
+            name="twitter:description"
+            content="Lance Ellis is a software engineer and designer from the United States. He works mostly on the web and is currently studying at the University of Texas at Austin."
+          />
+          <meta
+            name="twitter:image"
+            content="https://www.lanc3.dev/og-image.png"
+          />
         </Head>
         <body>
           <Main />
