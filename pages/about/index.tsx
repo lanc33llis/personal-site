@@ -156,7 +156,7 @@ const About: NextPage = () => {
             <div className="flex">
               {socialLinks.map(([label, href]) => (
                 <Link href={href} key={label} passHref>
-                  <a className="text-gray-600 mr-4 border-b border-gray-600 hover:border-black h-fit hover:text-black transition-all">
+                  <a className="text-gray-500 mr-4 border-b border-gray-500 hover:border-black h-fit hover:text-black transition-all">
                     {label}
                   </a>
                 </Link>
