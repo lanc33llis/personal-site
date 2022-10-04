@@ -5,6 +5,7 @@ import Image from "next/image";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Footer from "../components/Footer";
+import Head from "next/head";
 
 const Projects: NextPage = () => {
   const router = useRouter();
@@ -22,6 +23,9 @@ const Projects: NextPage = () => {
 
   return (
     <div>
+      <Head>
+        <title>Lance Ellis - Projects</title>
+      </Head>
       <Header forceOpen />
       <motion.div
         className="mt-24 px-8 sm:px-16 lg:px-24"

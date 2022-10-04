@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { NextPage } from "next";
+import Head from "next/head";
 import Link from "next/link";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
@@ -129,6 +130,9 @@ const currentResume: Resume = {
 const About: NextPage = () => {
   return (
     <div>
+      <Head>
+        <title>Lance Ellis - About</title>
+      </Head>
       <Header forceOpen />
       <motion.div
         className="mt-24 px-8 sm:px-16 lg:px-24"

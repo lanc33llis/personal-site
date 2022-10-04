@@ -6,6 +6,7 @@ import Card from "./Card";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
+import Head from "next/head";
 
 type HomeCard = [title: string, description: string, src: string, href: string];
 // videos do bad stufff
@@ -39,6 +40,9 @@ const HomeCards: HomeCard[] = [
 const Home: NextPage = () => {
   return (
     <div>
+      <Head>
+        <title>Lance Ellis - Home</title>
+      </Head>
       <Header />
       <motion.div
         exit={{ opacity: 0 }}
