@@ -3,12 +3,16 @@ import type { AppProps } from "next/app";
 import { AnimatePresence } from "framer-motion";
 import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
+import Head from "next/head";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
     <>
+      <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      </Head>
       <DefaultSeo
         title="Simple Usage Example"
         description="A short description goes here."

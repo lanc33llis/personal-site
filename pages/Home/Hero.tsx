@@ -99,27 +99,32 @@ const Hero = () => {
               </clipPath>
             </defs>
           </svg>
-          <div className="flex justify-center">
-            <span
-              onClick={() => {
-                navigator.clipboard.writeText("scdelance@gmail.com");
-                setCopiedEmail(true);
-                if (!copiedEmailTimer) {
-                  const timer = setTimeout(() => {
-                    setCopiedEmail(false);
-                    clearTimeout(timer);
-                    setCopiedEmailTimer(null);
-                  }, 2000);
-                  setCopiedEmailTimer(timer);
-                }
-              }}
-              className="block w-fit lg:hidden text-left border-b text-gray-500 border-gray-500 hover:border-black h-fit hover:text-black transition-all cursor-pointer text-lg z-10"
-            >
-              {!copiedEmail ? "Email?" : "Email Copied!"}
-            </span>
-          </div>
         </div>
       </div>
+      <motion.div
+        className="flex justify-center"
+        initial={{ opacity: 0, y: -100 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, type: "spring" }}
+      >
+        <span
+          onClick={() => {
+            navigator.clipboard.writeText("scdelance@gmail.com");
+            setCopiedEmail(true);
+            if (!copiedEmailTimer) {
+              const timer = setTimeout(() => {
+                setCopiedEmail(false);
+                clearTimeout(timer);
+                setCopiedEmailTimer(null);
+              }, 2000);
+              setCopiedEmailTimer(timer);
+            }
+          }}
+          className="block w-fit lg:hidden text-left border-b text-gray-500 border-gray-500 hover:border-black h-fit hover:text-black transition-all cursor-pointer text-lg z-10"
+        >
+          {!copiedEmail ? "Email?" : "Email Copied!"}
+        </span>
+      </motion.div>
     </div>
   );
 };
