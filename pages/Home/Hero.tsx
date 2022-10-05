@@ -27,10 +27,10 @@ const Hero = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: "spring" }}
       >
-        <h1 className="text-4xl sm:text-6xl font-normal lg:mb-4">
+        <h1 className="text-4xl sm:text-6xl font-normal lg:mb-4 text-center lg:text-left">
           Hello, I&apos;m a software developer and designer.
         </h1>
-        {/* <span
+        <span
           onClick={() => {
             navigator.clipboard.writeText("scdelance@gmail.com");
             setCopiedEmail(true);
@@ -46,9 +46,9 @@ const Hero = () => {
           className="hidden w-fit lg:block text-left border-b text-gray-500 border-gray-500 hover:border-black h-fit hover:text-black transition-all cursor-pointer text-lg"
         >
           {!copiedEmail ? "Email?" : "Email Copied!"}
-        </span> */}
+        </span>
       </motion.div>
-      <div className="w-full h-screen lg:w-1/2 flex items-center justify-center relative sm:p-4 md:p-8 lg:p-16 xl:p-24 2xl:p-48">
+      <div className="w-full 2xl:h-screen lg:w-1/2 flex items-center justify-center relative sm:p-4 md:p-8 lg:p-16 xl:p-24">
         <div className="w-full h-full">
           <motion.div
             initial={{ opacity: 0, y: -100 }}
@@ -66,7 +66,7 @@ const Hero = () => {
               priority
             />
           </motion.div>
-          <svg className="w-full h-full absolute left-0 right-0 sm:p-4 md:p-8 lg:p-16 xl:p-24 2xl:p-48">
+          <svg className="w-full h-full absolute left-0 right-0 sm:p-4 md:p-8 lg:p-16 xl:p-24 2xl:p-24">
             <defs>
               <clipPath id="hero-image">
                 <motion.rect
@@ -99,6 +99,25 @@ const Hero = () => {
               </clipPath>
             </defs>
           </svg>
+          <div className="flex justify-center">
+            <span
+              onClick={() => {
+                navigator.clipboard.writeText("scdelance@gmail.com");
+                setCopiedEmail(true);
+                if (!copiedEmailTimer) {
+                  const timer = setTimeout(() => {
+                    setCopiedEmail(false);
+                    clearTimeout(timer);
+                    setCopiedEmailTimer(null);
+                  }, 2000);
+                  setCopiedEmailTimer(timer);
+                }
+              }}
+              className="block w-fit lg:hidden text-left border-b text-gray-500 border-gray-500 hover:border-black h-fit hover:text-black transition-all cursor-pointer text-lg z-10"
+            >
+              {!copiedEmail ? "Email?" : "Email Copied!"}
+            </span>
+          </div>
         </div>
       </div>
     </div>
