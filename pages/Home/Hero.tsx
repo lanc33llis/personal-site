@@ -6,6 +6,8 @@ import { useState } from "react";
 
 const Hero = () => {
   const [loading, setLoading] = useState(true);
+  const [copiedEmail, setCopiedEmail] = useState(false);
+  const [copiedEmailTimer, setCopiedEmailTimer] = useState<any>();
 
   return (
     <div className="mt-20 lg:mt-0 px-8 !pt-0 pb-16 sm:p-16 lg:p-24 flex flex-col lg:flex-row">
@@ -20,14 +22,31 @@ const Hero = () => {
         </div>
       ) : null}
       <motion.div
-        className="w-full lg:w-1/2 flex items-center justify-center text-center lg:text-left"
+        className="w-full lg:w-1/2 flex justify-center lg:text-left flex-col"
         initial={{ opacity: 0, y: -100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 1, type: "spring" }}
       >
-        <h1 className="text-4xl sm:text-6xl font-normal">
+        <h1 className="text-4xl sm:text-6xl font-normal lg:mb-4">
           Hello, I&apos;m a software developer and designer.
         </h1>
+        {/* <span
+          onClick={() => {
+            navigator.clipboard.writeText("scdelance@gmail.com");
+            setCopiedEmail(true);
+            if (!copiedEmailTimer) {
+              const timer = setTimeout(() => {
+                setCopiedEmail(false);
+                clearTimeout(timer);
+                setCopiedEmailTimer(null);
+              }, 2000);
+              setCopiedEmailTimer(timer);
+            }
+          }}
+          className="hidden w-fit lg:block text-left border-b text-gray-500 border-gray-500 hover:border-black h-fit hover:text-black transition-all cursor-pointer text-lg"
+        >
+          {!copiedEmail ? "Email?" : "Email Copied!"}
+        </span> */}
       </motion.div>
       <div className="w-full h-screen lg:w-1/2 flex items-center justify-center relative sm:p-4 md:p-8 lg:p-16 xl:p-24 2xl:p-48">
         <div className="w-full h-full">
