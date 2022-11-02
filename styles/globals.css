@@ -84,3 +84,7 @@ a {
   background-repeat: repeat-x;
   background-size: 55px;
 }
+
+:target {
+  scroll-margin-top: 70px;
+}
