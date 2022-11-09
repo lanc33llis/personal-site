@@ -14,7 +14,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <DefaultSeo
-        title="Simple Usage Example"
+        title="Lance Ellis"
         description="A short description goes here."
         openGraph={{
           type: "website",

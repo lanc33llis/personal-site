@@ -24,7 +24,7 @@ const Hero = () => {
       <motion.div
         className="w-full lg:w-1/2 flex justify-center lg:text-left flex-col"
         initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={!loading ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, type: "spring" }}
       >
         <h1 className="text-4xl sm:text-6xl font-normal lg:mb-4 text-center lg:text-left">
@@ -52,7 +52,7 @@ const Hero = () => {
         <div className="w-full h-full">
           <motion.div
             initial={{ opacity: 0, y: -100 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={!loading ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 2, type: "spring" }}
           >
             <Image
@@ -71,7 +71,7 @@ const Hero = () => {
               <clipPath id="hero-image">
                 <motion.rect
                   initial={{ y: "0", opacity: 0 }}
-                  animate={{ y: "5%", opacity: 1 }}
+                  animate={!loading ? { y: "5%", opacity: 1 } : false}
                   transition={{ duration: 3, type: "spring" }}
                   x="2.5%"
                   width="30%"
@@ -80,7 +80,7 @@ const Hero = () => {
                 />
                 <motion.rect
                   initial={{ y: "0", opacity: 0 }}
-                  animate={{ y: "20%", opacity: 1 }}
+                  animate={!loading ? { y: "20%", opacity: 1 } : false}
                   transition={{ duration: 2.75, type: "spring" }}
                   x="35%"
                   width="30%"
@@ -89,7 +89,7 @@ const Hero = () => {
                 />
                 <motion.rect
                   initial={{ y: "0%", opacity: 0 }}
-                  animate={{ y: "35%", opacity: 1 }}
+                  animate={!loading ? { y: "35%", opacity: 1 } : false}
                   transition={{ duration: 2.5, type: "spring" }}
                   x="67.5%"
                   width="30%"
@@ -104,7 +104,7 @@ const Hero = () => {
       <motion.div
         className="flex justify-center"
         initial={{ opacity: 0, y: -100 }}
-        animate={{ opacity: 1, y: 0 }}
+        animate={!loading ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, type: "spring" }}
       >
         <span
