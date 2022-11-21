@@ -61,7 +61,7 @@ const Hero = () => {
               height={405}
               layout="responsive"
               src={me}
-              alt="picture of me"
+              alt="picture of me by Rae Xin"
               onLoadingComplete={() => setLoading(false)}
               priority
             />
