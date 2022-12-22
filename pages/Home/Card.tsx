@@ -49,6 +49,7 @@ const Card = ({
           height={1}
           className="w-full h-full"
           alt="Card"
+          priority
         />
       </div>
     </motion.div>

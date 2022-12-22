@@ -49,20 +49,20 @@ const Home: NextPage = () => {
         transition={{ type: "tween", duration: 0.7 }}
       >
         <Hero />
-        <div className="border-y border-black py-8 mb-8">
+        <div className="py-8 mb-8 border-black border-y">
           <Marquee gradient={false}>
-            <span className="text-2xl px-2">
+            <span className="px-2 text-2xl">
               WE CHOOSE TO GO TO THE MOON IN THIS DECADE AND DO THE OTHER
               THINGS, NOT BECAUSE THEY ARE EASY, BUT BECAUSE THEY ARE HARD.
             </span>
           </Marquee>
         </div>
         <div className="px-8 sm:px-16 lg:px-24">
-          <h2 className="text-4xl border-b-[1.5px] border-black py-6">
+          <h2 className="py-6 text-4xl border-black border-b-[1.5px]">
             Projects
           </h2>
         </div>
-        <div className="flex flex-wrap px-8 sm:px-16 lg:px-24 gap-4 flex-col lg:flex-row items-center lg:items-start my-8">
+        <div className="flex flex-col flex-wrap items-center gap-4 px-8 my-8 sm:px-16 lg:px-24 lg:flex-row lg:items-start">
           {HomeCards.map((card, index) => (
             <Card
               key={index}
