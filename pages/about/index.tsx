@@ -135,28 +135,28 @@ const About: NextPage = () => {
       </Head>
       <Header forceOpen />
       <motion.div
-        className="mt-24 px-8 sm:px-16 lg:px-24"
+        className="px-8 mt-24 sm:px-16 lg:px-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ type: "tween", duration: 0.7 }}
       >
         <div className="mb-8">
-          <h1 className="text-4xl font-medium py-4 mb-8 border-b-[1.5px] border-black">
+          <h1 className="py-4 mb-8 text-4xl font-medium border-black border-b-[1.5px]">
             About
           </h1>
           <div className="flex justify-between">
             <div>
-              <h3 className=" text-sm">Austin, TX, USA · He/Him</h3>
+              <h3 className="text-sm ">Austin, TX, USA · He/Him</h3>
               <h3 className="text-sm">
                 University of Texas at Austin (UT), Spring 2025
               </h3>
-              <h3 className="text-sm  pb-4">BS in Astronomy</h3>
+              <h3 className="pb-4 text-sm">BS in Astronomy</h3>
             </div>
             <div className="flex">
               {socialLinks.map(([label, href]) => (
                 <Link href={href} key={label} passHref>
-                  <a className="text-gray-500 mr-4 border-b border-gray-500 hover:border-black h-fit hover:text-black transition-all">
+                  <a className="mr-4 text-gray-500 transition-all border-b border-gray-500 hover:border-black h-fit hover:text-black">
                     {label}
                   </a>
                 </Link>
@@ -166,22 +166,22 @@ const About: NextPage = () => {
           <p>
             Born and raised in San Antonio, Texas, I spent most of my early days
             playing around with my computer. I always wanted to automate things,
-            so I naturally gravitated towards programming. I found my calling to
+            so I naturally gravitated toward programming. I found my calling in
             Astronomy in high school, and I&apos;ve been interested in how the
-            two fields can be combined since. I wrote my first published paper
-            my senior year high school about computer simulations of bodies like
-            Saturn. I also interned at Amazon in SWE shortly afterwards.
-            Nowadays, I use my unique background of physics and math to solve
-            complex problems in software engineering.
+            two fields can be combined since. I published my first paper in my
+            senior year in high school about n-body dust simulations of bodies
+            like Saturn&apos;s rings. I also interned at Amazon in SWE shortly
+            afterward. Nowadays, I use my unique background in physics and math
+            to solve complex problems in software engineering.
           </p>
         </div>
-        <h2 className="text-4xl font-medium py-4 mb-8 border-b-[1.5px] border-black">
+        <h2 className="py-4 mb-8 text-4xl font-medium border-black border-b-[1.5px]">
           Resume
         </h2>
-        <div className=" leading-none text-sm sm:text-base">
+        <div className="text-sm leading-none sm:text-base">
           {currentResume.sections.map(({ title, blocks }) => (
             <div key={title} className="mb-4">
-              <h3 className="text-xl pb-1 mb-4 border-b-[1.5px] border-black">
+              <h3 className="pb-1 mb-4 text-xl border-black border-b-[1.5px]">
                 {title}
               </h3>
               {blocks?.map(
@@ -204,7 +204,7 @@ const About: NextPage = () => {
                           <h4>{description}</h4>
                           <span>{descriptionRight}</span>
                         </div>
-                        <ul className="list-disc pl-4">
+                        <ul className="pl-4 list-disc">
                           {bullets?.map((bullet, i) => (
                             <li key={i} className="mt-2">
                               {bullet}
