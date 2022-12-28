@@ -1,131 +1,10 @@
-import { motion } from "framer-motion";
 import { NextPage } from "next";
 import Head from "next/head";
-import Link from "next/link";
-import Footer from "../components/Footer";
 import Header from "../components/Header";
+import { motion } from "framer-motion";
+import Link from "next/link";
 
-type SocialLink = [label: string, href: string];
-const socialLinks: SocialLink[] = [
-  ["GitHub", "https://github.com/lanc33llis"],
-  ["LinkedIn", "https://www.linkedin.com/in/lance-ellis/"],
-];
-
-type Block = {
-  title: string;
-  titleRight?: string;
-  description?: string;
-  descriptionRight?: string;
-  bullets?: string[];
-  list?: boolean;
-};
-type Section = {
-  title: string;
-  blocks?: Block[];
-};
-type Resume = {
-  sections: Section[];
-};
-const currentResume: Resume = {
-  sections: [
-    {
-      title: "Education",
-      blocks: [
-        {
-          title: "The University of Texas at Austin",
-          titleRight: "May 2025",
-          description: "Bachelor of Science in Astronomy",
-        },
-      ],
-    },
-    {
-      title: "Experience",
-      blocks: [
-        {
-          title: "Amazon",
-          titleRight: "May 2022 - August 2022",
-          description: "Software Development Engineering Internship",
-          descriptionRight: " Los Angeles, CA",
-          bullets: [
-            "Developed linter to validate server-side renderings of the Amazon Alexa app served to tens of millions of users to reduce developer error rate by 30%",
-            "Implemented the linter API with Java using JSON schemas and tree traversal for speeds 10x faster than typical JSON Schema validators",
-            "Created an interactive UI for Amazon Alexa developers, 1000 engineers, to validate and develop Amazon Alexa pages created with TypeScript, React, TailwindCSS, and Recoil for state management",
-          ],
-        },
-        {
-          title: "Major League Hacking",
-          titleRight: "May 2021 - August 2021",
-          description: "Production Engineering Fellowship",
-          descriptionRight: "Remote",
-          bullets: [
-            "Certified by the Linux Foundation in the essentials of system administration learning DevOps technologies: Docker, AWS, Bash, Python, and Linux",
-            "Built full-stack Instagram clone using Flask and MongoDB for the user database",
-            "Deployed app on an AWS EC2 using Docker-compose to containerize the app and orchestrate containers for monitoring using cAdvisor, reverse-proxying using Nginx, and data analytics using Prometheus visualized with Grafana",
-            "Implemented CI/CD; automated linting, unit and integration testing, and deployment using GitHub Actions",
-          ],
-        },
-        {
-          title: "Trinity University",
-          titleRight: "June 2020 - June 2021",
-          description: "Computer Science Research Internship",
-          descriptionRight: "San Antonio, TX",
-          bullets: [
-            "Second author of Photometric Renderings of Dust and Freed Regolith in Ring Simulations",
-            "Engineered realistic 8,000,000 particle n-body simulation of Saturn's rings to have accurate photometric renderings of dust and freed regolith in Scala using the Monte Carlo method",
-            "Enhanced rendering time by 6,400% by implementing parallelism on the K-D tree used to store the bodies",
-          ],
-        },
-      ],
-    },
-    {
-      title: "Technical Skills",
-      blocks: [
-        {
-          title: "Programming Languages",
-          bullets: ["Python", "Java", "C++", "JavaScript"],
-          list: true,
-        },
-        {
-          title: "Web Technologies",
-          bullets: ["React", "Next.js", "Django", "TypeScript", "TailwindCSS"],
-          list: true,
-        },
-        {
-          title: "DevOps",
-          bullets: ["AWS", "Docker", "Serverless", "GitHub Actions", "Bash"],
-          list: true,
-        },
-        {
-          title: "Other",
-          bullets: ["Git", "SQL", "MongoDB"],
-          list: true,
-        },
-      ],
-    },
-    {
-      title: "Relevant Coursework",
-      blocks: [
-        {
-          title: "Computer Science",
-          bullets: [
-            "Data Structures & Algorithms",
-            "Web Development",
-            "Numerical Analysis",
-          ],
-          list: true,
-        },
-        {
-          title: "Mathematics",
-          bullets: [
-            "Calculus 1-3",
-            "Differential Equations with Linear Algebra",
-          ],
-          list: true,
-        },
-      ],
-    },
-  ],
-};
+import Footer from "../components/Footer";
 
 const About: NextPage = () => {
   return (
@@ -135,104 +14,34 @@ const About: NextPage = () => {
       </Head>
       <Header forceOpen />
       <motion.div
-        className="px-8 mt-24 sm:px-16 lg:px-24"
+        className="absolute top-0 flex flex-col items-center justify-center w-full min-h-screen px-8 pt-16 sm:px-16 lg:px-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ type: "tween", duration: 0.7 }}
       >
-        <div className="mb-8">
-          <h1 className="py-4 mb-8 text-4xl font-medium border-black border-b-[1.5px]">
-            About
-          </h1>
-          <div className="flex justify-between">
-            <div>
-              <h3 className="text-sm ">Austin, TX, USA · He/Him</h3>
-              <h3 className="text-sm">
-                University of Texas at Austin (UT), Spring 2025
-              </h3>
-              <h3 className="pb-4 text-sm">BS in Astronomy</h3>
-            </div>
-            <div className="flex">
-              {socialLinks.map(([label, href]) => (
-                <Link href={href} key={label} passHref>
-                  <a className="mr-4 text-gray-500 transition-all border-b border-gray-500 hover:border-black h-fit hover:text-black">
-                    {label}
-                  </a>
-                </Link>
-              ))}
-            </div>
-          </div>
-          <p>
-            Born and raised in San Antonio, Texas, I spent most of my early days
-            playing around with my computer. I always wanted to automate things,
-            so I naturally gravitated toward programming. I found my calling in
-            Astronomy in high school, and I&apos;ve been interested in how the
-            two fields can be combined since. I published my first paper in my
-            senior year in high school about n-body dust simulations of bodies
-            like Saturn&apos;s rings. I also interned at Amazon in SWE shortly
-            afterward. Nowadays, I use my unique background in physics and math
-            to solve complex problems in software engineering.
+        <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-16">
+          <h2 className="text-2xl font-medium md:text-3xl lg:text-7xl">
+            Hi! I&apos;m Lance, a web developer and designer <br /> in Austin,
+            TX.
+          </h2>
+          <p className="text-base md:text-xl lg:text-2xl">
+            I am currently a sophomore at the University of Texas at Austin,
+            where I am working towards a degree in astronomy. <br />
+            <br />I enjoy using my unique combination of technical skills and
+            scientific knowledge to solve complex problems. I am a self-taught
+            programmer and have developed a wide range of software and web
+            applications. <br />
+            <br /> In my free time I play video games (League and TFT), create
+            digital art, and travel to new places. <br />
+            <br />
+            <Link href="/resume.pdf">
+              <a className="underline">Resume</a>
+            </Link>
           </p>
-        </div>
-        <h2 className="py-4 mb-8 text-4xl font-medium border-black border-b-[1.5px]">
-          Resume
-        </h2>
-        <div className="text-sm leading-none sm:text-base">
-          {currentResume.sections.map(({ title, blocks }) => (
-            <div key={title} className="mb-4">
-              <h3 className="pb-1 mb-4 text-xl border-black border-b-[1.5px]">
-                {title}
-              </h3>
-              {blocks?.map(
-                ({
-                  title,
-                  titleRight,
-                  description,
-                  descriptionRight,
-                  bullets,
-                  list,
-                }) => (
-                  <div key={title}>
-                    {!list && (
-                      <div className="mb-4">
-                        <div className="flex justify-between">
-                          <h4 className="font-semibold">{title}</h4>
-                          <span>{titleRight}</span>
-                        </div>
-                        <div className="flex justify-between">
-                          <h4>{description}</h4>
-                          <span>{descriptionRight}</span>
-                        </div>
-                        <ul className="pl-4 list-disc">
-                          {bullets?.map((bullet, i) => (
-                            <li key={i} className="mt-2">
-                              {bullet}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {list && (
-                      <div className="mb-1">
-                        <span>
-                          <span className="font-semibold">{title}: </span>
-                          {bullets?.map((bullet, i) => (
-                            <span key={i}>
-                              {i === 0 ? bullet : `, ${bullet}`}
-                            </span>
-                          ))}
-                        </span>
-                      </div>
-                    )}
-                  </div>
-                )
-              )}
-            </div>
-          ))}
+          <Footer marginY={false} />
         </div>
       </motion.div>
-      <Footer />
     </div>
   );
 };

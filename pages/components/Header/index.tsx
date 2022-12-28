@@ -9,7 +9,7 @@ interface HeaderProps {
 
 type NavLink = [label: string, href: string];
 const navLinks: NavLink[] = [
-  ["About", "/about2"],
+  ["About", "/about"],
   ["Projects", "/projects"],
 ];
 
