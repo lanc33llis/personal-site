@@ -21,11 +21,11 @@ const About: NextPage = () => {
         transition={{ type: "tween", duration: 0.7 }}
       >
         <div className="flex flex-col w-full gap-4 md:gap-8 lg:gap-16">
-          <h2 className="text-2xl font-medium md:text-3xl lg:text-7xl">
-            Hi! I&apos;m Lance, a web developer and designer <br /> in Austin,
+          <h2 className="text-2xl font-medium md:text-3xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
+            Hi! I&apos;m Lance, a web developer and <br /> designer in Austin,
             TX.
           </h2>
-          <p className="text-base md:text-xl lg:text-2xl">
+          <p className="text-base md:text-xl lg:text-xl xl:text-2xl">
             I am currently a sophomore at the University of Texas at Austin,
             where I am working towards a degree in astronomy. <br />
             <br />I enjoy using my unique combination of technical skills and
