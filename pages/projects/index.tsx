@@ -28,16 +28,16 @@ const Projects: NextPage = () => {
       </Head>
       <Header forceOpen />
       <motion.div
-        className="mt-24 px-8 sm:px-16 lg:px-24"
+        className="px-8 mt-24 sm:px-16 lg:px-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ type: "tween", duration: 0.7 }}
       >
-        <h1 className="text-4xl font-medium py-4 mb-4 border-b-[1.5px] border-black">
+        <h1 className="py-4 mb-4 text-4xl font-medium border-black border-b-[1.5px]">
           Projects
         </h1>
-        <div className="border-b-[1.5px] border-black pb-4 mb-4" id="shipper">
+        <div className="pb-4 mb-4 border-black border-b-[1.5px]" id="shipper">
           <h3 className="text-base leading-loose tracking-[.2em]">
             DESKTOP APPLICATION
           </h3>
@@ -60,7 +60,7 @@ const Projects: NextPage = () => {
             </p>
           </div>
         </div>
-        <div className="border-b-[1.5px] border-black pb-4 mb-4" id="kiss">
+        <div className="pb-4 mb-4 border-black border-b-[1.5px]" id="kiss">
           <h3 className="text-base leading-loose tracking-[.2em]">
             CREATIVE WEB APP
           </h3>
@@ -84,7 +84,7 @@ const Projects: NextPage = () => {
             </p>
           </div>
         </div>
-        <div className="border-b-[1.5px] border-black pb-4 mb-4" id="coursemap">
+        <div className="pb-4 mb-4 border-black border-b-[1.5px]" id="coursemap">
           <h3 className="text-base leading-loose tracking-[.2em]">
             INTERACTIVE WEB APP
           </h3>
@@ -108,7 +108,7 @@ const Projects: NextPage = () => {
             </p>
           </div>
         </div>
-        <div className="border-b-[1.5px] border-black pb-4 mb-4" id="allday">
+        <div className="pb-4 mb-4 border-black border-b-[1.5px]" id="allday">
           <h3 className="text-base leading-loose tracking-[.2em]">
             SKETCH WEB APP
           </h3>

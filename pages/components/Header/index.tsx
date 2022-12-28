@@ -9,7 +9,7 @@ interface HeaderProps {
 
 type NavLink = [label: string, href: string];
 const navLinks: NavLink[] = [
-  ["About", "/about"],
+  ["About", "/about2"],
   ["Projects", "/projects"],
 ];
 
@@ -33,7 +33,7 @@ const Header = ({ forceOpen }: HeaderProps) => {
           y: isOpen || forceOpen ? 0 : -100,
         }}
         transition={{ duration: 1, type: "spring" }}
-        className={`flex justify-between px-8 sm:px-16 lg:px-24 pt-8 fixed top-0 left-0 z-50 w-full`}
+        className={`fixed top-0 left-0 z-50 flex justify-between w-full px-8 pt-8 sm:px-16 lg:px-24`}
       >
         <style jsx global>{`
           body {

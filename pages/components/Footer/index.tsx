@@ -1,16 +1,22 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 
-const Footer = () => {
+interface FooterProps {
+  marginY: boolean;
+}
+
+const Footer = ({ marginY }: FooterProps) => {
   return (
-    <div className="flex w-full justify-center gap-8 my-12">
+    <div
+      className={`flex justify-center w-full gap-8 ${marginY ? "my-12" : ""} `}
+    >
       <Link href="https://github.com/lanc33llis">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 32.58 31.77"
           width={32}
           height={32}
-          className="fill-gray-500 hover:fill-black cursor-pointer transition-all"
+          className="transition-all cursor-pointer fill-gray-500 hover:fill-black"
         >
           <g id="Layer_2" data-name="Layer 2">
             <g id="Layer_1-2" data-name="Layer 1">
@@ -25,7 +31,7 @@ const Footer = () => {
           viewBox="0 0 350.81 354.96"
           width={32}
           height={32}
-          className="fill-gray-500 hover:fill-black cursor-pointer transition-all"
+          className="transition-all cursor-pointer fill-gray-500 hover:fill-black"
         >
           <g id="Layer_2" data-name="Layer 2">
             <g id="Layer_1-2" data-name="Layer 1">
@@ -51,6 +57,9 @@ const Footer = () => {
       </Link>
     </div>
   );
+};
+Footer.defaultProps = {
+  marginY: true,
 };
 
 export default Footer;
