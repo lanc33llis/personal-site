@@ -14,7 +14,7 @@ const About: NextPage = () => {
       </Head>
       <Header forceOpen />
       <motion.div
-        className="absolute top-0 flex flex-col items-center justify-center w-full min-h-screen px-8 pt-16 sm:px-16 lg:px-24"
+        className="absolute top-0 flex flex-col items-center justify-center w-full min-h-screen px-8 pt-16 pb-48 md:pb-24 lg:pb-0 sm:px-16 lg:px-24"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
