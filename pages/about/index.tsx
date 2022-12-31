@@ -93,7 +93,6 @@ const About: NextPage = () => {
               </Link>
             </p>
           </div>
-
           <div>
             <div className="flex flex-col w-full ">
               {sections.map((s) => (
