@@ -1,16 +1,19 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
+// this is not persistent data, it will be reset every time the server restarts. Needs to be stored in a DB, will probably use MongoDB with vercel production secrets
+
 type IP = string;
+type Visitor = { country: string; lat: number; long: number };
 
 interface PageAnalytics {
-  ips: { [ip: IP]: boolean };
+  ips: { [ip: IP]: Visitor };
   currentVisits: { [ip: IP]: number };
   visits: number;
   uniqueVisits: number;
 }
 
 export type Analytics = {
-  ips: { [ip: IP]: boolean };
+  ips: { [ip: IP]: Visitor };
   currentVisits: { [ip: IP]: number };
   pages: {
     [page: string]: PageAnalytics;
@@ -74,14 +77,20 @@ function updateAnalytics() {
 }
 setInterval(updateAnalytics, updateInterval);
 
-function newVisitorEvent(ip: IP, page: string) {
+function newVisitorEvent(
+  ip: IP,
+  page: string,
+  country: string,
+  lat: number,
+  long: number
+) {
   const time = new Date();
-  analytics.ips[ip] = true;
+  analytics.ips[ip] = { country, lat, long };
   analytics.currentVisits[ip] = time.getTime();
   if (!(ip in analytics.pages[page].ips)) {
     analytics.pages[page].uniqueVisits++;
   }
-  analytics.pages[page].ips[ip] = true;
+  analytics.pages[page].ips[ip] = { country, lat, long };
   analytics.pages[page].currentVisits[ip] = time.getTime();
   analytics.pages[page].visits++;
 }
@@ -91,7 +100,7 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
     const { ip, country, lat, long, page } = req.body;
 
     if (ip) {
-      newVisitorEvent(ip, page);
+      newVisitorEvent(ip, page, country, lat, long);
     }
 
     res.status(200).json({ success: true });
