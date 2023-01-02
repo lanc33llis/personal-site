@@ -48,7 +48,7 @@ const Analytics: NextPage = (
   }, []);
 
   return (
-    <div className="flex flex-col items-center justify-center px-6 py-8 sm:px-12 lg:px-24">
+    <div className="flex flex-col items-center justify-center px-6 py-8 sm:px-8 lg:px-12">
       <Head>
         <title>Lance Ellis - Analytics</title>
       </Head>
@@ -96,7 +96,10 @@ const Analytics: NextPage = (
       </div>
       <div className="w-full p-4 mt-4 bg-gray-100 rounded-lg shadow-lg">
         <h2>Page Visits Today Mapped</h2>
-        <ComposableMap viewBox="0 0 850 500" className="w-full">
+        <ComposableMap
+          viewBox="0 0 850 500"
+          className="w-full pointer-events-none"
+        >
           <Geographies geography={geoUrl} className="w-full ">
             {({ geographies }) =>
               geographies.map((geo) => {

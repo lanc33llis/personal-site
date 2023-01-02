@@ -2,7 +2,11 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import Analytics from "../../mongoose/AnalyticsSchema";
 import mongoose from "mongoose";
 
-const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${process.env.MONGODB_ATLAS_PASSWORD}@${process.env.MONGODB_ATLAS_CLUSTER}.ucnafm0.mongodb.net/?retryWrites=true&w=majority`;
+const MONGODB_URI = `mongodb+srv://${process.env.MONGODB_ATLAS_USERNAME}:${
+  process.env.MONGODB_ATLAS_PASSWORD
+}@${process.env.MONGODB_ATLAS_CLUSTER}.ucnafm0.mongodb.net/${
+  process.env.VERCEL_ENV ? process.env.VERCEL_ENV : "development"
+}?retryWrites=true&w=majority`;
 
 const updateInterval = 1000 * 60 * 5; // 5 minutes
 async function updateAnalytics() {
