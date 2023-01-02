@@ -11,7 +11,7 @@ import {
 import Head from "next/head";
 import Link from "next/link";
 import { useState, useEffect } from "react";
-import { Analytics } from "../api/analytics";
+import type { Analytics } from "../../mongoose/AnalyticsSchema";
 
 const geoUrl =
   "https://raw.githubusercontent.com/deldersveld/topojson/master/world-countries-sans-antarctica.json";
@@ -47,10 +47,8 @@ const Analytics: NextPage = (
     };
   }, []);
 
-  console.log(analytics);
-
   return (
-    <div className="flex flex-col items-center justify-center px-12 py-8 sm:px-24 lg:px-32">
+    <div className="flex flex-col items-center justify-center px-6 py-8 sm:px-12 lg:px-24">
       <Head>
         <title>Lance Ellis - Analytics</title>
       </Head>
@@ -77,21 +75,23 @@ const Analytics: NextPage = (
       <div className="w-full p-4 mt-4 bg-gray-100 rounded-lg shadow-lg">
         <h2>Page Visits Today</h2>
         <div className="flex flex-col gap-2 mt-4">
-          {Object.keys(analytics?.pages || {}).map((pageKey) => {
-            const page = analytics!.pages[pageKey];
+          {Object.keys(analytics?.pages || {})
+            .sort()
+            .map((pageKey) => {
+              const page = analytics!.pages[pageKey];
 
-            return (
-              <div key={pageKey}>
-                <h3>{pageKey}</h3>
-                <div className="flex flex-col ml-2 text-gray-600">
-                  {Object.keys(page.currentVisits).length} current visitors
-                  <span>{page.uniqueVisits} unique visits</span>
-                  <span>{page.visits} visits</span>
-                  <span></span>
+              return (
+                <div key={pageKey}>
+                  <h3>{pageKey}</h3>
+                  <div className="flex flex-col ml-2 text-gray-600">
+                    {Object.keys(page.currentVisits).length} current visitors
+                    <span>{page.uniqueVisits} unique visits</span>
+                    <span>{page.visits} visits</span>
+                    <span></span>
+                  </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
         </div>
       </div>
       <div className="w-full p-4 mt-4 bg-gray-100 rounded-lg shadow-lg">
