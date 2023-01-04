@@ -84,7 +84,8 @@ const Analytics: NextPage = (
                 <div key={pageKey}>
                   <h3>{pageKey}</h3>
                   <div className="flex flex-col ml-2 text-gray-600">
-                    {Object.keys(page.currentVisits).length} current visitors
+                    {Object.keys(page?.currentVisits || {}).length} current
+                    visitors
                     <span>{page.uniqueVisits} unique visits</span>
                     <span>{page.visits} visits</span>
                     <span></span>
