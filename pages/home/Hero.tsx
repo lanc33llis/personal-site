@@ -10,19 +10,19 @@ const Hero = () => {
   const [copiedEmailTimer, setCopiedEmailTimer] = useState<any>();
 
   return (
-    <div className="mt-20 lg:mt-0 px-8 !pt-0 pb-16 sm:p-16 lg:p-24 flex flex-col lg:flex-row">
+    <div className="mt-20 lg:mt-0 px-8 !pt-0 pb-16 sm:p-16 lg:p-24 flex flex-col lg:flex-row items-center justify-center">
+      <style jsx global>{`
+        body {
+          overflow-y: ${loading ? "hidden" : "auto"};
+        }
+      `}</style>
       {loading ? (
         <div className="absolute top-0 left-0 z-50 flex items-center justify-center w-screen h-screen bg-white ">
-          <style jsx global>{`
-            body {
-              overflow: ${loading} : "hidden" : "auto";
-            }
-          `}</style>
           <span className="select-none text-2xl leading-[50%] load-spinner pl-1"></span>
         </div>
       ) : null}
       <motion.div
-        className="flex flex-col justify-center w-full lg:w-1/2 lg:text-left"
+        className="flex flex-col justify-center w-full lg:w-1/2 max-w-[calc(2644px/2)]  lg:text-left"
         initial={{ opacity: 0, y: -100 }}
         animate={!loading ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, type: "spring" }}
@@ -48,7 +48,7 @@ const Hero = () => {
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>
       </motion.div>
-      <div className="relative flex items-center justify-center w-full 2xl:h-screen lg:w-1/2 sm:p-4 md:p-8 lg:p-16 xl:p-24">
+      <div className="relative flex items-center justify-center w-full 2xl:h-screen lg:w-1/2 sm:p-4 md:p-8 lg:p-16 xl:p-24 max-w-[calc(2644px/2)]">
         <div className="w-full h-full">
           <motion.div
             initial={{ opacity: 0, y: -100 }}
