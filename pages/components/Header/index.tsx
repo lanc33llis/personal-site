@@ -63,9 +63,10 @@ const Header = ({ forceOpen }: HeaderProps) => {
         animate={{
           opacity: isOpen || forceOpen ? 1 : 0,
           y: isOpen || forceOpen ? -10 : -100,
+          boxShadow: isOpen || forceOpen ? "0 0 5px rgba(0,0,0,.1)" : "none",
         }}
         transition={{ duration: 1, type: "spring" }}
-        className={`fixed top-0 left-0 z-50 flex justify-between w-full px-8 pt-8 pb-[calc(2rem-10px)] sm:px-16 lg:px-24 backdrop-blur-sm bg-white bg-opacity-40`}
+        className={`fixed top-0 left-0 z-50 flex justify-between w-full px-8 pt-8 border-gray-300 border-b pb-[calc(2rem-10px)] sm:px-16 lg:px-24 backdrop-blur-sm bg-white bg-opacity-40`}
       >
         <div>
           <Link href="/" passHref scroll={false}>
