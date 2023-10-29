@@ -35,19 +35,19 @@ const Card = ({
     >
       <Link href={href ?? ""} passHref>
         <a>
-          <div className="absolute left-0 top-0 opacity-0 hover:opacity-100 w-full h-full bg-[rgba(0,0,0,.9)] z-10 text-white flex items-center justify-center flex-col p-8 text-center transition-opacity">
+          <div className="rounded absolute left-0 top-0 opacity-0 hover:opacity-100 w-full h-full bg-[rgba(0,0,0,.9)] z-10 text-white flex items-center justify-center flex-col p-8 text-center transition-opacity">
             <h2>{title}</h2>
             <h3>{description}</h3>
           </div>
         </a>
       </Link>
-      <div className="border border-gray-300">
+      <div className="rounded border">
         <Image
           src={src}
           layout="responsive"
-          width={1.9}
+          width={1.8}
           height={1}
-          className="w-full h-full"
+          className="w-full h-full rounded"
           alt="Card"
           priority
         />

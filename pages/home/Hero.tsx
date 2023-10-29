@@ -10,7 +10,7 @@ const Hero = () => {
   const [copiedEmailTimer, setCopiedEmailTimer] = useState<any>();
 
   return (
-    <div className="mt-20 lg:mt-0 px-8 !pt-0 pb-16 sm:p-16 lg:p-24 flex flex-col lg:flex-row items-center justify-center">
+    <div className="min-h-screen pt-12 lg:mt-0 px-8 sm:px-16 lg:px-24 flex flex-col lg:flex-row items-center justify-center">
       <style jsx global>{`
         body {
           overflow-y: ${loading ? "hidden" : "auto"};
@@ -22,13 +22,13 @@ const Hero = () => {
         </div>
       ) : null}
       <motion.div
-        className="flex flex-col justify-center w-full lg:w-1/2 max-w-[calc(2644px/2)]  lg:text-left"
+        className="flex flex-col justify-center w-full lg:w-1/2 max-w-[1322px] lg:text-left"
         initial={{ opacity: 0, y: -100 }}
         animate={!loading ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, type: "spring" }}
       >
-        <h1 className="text-4xl font-normal text-center sm:text-6xl lg:mb-4 lg:text-left">
-          Hello, I&apos;m a software developer and designer.
+        <h1 className="text-4xl font-medium text-center sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 lg:text-left">
+          Hello, I&apos;m a web developer and designer.
         </h1>
         <span
           onClick={() => {
@@ -43,13 +43,13 @@ const Hero = () => {
               setCopiedEmailTimer(timer);
             }
           }}
-          className="hidden ml-1 text-lg text-left text-gray-500 transition-all border-b border-gray-500 cursor-pointer w-fit lg:block hover:border-black h-fit hover:text-black"
+          className="hidden ml-1 text-xl text-left text-gray-500 transition-all border-b border-gray-500 cursor-pointer w-fit lg:block hover:border-black h-fit hover:text-black"
         >
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>
       </motion.div>
-      <div className="relative flex items-center justify-center w-full 2xl:h-screen lg:w-1/2 sm:p-4 md:p-8 lg:p-16 xl:p-24 max-w-[calc(2644px/2)]">
-        <div className="w-full h-full">
+      <div className="-z-10 relative flex items-center justify-center w-full md:h-screen lg:w-1/2 sm:p-4 md:p-8 lg:p-16 xl:p-24 max-w-[calc(2644px/2)]">
+        <div className="w-full h-fit relative">
           <motion.div
             initial={{ opacity: 0, y: -100 }}
             animate={!loading ? { opacity: 1, y: 0 } : false}
@@ -65,40 +65,40 @@ const Hero = () => {
               onLoadingComplete={() => setLoading(false)}
               priority
             />
+            <svg className="absolute left-0 right-0 w-full h-full">
+              <defs>
+                <clipPath id="hero-image">
+                  <motion.rect
+                    initial={{ y: "0", opacity: 0 }}
+                    animate={!loading ? { y: "5%", opacity: 1 } : false}
+                    transition={{ duration: 3, type: "spring" }}
+                    x="2.5%"
+                    width="30%"
+                    height="60%"
+                    rx={10}
+                  />
+                  <motion.rect
+                    initial={{ y: "0", opacity: 0 }}
+                    animate={!loading ? { y: "20%", opacity: 1 } : false}
+                    transition={{ duration: 2.75, type: "spring" }}
+                    x="35%"
+                    width="30%"
+                    height="60%"
+                    rx={10}
+                  />
+                  <motion.rect
+                    initial={{ y: "0%", opacity: 0 }}
+                    animate={!loading ? { y: "35%", opacity: 1 } : false}
+                    transition={{ duration: 2.5, type: "spring" }}
+                    x="67.5%"
+                    width="30%"
+                    height="60%"
+                    rx={10}
+                  />
+                </clipPath>
+              </defs>
+            </svg>
           </motion.div>
-          <svg className="absolute left-0 right-0 w-full h-full sm:p-4 md:p-8 lg:p-16 xl:p-24 2xl:p-24">
-            <defs>
-              <clipPath id="hero-image">
-                <motion.rect
-                  initial={{ y: "0", opacity: 0 }}
-                  animate={!loading ? { y: "5%", opacity: 1 } : false}
-                  transition={{ duration: 3, type: "spring" }}
-                  x="2.5%"
-                  width="30%"
-                  height="60%"
-                  rx={10}
-                />
-                <motion.rect
-                  initial={{ y: "0", opacity: 0 }}
-                  animate={!loading ? { y: "20%", opacity: 1 } : false}
-                  transition={{ duration: 2.75, type: "spring" }}
-                  x="35%"
-                  width="30%"
-                  height="60%"
-                  rx={10}
-                />
-                <motion.rect
-                  initial={{ y: "0%", opacity: 0 }}
-                  animate={!loading ? { y: "35%", opacity: 1 } : false}
-                  transition={{ duration: 2.5, type: "spring" }}
-                  x="67.5%"
-                  width="30%"
-                  height="60%"
-                  rx={10}
-                />
-              </clipPath>
-            </defs>
-          </svg>
         </div>
       </div>
       <motion.div

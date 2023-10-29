@@ -20,6 +20,11 @@ const workExperiences: AboutSection = {
     {
       first: "Amazon",
       middle: "Software Development Engineer Intern",
+      right: "Summer 2023",
+    },
+    {
+      first: "Amazon",
+      middle: "Software Development Engineer Intern",
       right: "Summer 2022",
     },
     {
@@ -41,17 +46,17 @@ const skills: AboutSection = {
     {
       first: "Web Development",
       middle: "React, Next.js, TailwindCSS, Django, Spring, Express",
-      right: "2 years",
+      right: "3 years",
     },
     {
       first: "DevOps",
       middle: "Docker, AWS, Bash Scripting, GitHub Actions",
-      right: "2 years",
+      right: "3 years",
     },
     {
       first: "Languages",
       middle: "Python, Java, C++, JavaScript/TypeScript",
-      right: "",
+      right: "2 years",
     },
   ],
 };
@@ -79,10 +84,10 @@ const About: NextPage = () => {
               TX.
             </h2>
             <p className="text-base md:text-xl lg:text-xl xl:text-2xl">
-              I am currently a sophomore at the University of Texas at Austin,
-              where I am working towards a degree in astronomy. <br />
+              I am currently a junior at the University of Texas at Austin,
+              where I am working towards a degree in sociology. <br />
               <br />I enjoy using my unique combination of technical skills and
-              scientific knowledge to solve complex problems. I am a self-taught
+              unique background to solve complex problems. I am a self-taught
               programmer and have developed a wide range of software and web
               applications. <br />
               <br /> In my free time I play video games (League and TFT), create
@@ -97,7 +102,7 @@ const About: NextPage = () => {
             <div className="flex flex-col w-full ">
               {sections.map((s) => (
                 <div key={s.title} className="mb-8 lg:mb-16">
-                  <h2 className="py-4 text-2xl font-semibold border-black md:text-3xl: lg:text-4xl border-b-[1.5px]">
+                  <h2 className="py-6 font-medium  text-2xl border-black md:text-3xl: lg:text-4xl border-b-[1.5px]">
                     {s.title}
                   </h2>
                   {s.lines.map((l) => (

@@ -2,20 +2,24 @@ import { NextPage } from "next";
 
 import Hero from "./Hero";
 import Header from "../components/Header";
-import Card from "./Card";
+import Card from "./Card2";
 import Marquee from "react-fast-marquee";
 import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import Head from "next/head";
+import Image from "next/image";
+import About from "./About";
+
+// import { motion, useInView } from "framer-motion";
 
 type HomeCard = [title: string, description: string, src: string, href: string];
 // videos do bad stufff
 const HomeCards: HomeCard[] = [
   [
-    "Shipper",
-    "Desktop application built with React and Rust that does 1-step deployments to any host using SSH",
-    "/shipper.png",
-    "/projects#shipper",
+    "HyperLine",
+    "Web application built with React and AWS SDK lets you build type-safe CI/CD pipelines",
+    "/hyperline.png",
+    "/projects#hyperline",
   ],
   [
     "KISS",
@@ -43,36 +47,59 @@ const Home: NextPage = () => {
       <Head>
         <title>Lance Ellis - Home</title>
       </Head>
-      <Header />
       <motion.div
         exit={{ opacity: 0 }}
         transition={{ type: "tween", duration: 0.7 }}
       >
         <Hero />
-        <div className="py-8 mb-8 border-black border-y">
+        {/* <div className="py-8 mb-8 border-black border-y">
           <Marquee gradient={false}>
             <span className="px-2 text-2xl">
               WE CHOOSE TO GO TO THE MOON IN THIS DECADE AND DO THE OTHER
               THINGS, NOT BECAUSE THEY ARE EASY, BUT BECAUSE THEY ARE HARD.
             </span>
           </Marquee>
-        </div>
-        <div className="px-8 sm:px-16 lg:px-24">
-          <h2 className="py-6 text-4xl border-black border-b-[1.5px]">
-            Projects
-          </h2>
-        </div>
-        <div className="flex flex-col flex-wrap items-center gap-4 px-8 my-8 sm:px-16 lg:px-24 lg:flex-row lg:items-start">
-          {HomeCards.map((card, index) => (
+        </div> */}
+        <About />
+        <div className="mb-24 px-8 sm:px-16 lg:px-24 flex flex-col gap-8">
+          <div className="w-fit">
+            <h2 className="text-4xl font-medium text-center sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 lg:text-left">
+              Projects
+            </h2>
+          </div>
+          <div className="grow flex flex-col items-center gap-48">
             <Card
-              key={index}
-              title={card[0]}
-              description={card[1]}
-              src={card[2]}
-              href={card[3]}
-              inViewAnimationDelay={index * 0.25}
+              alt="Amazon Alexa"
+              src="/amazon.MP4"
+              width={240}
+              video
+              heading="Mobile Feature"
+              title="Alexa Sorting Feature"
+              description="Device list sorting alphabetically and by date added."
+              technologies="REACT NAIVE, GRAPHQL, TYPESCRIPT"
             />
-          ))}
+            <Card
+              alt="HyperLine"
+              src="/hyperline.png"
+              width={1920}
+              height={1080}
+              heading="Web App"
+              title="HyperLine"
+              description="Build type-safe, serverless CI/CD pipelines with TypeScript."
+              technologies="NEXT.JS, AWS SDK, TYPESCRIPT"
+              reverse
+            />
+            <Card
+              alt="UT Course Map"
+              src="/coursemap.mp4"
+              width={1560}
+              video
+              heading="Interactive Web App"
+              title="UT Course Map"
+              description="Visualize the courses offered at UT Austin as a network graph. Data was scraped from UT's website with a Selenium bot."
+              technologies="Next.js, Python, Selenium, D3.js"
+            />
+          </div>
         </div>
       </motion.div>
       <Footer />

@@ -8,6 +8,7 @@ body {
   margin: 0;
   font-family: 'IBM Plex Sans', sans-serif;
   scroll-behavior: smooth;
+  transition: color 0.5s ease-out, background 0.5s ease-out;
 }
 
 a {
@@ -81,6 +82,7 @@ a {
 .squiggle {
   animation: squiggle 16s linear infinite;
   background-image: url('/squiggle.svg');
+  /* background-repeat:round; */
   background-repeat: repeat-x;
   background-size: 55px;
 }

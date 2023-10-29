@@ -6,6 +6,14 @@ module.exports = {
       fontFamily: {
         serif: ["Spectral", "serif"],
       },
+      width: {
+        normal: "1260px",
+        tight: "840px",
+      },
+      maxWidth: {
+        normal: "1260px",
+        tight: "840px",
+      },
     },
   },
   plugins: [],

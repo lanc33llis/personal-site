@@ -9,8 +9,8 @@ interface HeaderProps {
 
 type NavLink = [label: string, href: string];
 const navLinks: NavLink[] = [
-  ["About", "/about"],
-  ["Projects", "/projects"],
+  // ["About", "/about"],
+  // ["Projects", "/projects"],
 ];
 
 const Header = ({ forceOpen }: HeaderProps) => {
@@ -27,21 +27,13 @@ const Header = ({ forceOpen }: HeaderProps) => {
   return (
     <LayoutGroup>
       <style jsx global>{`
-        body {
-          /* here we make the color transition */
-          transition: border-color 0.5s ease-in-out;
-          /* make this element do the scrolling */
-          border-color: ${isOpen || forceOpen
-            ? "rgba(0,0,0,.1)"
-            : "rgba(0, 0, 0, 0.0)"};
-        }
-
         ::-webkit-scrollbar {
           width: 10px;
         }
 
         ::-webkit-scrollbar-thumb {
           border-radius: 10px;
+          background-color: black;
         }
 
         ::-webkit-scrollbar,
@@ -54,23 +46,26 @@ const Header = ({ forceOpen }: HeaderProps) => {
           /* inherit border-color to inherit transitions */
           border-color: inherit;
         }
+
+        ::-webkit-scrollbar-track {
+          background: white;
+        }
       `}</style>
       <motion.header
         initial={{
           opacity: forceOpen ? 1 : 0,
-          y: forceOpen ? -10 : -100,
+          y: forceOpen ? 0 : -100,
         }}
         animate={{
           opacity: isOpen || forceOpen ? 1 : 0,
-          y: isOpen || forceOpen ? -10 : -100,
-          boxShadow: isOpen || forceOpen ? "0 0 5px rgba(0,0,0,.1)" : "none",
+          y: isOpen || forceOpen ? 0 : -100,
         }}
         transition={{ duration: 1, type: "spring" }}
-        className={`fixed top-0 left-0 z-50 flex justify-between w-full px-8 pt-8 border-gray-300 border-b pb-[calc(2rem-10px)] sm:px-16 lg:px-24 backdrop-blur-sm bg-white bg-opacity-40`}
+        className={`fixed top-0 left-0 z-50 flex justify-between w-full px-8 pt-8 pb-[calc(2rem-10px)] sm:px-16 lg:px-24`}
       >
         <div>
           <Link href="/" passHref scroll={false}>
-            <a className={`py-1 ${router.asPath === "/" ? "squiggle" : ""}`}>
+            <a className={`py-1 ${router.asPath === "/" ? "" : ""}`}>
               Lance Ellis
             </a>
           </Link>
@@ -79,8 +74,8 @@ const Header = ({ forceOpen }: HeaderProps) => {
           {navLinks.map(([label, href]) => (
             <Link href={href} key={label} passHref scroll={false}>
               <a
-                className={`py-1  ml-12 transition-color hover:text-zinc-700 transition-colors ${
-                  router.asPath.split("#")[0] === href ? "squiggle" : ""
+                className={`py-1  ml-12 transition-color ${
+                  router.asPath.split("#")[0] === href ? "" : ""
                 }`}
               >
                 {label}

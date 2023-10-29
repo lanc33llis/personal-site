@@ -39,24 +39,24 @@ const Projects: NextPage = () => {
         </h1>
         <div className="pb-4 mb-4 border-black border-b-[1.5px]" id="shipper">
           <h3 className="text-base leading-loose tracking-[.2em]">
-            DESKTOP APPLICATION
+            WEB APPLICATION
           </h3>
-          <h2 className="text-2xl">Shipper</h2>
+          <h2 className="text-2xl">HyperLine</h2>
           <div className="py-4">
             <Image
-              src="/shipper.png"
+              src="/hyperline.png"
               layout="responsive"
-              width={1.9}
+              width={1.8}
               height={1}
-              alt="Shipper"
+              alt="HyperLine"
             />
             <h4 className="text-sm leading-loose tracking-[.2em]">
-              TYPESCRIPT, RUST, REACT, EXPRESS
+              TYPESCRIPT, REACT, TRPC, AWS SDK
             </h4>
             <p>
-              Shipper is an application used to deploy projects automatically.
-              Shipper uses scripts to automatically determine the projects&apos;
-              needs and configure the host.
+              HyperLine is a web application that allows you to create CI/CD
+              pipelines using TypeScript. Build type-safe pipelines, run them on
+              the cloud, and integrate with your favorite technologies.
             </p>
           </div>
         </div>
