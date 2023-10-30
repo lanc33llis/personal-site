@@ -16,7 +16,7 @@ const snippet = `I am a web developer and designer skilled in multiple framework
 and languages, including Next.js, Spring, and Flask. I take 
 pride in crafting innovative digital products using the latest 
 technologies. In addition to development, I have a passion for 
-designing  user-friendly and aesthetically pleasing interfaces.
+designing user-friendly and aesthetically pleasing interfaces.
 
 I'm also an astronomy major, so I have a rather deep background 
 in math and physics as well.
