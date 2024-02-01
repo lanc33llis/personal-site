@@ -1,6 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 import SpacePic from "../../public/joel-filipe-QwoNAhbmLLo-unsplash.jpg";
 import ComputerPic from "../../public/andras-vas-Bd7gNnWJBkU-unsplash.jpg";
@@ -12,17 +12,20 @@ import {
 
 import hyperlineLight from "../../styles/hyperline-light";
 
-const snippet = `I am a web developer and designer skilled in multiple frameworks 
-and languages, including Next.js, Spring, and Flask. I take 
-pride in crafting innovative digital products using the latest 
-technologies. In addition to development, I have a passion for 
-designing user-friendly and aesthetically pleasing interfaces.
+const snippet = `I'm glad you're here. I am a self-taught programmer specializing 
+in web development and design, with a thorough background in web 
+technologies including Next.js, Flask, Spring, and much more. My 
+focus is on full-stack development, but my skills are broad, 
+encompassing product management, DevOps, system administration, 
+UI/UX  design, and mobile development.
 
-I'm also an astronomy major, so I have a rather deep background 
-in math and physics as well.
+I have worked for Amazon, where I developed internal tools and later,
+user-facing features for the Alexa app. My experience also includes 
+contracting and freelancing, with a primary focus on web development. 
+In addition, I have taken a fellowship at Major League Hacking to 
+learn about production engineering.
 
-I've worked for Amazon, a few startups, and took a fellowship
-at Major League Hacking.`;
+Currently, I am interning at Atlassian as a software developer.`;
 
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -35,7 +38,7 @@ const About = () => {
   return (
     <div
       ref={ref}
-      className="h-screen flex justify-center snap-start items-center"
+      className="h-screen flex justify-center snap-start items-center overflow-hidden"
     >
       <div className="w-[200px] lg:w-[300px] h-fit absolute">
         <motion.div
@@ -48,11 +51,11 @@ const About = () => {
           className="
             [--x:-85px] 
             sm:[--x:-205px] 
-            md:[--x:-265px] 
+            md:[--x:-305px] 
             [--y-from:-240px]
             [--y-to:-140px]
             sm:[--y-from:-220px] 
-            sm:[--y-to:-120px]
+            sm:[--y-to:-70px]
           "
         >
           <Image
@@ -94,11 +97,11 @@ const About = () => {
           className="
             [--x:85px] 
             sm:[--x:205px]
-            md:[--x:265px] 
+            md:[--x:305px] 
             [--y-from:40px]
             [--y-to:140px]
             md:[--y-from:-80px] 
-            md:[--y-to:20px]
+            md:[--y-to:60px]
           "
         >
           <Image
@@ -129,15 +132,16 @@ const About = () => {
           </svg>
         </motion.div>
       </div>
-      <div className="w-tight h-fit flex justify-center">
-        <div className="mt-2 w-fit flex flex-col rounded border border-[rgba(0,0,0,.1)] bg-white bg-opacity-30 shadow backdrop-blur-xl">
+      <div className="w-tight h-max flex justify-center">
+        <div className="mt-2 w-fit flex flex-col rounded border border-[rgba(0,0,0,.1)] bg-white bg-opacity-50 shadow backdrop-blur-xl">
           <span className="border-b border-[rgba(0,0,0,.1)] font-medium p-1 sm:p-2 pl-2 text-left font-code text-[8px] sm:text-xs">
             README.md
           </span>
           <SyntaxHighlighter
-            language="json"
+            language="plaintext"
             showLineNumbers={true}
-            className="h-full p-1 sm:p-2 text-[8px] sm:text-xs w-fit"
+            lineNumberStyle={{ minWidth: "2.25em" }}
+            className="h-full p-1 sm:p-2 text-[8px] sm:text-sm w-fit"
             style={hyperlineLight as { [key: string]: React.CSSProperties }}
           >
             {snippet}

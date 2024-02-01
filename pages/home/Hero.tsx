@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from "next/legacy/image";
 import me from "../../public/me.jpg";
 
 import { motion } from "framer-motion";
@@ -10,7 +10,7 @@ const Hero = () => {
   const [copiedEmailTimer, setCopiedEmailTimer] = useState<any>();
 
   return (
-    <div className="min-h-screen pt-12 lg:mt-0 px-8 sm:px-16 lg:px-24 flex flex-col lg:flex-row items-center justify-center">
+    <div className="min-h-screen px-2 pt-12 sm:px-16 lg:px-24 lg:pt-0 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0">
       <style jsx global>{`
         body {
           overflow-y: ${loading ? "hidden" : "auto"};
@@ -22,10 +22,10 @@ const Hero = () => {
         </div>
       ) : null}
       <motion.div
-        className="flex flex-col justify-center w-full lg:w-1/2 max-w-[1322px] lg:text-left"
-        initial={{ opacity: 0, y: -100 }}
+        initial={{ opacity: 0, y: -25 }}
         animate={!loading ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, type: "spring" }}
+        className="flex flex-col justify-center w-full lg:w-1/2 max-w-[1322px] lg:text-left"
       >
         <h1 className="text-4xl font-medium text-center sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 lg:text-left">
           Hello, I&apos;m a web developer and designer.
@@ -62,7 +62,7 @@ const Hero = () => {
               layout="responsive"
               src={me}
               alt="picture of me by Rae Xin"
-              onLoadingComplete={() => setLoading(false)}
+              onLoad={() => setLoading(false)}
               priority
             />
             <svg className="absolute left-0 right-0 w-full h-full">

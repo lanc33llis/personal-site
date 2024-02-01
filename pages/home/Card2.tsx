@@ -1,5 +1,5 @@
 import { motion, useInView } from "framer-motion";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useRef } from "react";
 
 interface CardProps {
@@ -29,7 +29,7 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
         {...(inView && { animate: { opacity: 1, y: 0 } })}
         initial={{ opacity: 0, y: -100 }}
         transition={{ duration: 1.5, type: "spring", delay: 0.25 }}
-        className={`shadow-2xl rounded-2xl overflow-hidden h-fit ${
+        className={`shadow-2xl rounded-xl overflow-hidden h-fit ${
           video ? "w-fit" : "w-full"
         } `}
       >

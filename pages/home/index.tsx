@@ -61,7 +61,7 @@ const Home: NextPage = () => {
           </Marquee>
         </div> */}
         <About />
-        <div className="mb-24 px-8 sm:px-16 lg:px-24 flex flex-col gap-8">
+        <div className="mb-24 px-4 sm:px-16 lg:px-24 flex flex-col gap-8">
           <div className="w-fit">
             <h2 className="text-4xl font-medium text-center sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 lg:text-left">
               Projects
@@ -73,20 +73,20 @@ const Home: NextPage = () => {
               src="/amazon.MP4"
               width={240}
               video
-              heading="Mobile Feature"
-              title="Alexa Sorting Feature"
-              description="Device list sorting alphabetically and by date added."
+              heading="Feature Development"
+              title="Amazon Alexa Device Sorting"
+              description="Engineered the device sorting feature for the Amazon Alexa app. Business-critical requirement for Alexa's Q3 2023 app refresh. Sees millions of interactions a month."
               technologies="REACT NAIVE, GRAPHQL, TYPESCRIPT"
             />
             <Card
-              alt="HyperLine"
-              src="/hyperline.png"
+              alt="Hypatia"
+              src="/hypatia.png"
               width={1920}
               height={1080}
-              heading="Web App"
-              title="HyperLine"
-              description="Build type-safe, serverless CI/CD pipelines with TypeScript."
-              technologies="NEXT.JS, AWS SDK, TYPESCRIPT"
+              heading="Web Application"
+              title="Hypatia"
+              description="Futuristic note editor with a focus on AI and collaboration. Built from the ground up to be modern, fast, and flexible."
+              technologies="Next.js, AWS Bedrock, Tiptap, Typescript"
               reverse
             />
             <Card

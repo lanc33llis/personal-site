@@ -12,6 +12,7 @@ const nextConfig = {
     locales: ["en-us"],
     defaultLocale: "en-us",
   },
+  transpilePackages: ["geist"],
 };
 
 module.exports = nextConfig;

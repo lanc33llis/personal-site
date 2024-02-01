@@ -5,6 +5,9 @@ import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
+
 function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
@@ -40,7 +43,11 @@ function MyApp({ Component, pageProps }: AppProps) {
           window.scrollTo(0, 0);
         }}
       >
-        <Component {...pageProps} key={router.pathname} />
+        <main
+          className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}
+        >
+          <Component {...pageProps} key={router.pathname} />
+        </main>
       </AnimatePresence>
     </>
   );

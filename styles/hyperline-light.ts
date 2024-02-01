@@ -2,10 +2,11 @@ const theme = {
   'code[class*="language-"]': {
     color: "black",
     fontFamily:
-      '"JetBrains Mono", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace',
+      'var(--font-geist-mono), "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace',
     direction: "ltr",
     textAlign: "left",
-    whiteSpace: "pre",
+    textWrap: "wrap !important",
+    whiteSpaceCollapse: "preserve-breaks !important",
     wordSpacing: "normal",
     wordBreak: "normal",
     lineHeight: "1.5",
@@ -16,6 +17,11 @@ const theme = {
     MozHyphens: "none",
     msHyphens: "none",
     hyphens: "none",
+  },
+  "code > span": {
+    display: "inline-block",
+    paddingLeft: "2.25em",
+    color: "red",
   },
   'pre[class*="language-"]': {
     color: "black",
