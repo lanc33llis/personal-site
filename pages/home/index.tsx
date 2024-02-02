@@ -1,16 +1,10 @@
 import { NextPage } from "next";
 
 import Hero from "./Hero";
-import Header from "../components/Header";
 import Card from "./Card2";
-import Marquee from "react-fast-marquee";
-import { motion } from "framer-motion";
 import Footer from "../components/Footer";
 import Head from "next/head";
-import Image from "next/image";
 import About from "./About";
-
-// import { motion, useInView } from "framer-motion";
 
 type HomeCard = [title: string, description: string, src: string, href: string];
 // videos do bad stufff
