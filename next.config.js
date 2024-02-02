@@ -1,5 +1,9 @@
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
 /** @type {import('next').NextConfig} */
-const nextConfig = {
+const nextConfig = withBundleAnalyzer({
   reactStrictMode: true,
   swcMinify: true,
   images: {
@@ -13,6 +17,6 @@ const nextConfig = {
     defaultLocale: "en-us",
   },
   transpilePackages: ["geist"],
-};
+});
 
 module.exports = nextConfig;

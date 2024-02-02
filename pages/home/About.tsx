@@ -2,13 +2,7 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import Image from "next/legacy/image";
 
-import SpacePic from "../../public/joel-filipe-QwoNAhbmLLo-unsplash.jpg";
-import ComputerPic from "../../public/andras-vas-Bd7gNnWJBkU-unsplash.jpg";
-
-import {
-  Prism as SyntaxHighlighter,
-  type SyntaxHighlighterProps,
-} from "react-syntax-highlighter";
+import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 
 import hyperlineLight from "../../styles/hyperline-light";
 
@@ -65,7 +59,7 @@ const About = () => {
             width={0.8}
             height={1}
             layout="responsive"
-            src={ComputerPic}
+            src={"/andras-vas-Bd7gNnWJBkU-unsplash.jpg"}
             alt="picture of me by Rae Xin"
             priority
           />
@@ -111,7 +105,7 @@ const About = () => {
             width={0.7913232}
             height={1}
             layout="responsive"
-            src={SpacePic}
+            src={"/joel-filipe-QwoNAhbmLLo-unsplash.jpg"}
             alt="picture of me by Rae Xin"
             priority
           />

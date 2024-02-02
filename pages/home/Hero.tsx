@@ -1,5 +1,4 @@
 import Image from "next/legacy/image";
-import me from "../../public/me.jpg";
 
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -60,7 +59,7 @@ const Hero = () => {
               width={303}
               height={405}
               layout="responsive"
-              src={me}
+              src={"/me.jpg"}
               alt="picture of me by Rae Xin"
               onLoadingComplete={() => setLoading(false)}
               priority
