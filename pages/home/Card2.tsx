@@ -28,7 +28,7 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
       <motion.div
         ref={ref}
         {...(inView && { animate: { opacity: 1, y: 0 } })}
-        initial={{ opacity: 0, y: -100 }}
+        initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1.5, type: "spring", delay: 0.25 }}
         className={`shadow-2xl rounded-xl overflow-hidden h-fit ${
           video ? "w-fit" : "w-full"

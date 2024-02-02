@@ -4,7 +4,7 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div
-      className={`flex select-none leading-none text-zinc-400 flex-col mt-24 pt-12 pb-4 sm:pb-16 lg:pb-24 w-full mb-24 px-4 sm:px-16 lg:px-24`}
+      className={`flex select-none leading-none text-zinc-400 flex-col pt-12 pb-4 sm:pb-16 lg:pb-24 w-full px-4 sm:px-16 lg:px-24`}
     >
       <div className="flex justify-between">
         <span className="select-text">Lance Ellis</span>

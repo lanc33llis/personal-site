@@ -8,7 +8,7 @@ body {
   margin: 0;
   scroll-behavior: smooth;
   transition: color 0.5s ease-out, background 0.5s ease-out;
-  scroll-snap-type: y proximity;
+  /* scroll-snap-type: y mandatory; */
 }
 
 a {
