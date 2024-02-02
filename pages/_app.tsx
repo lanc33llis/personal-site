@@ -37,12 +37,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
         }}
       />
-      <AnimatePresence
-        mode="wait"
-        onExitComplete={() => {
-          window.scrollTo(0, 0);
-        }}
-      >
+      <AnimatePresence>
         <main
           className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}
         >
