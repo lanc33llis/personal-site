@@ -10,7 +10,7 @@ const Hero = () => {
   const [copiedEmailTimer, setCopiedEmailTimer] = useState<any>();
 
   return (
-    <div className="min-h-screen px-2 pt-12 sm:px-16 lg:px-24 lg:pt-0 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0">
+    <div className="min-h-screen snap-center px-2 pt-12 sm:px-16 lg:px-24 lg:pt-0 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0">
       <style jsx global>{`
         body {
           overflow-y: ${loading ? "hidden" : "auto"};
@@ -62,7 +62,7 @@ const Hero = () => {
               layout="responsive"
               src={me}
               alt="picture of me by Rae Xin"
-              onLoad={() => setLoading(false)}
+              onLoadingComplete={() => setLoading(false)}
               priority
             />
             <svg className="absolute left-0 right-0 w-full h-full">

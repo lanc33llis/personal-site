@@ -25,7 +25,9 @@ contracting and freelancing, with a primary focus on web development.
 In addition, I have taken a fellowship at Major League Hacking to 
 learn about production engineering.
 
-Currently, I am interning at Atlassian as a software developer.`;
+Currently, I am interning at Atlassian as a software developer.
+
+Lance`;
 
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -38,7 +40,7 @@ const About = () => {
   return (
     <div
       ref={ref}
-      className="h-screen flex justify-center snap-start items-center overflow-hidden"
+      className="h-screen flex justify-center snap-center items-center overflow-hidden"
     >
       <div className="w-[200px] lg:w-[300px] h-fit absolute">
         <motion.div
@@ -133,10 +135,11 @@ const About = () => {
         </motion.div>
       </div>
       <div className="w-tight h-max flex justify-center">
-        <div className="mt-2 w-fit flex flex-col rounded border border-[rgba(0,0,0,.1)] bg-white bg-opacity-50 shadow backdrop-blur-xl">
-          <span className="border-b border-[rgba(0,0,0,.1)] font-medium p-1 sm:p-2 pl-2 text-left font-code text-[8px] sm:text-xs">
-            README.md
-          </span>
+        <div className="mt-2 w-fit flex flex-col rounded border border-[rgba(0,0,0,.15)] bg-white bg-opacity-60 shadow backdrop-blur-xl">
+          <div className="border-b flex justify-between border-[rgba(0,0,0,.15)] font-medium p-1 sm:p-2 pl-2 text-left font-code text-[8px] sm:text-xs">
+            <span>README.md</span>
+            <span className="text-zinc-500">2/1/24 9:57PM CST</span>
+          </div>
           <SyntaxHighlighter
             language="plaintext"
             showLineNumbers={true}

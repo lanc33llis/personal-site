@@ -44,7 +44,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       >
         <main
-          className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}
+          className={`${GeistSans.variable} ${GeistMono.variable} font-sans snap-y h-screen snap-mandatory`}
         >
           <Component {...pageProps} key={router.pathname} />
         </main>

@@ -13,6 +13,7 @@ interface CardProps {
   description: string;
   technologies: string;
   reverse?: boolean;
+  date?: string;
 }
 
 const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
@@ -59,6 +60,7 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
           {props.heading}
         </span>
         <h3 className="font-medium text-3xl">{props.title}</h3>
+        <p>{props.date}</p>
       </div>
       <div>
         <p className="text-lg">{props.description}</p>
