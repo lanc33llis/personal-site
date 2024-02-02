@@ -1,13 +1,12 @@
 import { NextPage } from "next";
 
 import Hero from "./Hero";
-import Card from "./Card2";
+import Card from "./Card";
 import Footer from "../components/Footer";
 import Head from "next/head";
 import About from "./About";
 
 type HomeCard = [title: string, description: string, src: string, href: string];
-// videos do bad stufff
 const HomeCards: HomeCard[] = [
   [
     "HyperLine",
@@ -86,7 +85,6 @@ const Home: NextPage = () => {
           />
         </div>
       </div>
-
       <Footer />
     </>
   );

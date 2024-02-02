@@ -6,30 +6,9 @@ html,
 body {
   padding: 0;
   margin: 0;
-  scroll-behavior: smooth;
   transition: color 0.5s ease-out, background 0.5s ease-out;
   /* scroll-snap-type: y mandatory; */
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-* {
-  box-sizing: border-box;
-}
-
-/* @media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
-} */
-
 
 @keyframes spinner {
   0% {
@@ -68,27 +47,6 @@ a {
   animation: spinner .5s linear infinite;
   color: inherit;
   content: '';
-}
-
-@keyframes squiggle {
-  0% {
-    background-position: 0 0;
-  }
-  100% {
-    background-position: 260px 0;
-  }
-}
-
-.squiggle {
-  animation: squiggle 16s linear infinite;
-  background-image: url('/squiggle.svg');
-  /* background-repeat:round; */
-  background-repeat: repeat-x;
-  background-size: 55px;
-}
-
-:target {
-  scroll-margin-top: 70px;
 }
 
 .material-symbols-outlined {

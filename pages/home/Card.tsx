@@ -1,62 +1,82 @@
-import Image from "next/image";
-import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
-import Link from "next/link";
+import Image from "next/legacy/image";
+import { useRef } from "react";
 
 interface CardProps {
+  video?: boolean;
+  src: string;
+  width: number;
+  height?: number;
+  alt: string;
+  heading: string;
   title: string;
   description: string;
-  src: string;
-  href: string;
-  inViewAnimationDelay: number;
+  technologies: string;
+  reverse?: boolean;
+  date?: string;
 }
 
-const Card = ({
-  title,
-  description,
-  src,
-  href,
-  inViewAnimationDelay,
-}: CardProps) => {
-  const ref = useRef<HTMLDivElement>(null);
-  const inView = useInView(ref, { once: true });
+const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
+  const Asset = () => {
+    const ref = useRef<HTMLDivElement>(null);
+    const inView = useInView(ref, {
+      amount: 0.5,
+      once: true,
+    });
+
+    return (
+      <motion.div
+        ref={ref}
+        {...(inView && { animate: { opacity: 1, y: 0 } })}
+        initial={{ opacity: 0, y: -50 }}
+        transition={{ duration: 1.5, type: "spring", delay: 0.25 }}
+        className={`shadow-2xl rounded-xl overflow-hidden h-fit ${
+          video ? "w-fit" : "w-full"
+        } `}
+      >
+        {(video && (
+          <video src={props.src} width={props.width} muted autoPlay loop />
+        )) || (
+          <Image
+            src={props.src}
+            width={props.width}
+            height={props.height}
+            layout="responsive"
+            alt={props.alt}
+          />
+        )}
+      </motion.div>
+    );
+  };
+
+  const Content = () => (
+    <div
+      className={`flex flex-col w-full justify-between grow ${
+        reverse ? "text-right" : "text-left"
+      }`}
+    >
+      <div>
+        <span className=" uppercase leading-loose tracking-[.2em]">
+          {props.heading}
+        </span>
+        <h3 className="font-medium text-3xl">{props.title}</h3>
+        <p>{props.date}</p>
+      </div>
+      <div>
+        <p className="text-lg">{props.description}</p>
+        <span className="text-sm uppercase leading-loose tracking-[.2em]">
+          {props.technologies}
+        </span>
+      </div>
+    </div>
+  );
 
   return (
-    <motion.div
-      className="relative w-full lg:w-[calc(50%-.5rem)] "
-      ref={ref}
-      initial={{ opacity: 0, y: -100 }}
-      animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : -100 }}
-      transition={{
-        duration: 1.5,
-        type: "spring",
-        delay: inViewAnimationDelay,
-      }}
-    >
-      <Link href={href ?? ""} passHref>
-        <a>
-          <div className="rounded absolute left-0 top-0 opacity-0 hover:opacity-100 w-full h-full bg-[rgba(0,0,0,.9)] z-10 text-white flex items-center justify-center flex-col p-8 text-center transition-opacity">
-            <h2>{title}</h2>
-            <h3>{description}</h3>
-          </div>
-        </a>
-      </Link>
-      <div className="rounded border">
-        <Image
-          src={src}
-          layout="responsive"
-          width={1.8}
-          height={1}
-          className="w-full h-full rounded"
-          alt="Card"
-          priority
-        />
-      </div>
-    </motion.div>
+    <div className="flex gap-12 max-w-normal flex-col lg:flex-row w-full items-center lg:items-stretch">
+      {reverse ? <Content /> : <Asset />}
+      {reverse ? <Asset /> : <Content />}
+    </div>
   );
-};
-Card.defaultProps = {
-  inViewAnimationDelay: 0,
 };
 
 export default Card;

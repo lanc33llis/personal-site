@@ -1,7 +1,5 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { AnimatePresence } from "framer-motion";
-import { useRouter } from "next/router";
 import { DefaultSeo } from "next-seo";
 import Head from "next/head";
 
@@ -9,8 +7,6 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
   return (
     <>
       <Head>
@@ -37,13 +33,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
         }}
       />
-      <AnimatePresence>
-        <main
-          className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}
-        >
-          <Component {...pageProps} key={router.pathname} />
-        </main>
-      </AnimatePresence>
+      <main className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
+        <Component {...pageProps} />
+      </main>
     </>
   );
 }
