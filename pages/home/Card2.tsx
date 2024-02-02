@@ -43,7 +43,6 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
             height={props.height}
             layout="responsive"
             alt={props.alt}
-            priority
           />
         )}
       </motion.div>
