@@ -19,9 +19,7 @@ contracting and freelancing, with a primary focus on web development.
 In addition, I have taken a fellowship at Major League Hacking to 
 learn about production engineering.
 
-Currently, I am interning at Atlassian as a software developer.
-
-Lance`;
+Currently, I am interning at Atlassian as a software developer.`;
 
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
