@@ -6,6 +6,9 @@ import Head from "next/head";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -14,7 +17,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <DefaultSeo
         title="Lance Ellis"
-        description="A short description goes here."
+        description="Lance Ellis is a software engineer and designer from the United States. He works mostly on the web and is currently studying at the University of Texas at Austin."
         openGraph={{
           type: "website",
           locale: "en_US",
@@ -35,6 +38,8 @@ function MyApp({ Component, pageProps }: AppProps) {
       />
       <main className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
         <Component {...pageProps} />
+        <Analytics />
+        <SpeedInsights />
       </main>
     </>
   );
