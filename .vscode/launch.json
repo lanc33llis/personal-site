@@ -1,10 +1,12 @@
 {
   "configurations": [
     {
-      "command": "npm run dev",
-      "name": "Run npm run dev",
+      "name": "Launch via NPM",
       "request": "launch",
-      "type": "node-terminal"
+      "runtimeArgs": ["run", "dev"],
+      "runtimeExecutable": "npm",
+      "skipFiles": ["<node_internals>/**"],
+      "type": "node"
     }
   ]
 }

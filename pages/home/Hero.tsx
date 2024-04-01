@@ -26,7 +26,7 @@ const Hero = () => {
         transition={{ duration: 1, type: "spring" }}
         className="flex flex-col justify-center w-full lg:w-1/2 max-w-[1322px] lg:text-left"
       >
-        <h1 className="text-4xl font-medium text-center sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 lg:text-left">
+        <h1 className="text-4xl font-semibold text-center sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 lg:text-left">
           Hello, I&apos;m a web developer and designer.
         </h1>
         <span

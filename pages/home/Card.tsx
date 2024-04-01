@@ -1,5 +1,6 @@
 import { motion, useInView } from "framer-motion";
 import Image from "next/legacy/image";
+import Link from "next/link";
 import { useRef } from "react";
 
 interface CardProps {
@@ -14,6 +15,7 @@ interface CardProps {
   technologies: string;
   reverse?: boolean;
   date?: string;
+  link?: string;
 }
 
 const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
@@ -56,15 +58,20 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
       }`}
     >
       <div>
-        <span className=" uppercase leading-loose tracking-[.2em]">
-          {props.heading}
+        <span className="font-mono uppercase leading-loose">
+          {(props.link && (
+            <Link href={props.link}>
+              {props.heading} {`~> View Project`}
+            </Link>
+          )) ||
+            props.heading}
         </span>
-        <h3 className="font-medium text-3xl">{props.title}</h3>
+        <h3 className="font-semibold text-3xl">{props.title}</h3>
         <p>{props.date}</p>
       </div>
       <div>
         <p className="text-lg">{props.description}</p>
-        <span className="text-sm uppercase leading-loose tracking-[.2em]">
+        <span className="font-mono text-sm uppercase leading-loose">
           {props.technologies}
         </span>
       </div>

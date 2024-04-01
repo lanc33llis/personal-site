@@ -42,9 +42,9 @@ const Home: NextPage = () => {
       </Head>
       <Hero />
       <About />
-      <div className="mb-24 px-4 sm:px-16 lg:px-24 flex flex-col gap-8">
-        <div className="w-fit">
-          <h2 className="text-4xl font-medium text-center sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 lg:text-left">
+      <div className="mb-24 px-4 sm:px-16 lg:px-24 flex flex-col gap-8 items-center">
+        <div className="max-w-normal w-full">
+          <h2 className="text-4xl font-semibold sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 text-left">
             Projects
           </h2>
         </div>
@@ -61,15 +61,16 @@ const Home: NextPage = () => {
             technologies="REACT NAIVE, GRAPHQL, TYPESCRIPT"
           />
           <Card
-            alt="Hypatia"
-            src="/hypatia.png"
+            alt="Slashbase"
+            src="/note-editor-image-light.png"
             width={1920}
             height={1080}
             heading="Web Application"
-            title="Hypatia"
+            title="Slashbase"
             date="Winter 2023 - Present"
             description="Futuristic note editor with a focus on AI and collaboration. Built from the ground up to be modern, fast, and flexible."
             technologies="Next.js, AWS Bedrock, Tiptap, Typescript"
+            link="https://www.slashbase.co/blog/introducing-notes"
             reverse
           />
           <Card
@@ -82,6 +83,7 @@ const Home: NextPage = () => {
             date="Spring 2022"
             description="Visualize the courses offered at UT Austin as a network graph. Data was scraped from UT's website with a Selenium bot."
             technologies="Next.js, Python, Selenium, D3.js"
+            link="https://ut-course-map-viz.vercel.app/"
           />
         </div>
       </div>
