@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import Head from "next/head";
 import About from "./About";
 
+import { LazyMotion, domAnimation } from "framer-motion";
+
 type HomeCard = [title: string, description: string, src: string, href: string];
 const HomeCards: HomeCard[] = [
   [
@@ -36,7 +38,7 @@ const HomeCards: HomeCard[] = [
 
 const Home: NextPage = () => {
   return (
-    <>
+    <LazyMotion features={domAnimation}>
       <Head>
         <title>Lance Ellis - Home</title>
       </Head>
@@ -51,7 +53,7 @@ const Home: NextPage = () => {
         <div className="grow flex flex-col items-center gap-48">
           <Card
             alt="Amazon Alexa"
-            src="/amazon.MP4"
+            src="/amazon_2.mp4"
             width={240}
             video
             heading="Feature Development"
@@ -70,12 +72,12 @@ const Home: NextPage = () => {
             date="Winter 2023 - Present"
             description="Futuristic note editor with a focus on AI and collaboration. Built from the ground up to be modern, fast, and flexible."
             technologies="Next.js, AWS Bedrock, Tiptap, Typescript"
-            link="https://www.slashbase.co/blog/introducing-notes"
+            link="https://www.slashbase.co/"
             reverse
           />
           <Card
             alt="UT Course Map"
-            src="/coursemap.mp4"
+            src="/coursemap_1.mp4"
             width={1560}
             video
             heading="Interactive Web App"
@@ -88,7 +90,7 @@ const Home: NextPage = () => {
         </div>
       </div>
       <Footer />
-    </>
+    </LazyMotion>
   );
 };
 

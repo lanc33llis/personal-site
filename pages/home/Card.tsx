@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { m, useInView } from "framer-motion";
 import Image from "next/legacy/image";
 import Link from "next/link";
 import { useRef } from "react";
@@ -27,7 +27,7 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
     });
 
     return (
-      <motion.div
+      <m.div
         ref={ref}
         {...(inView && { animate: { opacity: 1, y: 0 } })}
         initial={{ opacity: 0, y: -50 }}
@@ -47,7 +47,7 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
             alt={props.alt}
           />
         )}
-      </motion.div>
+      </m.div>
     );
   };
 

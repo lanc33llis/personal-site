@@ -1,5 +1,5 @@
-import { motion, useInView } from "framer-motion";
-import { useRef } from "react";
+import { m, useInView } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/legacy/image";
 
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
@@ -29,13 +29,42 @@ const About = () => {
     once: true,
   });
 
+  const codeRef = useRef<HTMLPreElement>(null);
+  const [lines, setLines] = useState(0);
+
+  console.log(lines);
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((entries) => {
+      for (const entry of entries) {
+        if (entry.contentRect && codeRef.current) {
+          const el = entry.contentRect;
+
+          const divHeight = el.height;
+          setLines(
+            divHeight /
+              parseInt(window.getComputedStyle(codeRef.current).lineHeight)
+          );
+        }
+      }
+    });
+
+    if (codeRef.current) {
+      resizeObserver.observe(codeRef.current);
+    }
+
+    return () => {
+      resizeObserver.disconnect();
+    };
+  }, []);
+
   return (
     <div
       ref={ref}
       className="h-screen flex justify-center snap-center items-center overflow-hidden"
     >
       <div className="w-[200px] lg:w-[300px] h-fit absolute">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: "var(--y-from)", x: "var(--x)" }}
           {...(inView && {
             initial: { opacity: 0, y: "var(--y-from)", x: "var(--x)" },
@@ -59,12 +88,13 @@ const About = () => {
             layout="responsive"
             src={"/andras-vas-Bd7gNnWJBkU-unsplash.jpg"}
             alt="picture of me by Rae Xin"
+            quality={10}
             priority
           />
           <svg className="absolute left-0 right-0 w-full h-full">
             <defs>
               <clipPath id="computer-image">
-                <motion.rect
+                <m.rect
                   {...(inView && {
                     initial: { y: "0", opacity: 0 },
                     animate: { y: "5%", opacity: 1 },
@@ -78,10 +108,10 @@ const About = () => {
               </clipPath>
             </defs>
           </svg>
-        </motion.div>
+        </m.div>
       </div>
       <div className="w-[200px] lg:w-[300px] h-fit absolute">
-        <motion.div
+        <m.div
           transition={{ duration: 2, type: "spring", delay: 0.5 }}
           initial={{ opacity: 0, y: "var(--y-from)", x: "var(--x)" }}
           {...(inView && {
@@ -105,12 +135,13 @@ const About = () => {
             layout="responsive"
             src={"/joel-filipe-QwoNAhbmLLo-unsplash.jpg"}
             alt="picture of me by Rae Xin"
+            quality={10}
             priority
           />
           <svg className="absolute left-0 right-0 w-full h-full">
             <defs>
               <clipPath id="space-image">
-                <motion.rect
+                <m.rect
                   {...(inView && {
                     initial: { y: "0", opacity: 0 },
                     animate: { y: "5%", opacity: 1 },
@@ -124,7 +155,7 @@ const About = () => {
               </clipPath>
             </defs>
           </svg>
-        </motion.div>
+        </m.div>
       </div>
       <div className="w-tight h-max flex justify-center">
         <div className="mt-2 w-fit flex flex-col rounded border border-[rgba(0,0,0,.15)] bg-white bg-opacity-60 shadow backdrop-blur-xl">
@@ -132,7 +163,17 @@ const About = () => {
             <span>README.md</span>
             <span className="text-zinc-500">2/1/24 9:57PM CST</span>
           </div>
-          <SyntaxHighlighter
+          <pre className="flex h-full p-1 sm:p-2 text-[8px] sm:text-sm w-fit">
+            <div className="h-full flex flex-col pr-4">
+              {Array.from({ length: lines }, (_, i) => i + 1).map((line) => (
+                <span key={line} className="text-end text-gray-700">
+                  {line}
+                </span>
+              ))}
+            </div>
+            <code ref={codeRef}>{snippet}</code>
+          </pre>
+          {/* <SyntaxHighlighter
             language="plaintext"
             showLineNumbers={true}
             lineNumberStyle={{ minWidth: "2.25em" }}
@@ -140,7 +181,7 @@ const About = () => {
             style={hyperlineLight as { [key: string]: React.CSSProperties }}
           >
             {snippet}
-          </SyntaxHighlighter>
+          </SyntaxHighlighter> */}
         </div>
       </div>
     </div>

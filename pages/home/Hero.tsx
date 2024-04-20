@@ -1,6 +1,6 @@
 import Image from "next/legacy/image";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useState } from "react";
 
 const Hero = () => {
@@ -20,7 +20,7 @@ const Hero = () => {
           <span className="select-none text-2xl leading-[50%] load-spinner pl-1"></span>
         </div>
       ) : null}
-      <motion.div
+      <m.div
         initial={{ opacity: 0, y: -25 }}
         animate={!loading ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, type: "spring" }}
@@ -46,10 +46,10 @@ const Hero = () => {
         >
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>
-      </motion.div>
+      </m.div>
       <div className="-z-10 relative flex items-center justify-center w-full md:h-screen lg:w-1/2 sm:p-4 md:p-8 lg:p-16 xl:p-24 max-w-[calc(2644px/2)]">
         <div className="w-full h-fit relative">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: -100 }}
             animate={!loading ? { opacity: 1, y: 0 } : false}
             transition={{ duration: 2, type: "spring" }}
@@ -62,12 +62,13 @@ const Hero = () => {
               src={"/me.jpg"}
               alt="picture of me by Rae Xin"
               onLoadingComplete={() => setLoading(false)}
+              quality={50}
               priority
             />
             <svg className="absolute left-0 right-0 w-full h-full">
               <defs>
                 <clipPath id="hero-image">
-                  <motion.rect
+                  <m.rect
                     initial={{ y: "0", opacity: 0 }}
                     animate={!loading ? { y: "5%", opacity: 1 } : false}
                     transition={{ duration: 3, type: "spring" }}
@@ -76,7 +77,7 @@ const Hero = () => {
                     height="60%"
                     rx={10}
                   />
-                  <motion.rect
+                  <m.rect
                     initial={{ y: "0", opacity: 0 }}
                     animate={!loading ? { y: "20%", opacity: 1 } : false}
                     transition={{ duration: 2.75, type: "spring" }}
@@ -85,7 +86,7 @@ const Hero = () => {
                     height="60%"
                     rx={10}
                   />
-                  <motion.rect
+                  <m.rect
                     initial={{ y: "0%", opacity: 0 }}
                     animate={!loading ? { y: "35%", opacity: 1 } : false}
                     transition={{ duration: 2.5, type: "spring" }}
@@ -97,10 +98,10 @@ const Hero = () => {
                 </clipPath>
               </defs>
             </svg>
-          </motion.div>
+          </m.div>
         </div>
       </div>
-      <motion.div
+      <m.div
         className="flex justify-center"
         initial={{ opacity: 0, y: -100 }}
         animate={!loading ? { opacity: 1, y: 0 } : false}
@@ -123,7 +124,7 @@ const Hero = () => {
         >
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>
-      </motion.div>
+      </m.div>
     </div>
   );
 };
