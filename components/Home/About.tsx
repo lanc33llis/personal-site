@@ -4,22 +4,22 @@ import Image from "next/legacy/image";
 
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 
-import hyperlineLight from "../../styles/hyperline-light";
+import hyperlineLight from "@/styles/hyperline-light";
 
-const snippet = `I'm glad you're here. I am a self-taught programmer specializing 
-in web development and design, with a thorough background in web 
-technologies including Next.js, Flask, Spring, and much more. My 
-focus is on full-stack development, but my skills are broad, 
-encompassing product management, DevOps, system administration, 
-UI/UX  design, and mobile development.
+const snippet = `Hey! I am a self-taught programmer specializing in 
+web development and design. I'm deeply proficient with TypeScript,
+React, and Next.js. I enjoy building large scaling applications;
+I have a heavy background on DevOps and CI/CD pipelines. Recently,
+I've been building web applications and libraries for LLMs. 
 
-I have worked for Amazon, where I developed internal tools and later,
+I've worked for Amazon, where I developed internal tools and later,
 user-facing features for the Alexa app. My experience also includes 
-contracting and freelancing, with a primary focus on web development. 
-In addition, I have taken a fellowship at Major League Hacking to 
-learn about production engineering.
+contracting and freelancing for small startups primarily for mobile
+and web development. I've also worked previously at Atlassian on 
+their governance security team. In addition, I took a fellowship at
+Major League Hacking to learn about production engineering.
 
-Currently, I am interning at Atlassian as a software developer.`;
+I'll be returning to Atlassian as a software engineer intern.`;
 
 const About = () => {
   const ref = useRef<HTMLDivElement>(null);
@@ -30,33 +30,6 @@ const About = () => {
   });
 
   const codeRef = useRef<HTMLPreElement>(null);
-  const [lines, setLines] = useState(0);
-
-  console.log(lines);
-
-  useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (const entry of entries) {
-        if (entry.contentRect && codeRef.current) {
-          const el = entry.contentRect;
-
-          const divHeight = el.height;
-          setLines(
-            divHeight /
-              parseInt(window.getComputedStyle(codeRef.current).lineHeight)
-          );
-        }
-      }
-    });
-
-    if (codeRef.current) {
-      resizeObserver.observe(codeRef.current);
-    }
-
-    return () => {
-      resizeObserver.disconnect();
-    };
-  }, []);
 
   return (
     <div
@@ -158,20 +131,22 @@ const About = () => {
         </m.div>
       </div>
       <div className="w-tight h-max flex justify-center">
-        <div className="mt-2 w-fit flex flex-col rounded border border-[rgba(0,0,0,.15)] bg-white bg-opacity-60 shadow backdrop-blur-xl">
-          <div className="border-b flex justify-between border-[rgba(0,0,0,.15)] font-medium p-1 sm:p-2 pl-2 text-left font-code text-[8px] sm:text-xs">
+        <div className="mt-2 w-fit flex flex-col rounded border bg-background/25 border-background/25 dark:border-foreground/10 dark:bg-foreground/10 shadow backdrop-blur-xl">
+          <div className="border-b flex justify-between border-background/25 dark:border-foreground/10 p-1 sm:p-2 pl-2 text-left font-code text-[8px] sm:text-xs">
             <span>README.md</span>
-            <span className="text-zinc-500">2/1/24 9:57PM CST</span>
+            <span className="dark:text-foreground">12/8/24 11:53PM CST</span>
           </div>
           <pre className="flex h-full p-1 sm:p-2 text-[8px] sm:text-sm w-fit">
             <div className="h-full flex flex-col pr-4">
-              {Array.from({ length: lines }, (_, i) => i + 1).map((line) => (
-                <span key={line} className="text-end text-gray-700">
+              {Array.from({ length: 14 }, (_, i) => i + 1).map((line) => (
+                <span key={line} className="text-end dark:text-foreground">
                   {line}
                 </span>
               ))}
             </div>
-            <code ref={codeRef}>{snippet}</code>
+            <code className="dark:text-foreground" ref={codeRef}>
+              {snippet}
+            </code>
           </pre>
           {/* <SyntaxHighlighter
             language="plaintext"

@@ -88,7 +88,7 @@ class MyDocument extends Document {
             content="https://www.lanc3.dev/og-image.png"
           />
         </Head>
-        <body>
+        <body className="">
           <Main />
           <NextScript />
         </body>

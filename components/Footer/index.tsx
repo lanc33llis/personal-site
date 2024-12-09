@@ -4,14 +4,14 @@ import Link from "next/link";
 const Footer = () => {
   return (
     <div
-      className={`flex select-none leading-none text-zinc-400 flex-col pt-12 pb-4 sm:pb-16 lg:pb-20 w-full px-4 sm:px-16 lg:px-24`}
+      className={`flex select-none leading-none text-muted-foreground flex-col pt-12 pb-4 sm:pb-16 lg:pb-20 w-full px-4 sm:px-16 lg:px-24`}
     >
       <div className="flex justify-between">
         <span className="select-text">Lance Ellis</span>
 
         <Link
           href="https://www.linkedin.com/in/lance-ellis"
-          className="hover:text-black transition-colors"
+          className="hover:text-foreground transition-colors"
         >
           LinkedIn
         </Link>
@@ -20,7 +20,7 @@ const Footer = () => {
         <span>© 2024</span>
         <Link
           href="https://github.com/lanc33llis"
-          className="hover:text-black transition-colors"
+          className="hover:text-foreground transition-colors"
         >
           GitHub
         </Link>

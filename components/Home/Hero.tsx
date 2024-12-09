@@ -24,7 +24,7 @@ const Hero = () => {
         initial={{ opacity: 0, y: -25 }}
         animate={!loading ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, type: "spring" }}
-        className="flex flex-col justify-center w-full lg:w-1/2 max-w-[1322px] lg:text-left"
+        className="flex flex-col justify-center w-full pt-8 lg:pt-0 lg:w-1/2 max-w-[1322px] lg:text-left"
       >
         <h1 className="text-4xl font-semibold text-center sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 lg:text-left">
           Hello, I&apos;m a web developer and designer.
@@ -42,7 +42,7 @@ const Hero = () => {
               setCopiedEmailTimer(timer);
             }
           }}
-          className="hidden ml-1 text-xl text-left text-gray-500 transition-all border-b border-gray-500 cursor-pointer w-fit lg:block hover:border-black h-fit hover:text-black"
+          className="hidden ml-1 text-xl text-left text-muted-foreground transition-all border-b border-muted-foreground cursor-pointer w-fit lg:block hover:text-foreground h-fit hover:border-foreground"
         >
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>
@@ -51,7 +51,7 @@ const Hero = () => {
         <div className="w-full h-fit relative">
           <m.div
             initial={{ opacity: 0, y: -100 }}
-            animate={!loading ? { opacity: 1, y: 0 } : false}
+            animate={!loading ? { opacity: 0.85, y: 0 } : false}
             transition={{ duration: 2, type: "spring" }}
           >
             <Image
@@ -120,7 +120,7 @@ const Hero = () => {
               setCopiedEmailTimer(timer);
             }
           }}
-          className="z-10 block text-lg text-left text-gray-500 transition-all border-b border-gray-500 cursor-pointer w-fit lg:hidden hover:border-black h-fit hover:text-black"
+          className="z-10 block text-lg text-left text-muted-foreground transition-all border-b border-muted-foreground cursor-pointer w-fit lg:hidden hover:border-foreground h-fit hover:text-foreground"
         >
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>

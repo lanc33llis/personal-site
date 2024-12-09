@@ -9,6 +9,8 @@ import { GeistMono } from "geist/font/mono";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 
+import { ThemeProvider } from "next-themes";
+
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
@@ -37,7 +39,14 @@ function MyApp({ Component, pageProps }: AppProps) {
         }}
       />
       <main className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
-        <Component {...pageProps} />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <Component {...pageProps} />
+        </ThemeProvider>
         <Analytics />
         <SpeedInsights />
       </main>

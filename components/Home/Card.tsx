@@ -37,7 +37,15 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
         } `}
       >
         {(video && (
-          <video src={props.src} width={props.width} muted autoPlay loop />
+          <video
+            src={props.src}
+            width={props.width}
+            muted
+            autoPlay
+            loop
+            webkit-playsinline="true"
+            playsInline
+          />
         )) || (
           <Image
             src={props.src}
@@ -66,7 +74,9 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
           )) ||
             props.heading}
         </span>
-        <h3 className="font-semibold text-3xl">{props.title}</h3>
+        <h3 className="font-semibold text-3xl text-foreground/100">
+          {props.title}
+        </h3>
         <p>{props.date}</p>
       </div>
       <div>
