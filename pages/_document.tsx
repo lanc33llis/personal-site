@@ -58,7 +58,16 @@ class MyDocument extends Document {
             rel="stylesheet"
             href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
           />
-          <meta name="theme-color" content="#ffffff" />
+          <meta
+            name="theme-color"
+            media="(prefers-color-scheme: light)"
+            content="#FFF"
+          />
+          <meta
+            name="theme-color"
+            media="(prefers-color-scheme: dark)"
+            content="#09090b"
+          />
           <meta
             name="description"
             content="Lance Ellis is a software engineer and designer from the United States. He works mostly on the web and is currently studying at the University of Texas at Austin."
