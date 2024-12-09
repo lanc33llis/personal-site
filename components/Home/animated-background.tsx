@@ -39,7 +39,7 @@ const AnimatedBackground = ({ children }: { children?: React.ReactNode }) => {
         <div className="rounded-xl overflow-hidden h-full">
           <canvas
             id="gradient-canvas"
-            className="w-full h-full blur-xl scale-110 dark:brightness-50 dark:saturate-150 dark:contrast-150"
+            className="w-full h-full blur-xl scale-110 contrast-[175%] dark:brightness-[35%] dark:saturate-150 dark:contrast-150"
             data-transition-in
           />
         </div>
