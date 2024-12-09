@@ -54,11 +54,33 @@ const Home: NextPage = () => {
           </div>
           <div className="grow flex flex-col items-center gap-48">
             <Card
+              alt="Y'all App"
+              src="/yall.png"
+              width={240}
+              height={526}
+              heading="Mobile Application"
+              title="Y'all"
+              description="Social organization app for day-to-day activities. CTO and raised 50k in pre-seed funding."
+              date="Spring 2024, Expected Spring 2025"
+              technologies="React Native, Next.js, tRPC, Drizzle ORM"
+            />
+            <Card
+              alt="LHR PPO"
+              src="/ppo.png"
+              width={1750}
+              height={1161}
+              heading="Reinforcement Learning Model"
+              title="Solving Solar Car Race Strategy with Proximal Policy Optimization"
+              description="Developed a reinforcement learning model to optimize the strategy of solar vehicles in the American Solar Challenge. The model was trained in a simulated environment using the PyChrono physics engine."
+              date="Spring 2024 - Present"
+              technologies="Python, Gymnasium, Tensorflow, PyChrono"
+            />
+            <Card
               alt="Amazon Alexa"
               src="/amazon_2.mp4"
               width={240}
               video
-              heading="Feature Development"
+              heading="Mobile Development"
               title="Amazon Alexa Device Sorting"
               description="Engineered the device sorting feature for the Amazon Alexa app. Business-critical requirement for Alexa's Q3 2023 app refresh. Sees millions of interactions a month."
               date="Winter 2023"
@@ -66,16 +88,16 @@ const Home: NextPage = () => {
             />
             <Card
               alt="Slashbase"
-              src="/note-editor-image-light.png"
+              src="/slashbase.png"
               width={1920}
               height={1080}
               heading="Web Application"
               title="Slashbase"
               date="Winter 2023 - Present"
-              description="Futuristic note editor with a focus on AI and collaboration. Built from the ground up to be sleek, fast, and flexible."
-              technologies="Next.js, AWS Bedrock, Tiptap, Typescript"
-              link="https://www.slashbase.co/"
-              reverse
+              description="No-code AI platform for software engineers. Framework for building, deploying, and scaling AI experiences."
+              technologies="Next.js, AWS Bedrock, LlamaIndex, xyflow"
+              // link="https://www.slashbase.co/"
+              // reverse
             />
             <Card
               alt="UT Course Map"

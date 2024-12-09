@@ -33,8 +33,11 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
         initial={{ opacity: 0, y: -50 }}
         transition={{ duration: 1.5, type: "spring", delay: 0.25 }}
         className={`shadow-2xl rounded-xl overflow-hidden h-fit ${
-          video ? "w-fit" : "w-full"
+          video ? "w-fit" : "w-fit"
         } `}
+        style={{
+          fontSize: 0,
+        }}
       >
         {(video && (
           <video
@@ -51,8 +54,9 @@ const Card = ({ video = false, reverse = false, ...props }: CardProps) => {
             src={props.src}
             width={props.width}
             height={props.height}
-            layout="responsive"
+            layout="intrinsic"
             alt={props.alt}
+            quality={20}
           />
         )}
       </m.div>

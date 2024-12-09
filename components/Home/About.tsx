@@ -5,6 +5,7 @@ import Image from "next/legacy/image";
 import { Light as SyntaxHighlighter } from "react-syntax-highlighter";
 
 import hyperlineLight from "@/styles/hyperline-light";
+import { ArrowDownIcon, ChevronDownIcon } from "@radix-ui/react-icons";
 
 const snippet = `Hey! I am a self-taught programmer specializing in 
 web development and design. I'm deeply proficient with TypeScript,
@@ -34,9 +35,9 @@ const About = () => {
   return (
     <div
       ref={ref}
-      className="h-screen flex justify-center snap-center items-center overflow-hidden"
+      className="relative h-screen flex justify-center snap-center items-center overflow-hidden"
     >
-      <div className="w-[200px] lg:w-[300px] h-fit absolute">
+      {/* <div className="w-[200px] lg:w-[300px] h-fit absolute">
         <m.div
           initial={{ opacity: 0, y: "var(--y-from)", x: "var(--x)" }}
           {...(inView && {
@@ -129,8 +130,18 @@ const About = () => {
             </defs>
           </svg>
         </m.div>
-      </div>
-      <div className="w-tight h-max flex justify-center">
+      </div> */}
+      <div className="relative w-fit h-max flex flex-col gap-1">
+        {/* WIP File Explorer for different 'files' */}
+        {/* <div className="text-xs absolute z-50 -translate-x-[150%] flex flex-col h-full p-2 rounded border bg-background/25 border-background/25 dark:border-foreground/10 dark:bg-foreground/10 shadow backdrop-blur-xl">
+          <span className="flex gap-1 items-center pb-2">
+            <ChevronDownIcon />
+            <span>lancee</span>
+          </span>
+          <button>
+            <span>README.md</span>
+          </button>
+        </div> */}
         <div className="mt-2 w-fit flex flex-col rounded border bg-background/25 border-background/25 dark:border-foreground/10 dark:bg-foreground/10 shadow backdrop-blur-xl">
           <div className="border-b flex justify-between border-background/25 dark:border-foreground/10 p-1 sm:p-2 pl-2 text-left font-code text-[8px] sm:text-xs">
             <span>README.md</span>
@@ -148,15 +159,10 @@ const About = () => {
               {snippet}
             </code>
           </pre>
-          {/* <SyntaxHighlighter
-            language="plaintext"
-            showLineNumbers={true}
-            lineNumberStyle={{ minWidth: "2.25em" }}
-            className="h-full p-1 sm:p-2 text-[8px] sm:text-sm w-fit"
-            style={hyperlineLight as { [key: string]: React.CSSProperties }}
-          >
-            {snippet}
-          </SyntaxHighlighter> */}
+        </div>
+        <div className="w-full flex items-center gap-1">
+          <ArrowDownIcon />
+          <span>Explore my work</span>
         </div>
       </div>
     </div>
