@@ -1,16 +1,19 @@
 import { useEffect } from "react";
 
 import { Gradient } from "@/lib/gradient";
+import { useTheme } from "next-themes";
 
 const gradient = new Gradient();
 
 const AnimatedBackground = ({ children }: { children?: React.ReactNode }) => {
+  const { resolvedTheme } = useTheme();
+
   useEffect(() => {
     // @ts-expect-error
     gradient.initGradient("#gradient-canvas");
 
     return () => gradient.disconnect();
-  }, []);
+  }, [resolvedTheme]);
 
   return (
     <div className="relative h-full flex flex-col overflow-hidden">
