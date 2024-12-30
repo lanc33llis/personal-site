@@ -46,7 +46,7 @@ const Home: NextPage = () => {
         </Head>
         <Hero />
         <About />
-        <div className="mb-24 px-4 sm:px-16 lg:px-24 flex flex-col gap-8 items-center">
+        <div className="mb-24 px-4 sm:px-16 lg:px-16 flex flex-col gap-8 items-center">
           <div className="max-w-normal w-full">
             <h2 className="text-4xl font-semibold sm:text-6xl lg:text-6xl xl:text-7xl lg:mb-4 text-left text-foreground/100">
               Projects
@@ -96,8 +96,8 @@ const Home: NextPage = () => {
               date="Winter 2023 - Present"
               description="No-code AI platform for software engineers. Framework for building, deploying, and scaling AI experiences."
               technologies="Next.js, AWS Bedrock, LlamaIndex, xyflow"
-              // link="https://www.slashbase.co/"
-              // reverse
+            // link="https://www.slashbase.co/"
+            // reverse
             />
             <Card
               alt="UT Course Map"

@@ -30,7 +30,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             "Lance Ellis is a software engineer and designer from the United States. He works mostly on the web and is currently studying at the University of Texas at Austin.",
           images: [
             {
-              url: "https://www.lanc3.dev/og-image.png",
+              url: "https://www.lancee.xyz/og-image.png",
               width: 1200,
               height: 630,
               alt: "Lance Ellis",
