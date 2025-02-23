@@ -97,7 +97,7 @@ class MyDocument extends Document {
             content="https://www.lanc3.dev/og-image.png"
           />
         </Head>
-        <body className="">
+        <body className="bg-black">
           <Main />
           <NextScript />
         </body>

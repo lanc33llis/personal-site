@@ -23,7 +23,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         openGraph={{
           type: "website",
           locale: "en_US",
-          url: "https://www.lanc3.dev/",
+          url: "https://www.lancee.xyz/",
           site_name: "Lance Ellis",
           title: "Lance Ellis",
           description:
@@ -44,8 +44,8 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
-        // enableSystem
-        // disableTransitionOnChange
+          // enableSystem
+          // disableTransitionOnChange
         >
           <Component {...pageProps} />
         </ThemeProvider>

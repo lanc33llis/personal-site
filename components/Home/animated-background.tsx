@@ -16,7 +16,7 @@ const AnimatedBackground = ({ children }: { children?: React.ReactNode }) => {
   }, [resolvedTheme]);
 
   return (
-    <div className="relative h-full flex flex-col overflow-hidden">
+    <div className="relative h-full flex flex-col overflow-hidden ">
       <style>
         {`     
           #gradient-canvas {

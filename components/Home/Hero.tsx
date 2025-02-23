@@ -68,6 +68,7 @@ const Hero = () => {
               onLoadingComplete={() => setLoading(false)}
               quality={50}
               priority
+              className="saturate-[75%] brightness-105"
             />
             <svg className="absolute left-0 right-0 w-full h-full">
               <defs>
@@ -79,7 +80,7 @@ const Hero = () => {
                     x="2.5%"
                     width="30%"
                     height="60%"
-                    rx={10}
+                    rx={8}
                   />
                   <m.rect
                     initial={{ y: "0", opacity: 0 }}
@@ -88,7 +89,7 @@ const Hero = () => {
                     x="35%"
                     width="30%"
                     height="60%"
-                    rx={10}
+                    rx={8}
                   />
                   <m.rect
                     initial={{ y: "0%", opacity: 0 }}
@@ -97,7 +98,7 @@ const Hero = () => {
                     x="67.5%"
                     width="30%"
                     height="60%"
-                    rx={10}
+                    rx={8}
                   />
                 </clipPath>
               </defs>
