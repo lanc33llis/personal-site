@@ -1,48 +1,85 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 
 import { Gradient } from "@/lib/gradient";
 import { useTheme } from "next-themes";
+import { cn } from "@/lib/utils";
 
-const gradient = new Gradient();
-
-const AnimatedBackground = ({ children }: { children?: React.ReactNode }) => {
+type AnimatedBackgroundProps = {
+  target?: string;
+  children?: React.ReactNode;
+  className?: string;
+  canvasClassName?: string;
+  gradientOpts?: any;
+  containerClassName?: string;
+};
+const AnimatedBackground = ({
+  children,
+  target = "gradient-canvas",
+  className,
+  canvasClassName,
+  gradientOpts,
+  containerClassName,
+}: AnimatedBackgroundProps) => {
   const { resolvedTheme } = useTheme();
+  const gradient = useMemo(() => new Gradient(gradientOpts), []);
 
   useEffect(() => {
     // @ts-expect-error
-    gradient.initGradient("#gradient-canvas");
+    gradient.initGradient(`#${target}`);
 
     return () => gradient.disconnect();
   }, [resolvedTheme]);
 
   return (
-    <div className="relative h-full flex flex-col overflow-hidden ">
+    <div
+      className={cn(
+        "relative h-full w-full flex flex-col overflow-hidden ",
+        containerClassName,
+      )}
+    >
       <style>
-        {`     
+        {`
+          #gradient-canvas-3 {
+            width:100%;
+            height:100%;
+            --gradient-color-1: #8600af;
+            --gradient-color-2: #e9b421;
+            --gradient-color-3: #616163;
+            --gradient-color-4: #b5c0ff;
+          }
+
+          #gradient-canvas-2 {
+            width:100%;
+            height:100%;
+            --gradient-color-1: #8600af;
+            --gradient-color-2: #e9b421;
+            --gradient-color-3: #616163;
+            --gradient-color-4: #b5c0ff;
+          }
+
           #gradient-canvas {
             width:100%;
             height:100%;
-            --gradient-color-1: #e4b2ff; 
-            --gradient-color-2: #ffb2b2;  
-            --gradient-color-3: #8294ff; 
-            --gradient-color-4: #fff;
-          }
-
-          .dark #gradient-canvas {
-            width:100%;
-            height:100%;
-            --gradient-color-1: #8600af; 
-            --gradient-color-2: #e9b421; 
-            --gradient-color-3: #616163;  
+            --gradient-color-1: #8600af;
+            --gradient-color-2: #e9b421;
+            --gradient-color-3: #616163;
             --gradient-color-4: #b5c0ff;
           }
         `}
       </style>
-      <div className="absolute -z-50 p-2 sm:p-8 h-full w-full overflow-hidden ">
-        <div className="rounded-xl overflow-hidden h-full">
+      <div
+        className={cn(
+          "absolute -z-50 h-full w-full overflow-hidden",
+          className,
+        )}
+      >
+        <div className="overflow-hidden h-full">
           <canvas
-            id="gradient-canvas"
-            className="w-full h-full blur-xl scale-110 contrast-[175%] dark:brightness-[35%] dark:saturate-150 dark:contrast-150"
+            id={target}
+            className={cn(
+              "w-full h-full blur-xl scale-110 brightness-[35%] saturate-150 contrast-150",
+              canvasClassName,
+            )}
             data-transition-in
           />
         </div>

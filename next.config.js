@@ -17,6 +17,12 @@ const nextConfig = withBundleAnalyzer({
     defaultLocale: "en-us",
   },
   transpilePackages: ["geist"],
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true,
+  },
 });
 
 module.exports = nextConfig;

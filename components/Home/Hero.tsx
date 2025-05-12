@@ -9,7 +9,7 @@ const Hero = () => {
   const [copiedEmailTimer, setCopiedEmailTimer] = useState<any>();
 
   return (
-    <div className="min-h-screen snap-center px-2 pt-12 sm:px-16 lg:pt-0 flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0">
+    <div className="snap-center min-h-screen flex flex-col lg:flex-row items-center justify-center gap-6 lg:gap-0">
       <style jsx global>{`
         body {
           overflow-y: ${loading ? "hidden" : "auto"};
@@ -26,9 +26,10 @@ const Hero = () => {
         transition={{ duration: 1, type: "spring" }}
         className="flex flex-col justify-center w-full pt-16 lg:pt-0 lg:w-1/2 lg:text-left max-w-[640px]"
       >
-        <h1 className="text-4xl font-semibold text-foreground/80 text-center sm:text-5xl xl:text-6xl 2xl:text-6xl lg:mb-4 lg:text-left">
+        <h1 className="w-[500px] font-semibold text-foreground/80 text-left text-5xl">
           I&apos;m
-          <span className="text-foreground/100"> Lance Ellis</span>,
+          <span className="text-foreground/100"> Lance Ellis</span>
+          <br />
           {` a software engineer`}
           <br className="hidden lg:inline" />
           {` and designer.`}
@@ -51,7 +52,7 @@ const Hero = () => {
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>
       </m.div>
-      <div className="-z-10 relative flex items-center md:h-screen justify-center w-full lg:w-1/2 sm:p-4 md:p-8 lg:p-8 xl:p-12 max-w-[600px]">
+      <div className="-z-10 relative flex items-center overflow-hidden h-full justify-center w-full lg:w-1/2 sm:p-4 md:p-8 lg:p-8 xl:p-12 max-w-[600px]">
         <div className="w-full h-fit relative">
           <m.div
             initial={{ opacity: 0, y: -100 }}
@@ -68,7 +69,7 @@ const Hero = () => {
               onLoadingComplete={() => setLoading(false)}
               quality={50}
               priority
-              className="saturate-[75%] brightness-105"
+              className="brightness-105"
             />
             <svg className="absolute left-0 right-0 w-full h-full">
               <defs>
@@ -80,7 +81,6 @@ const Hero = () => {
                     x="2.5%"
                     width="30%"
                     height="60%"
-                    rx={8}
                   />
                   <m.rect
                     initial={{ y: "0", opacity: 0 }}
@@ -89,7 +89,6 @@ const Hero = () => {
                     x="35%"
                     width="30%"
                     height="60%"
-                    rx={8}
                   />
                   <m.rect
                     initial={{ y: "0%", opacity: 0 }}
@@ -98,7 +97,6 @@ const Hero = () => {
                     x="67.5%"
                     width="30%"
                     height="60%"
-                    rx={8}
                   />
                 </clipPath>
               </defs>
