@@ -11,7 +11,7 @@ import { cn } from "@/lib/utils";
 
 const files = {
   "README.md": {
-    lastEdit: "1/6/25 6:44PM CST",
+    lastEdit: "05/12/25 12:22AM CST",
     content: `Hey! I am a self-taught programmer specializing in web development
 and design. I'm highly proficient with TypeScript, React, and
 Next.js. I enjoy building large scaling applications; I have a
