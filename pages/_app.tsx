@@ -38,15 +38,8 @@ function MyApp({ Component, pageProps }: AppProps) {
           ],
         }}
       />
-      <main
-        className={`${GeistSans.variable} ${GeistMono.variable} font-sans pb-4 sm:pb-0`}
-      >
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="dark"
-          // enableSystem
-          // disableTransitionOnChange
-        >
+      <main className={`${GeistSans.variable} ${GeistMono.variable} font-sans`}>
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <Component {...pageProps} />
         </ThemeProvider>
         <Analytics />

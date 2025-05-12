@@ -26,7 +26,7 @@ const Hero = () => {
         transition={{ duration: 1, type: "spring" }}
         className="flex flex-col justify-center w-full pt-16 lg:pt-0 lg:w-1/2 lg:text-left max-w-[640px]"
       >
-        <h1 className="w-[500px] font-semibold text-foreground/80 text-left text-5xl">
+        <h1 className="max-w-[500px] font-semibold text-foreground/80 lg:text-left text-center text-2xl md:text-5xl">
           I&apos;m
           <span className="text-foreground/100"> Lance Ellis</span>
           <br />
@@ -47,7 +47,7 @@ const Hero = () => {
               setCopiedEmailTimer(timer);
             }
           }}
-          className="hidden ml-1 text-xl text-left text-foreground/70 transition-all border-b border-foreground/70 cursor-pointer w-fit lg:block hover:text-foreground/100 h-fit hover:border-foreground/100"
+          className="hidden text-xl text-left text-foreground/70 transition-all border-b border-foreground/70 cursor-pointer w-fit lg:block hover:text-foreground/100 h-fit hover:border-foreground/100"
         >
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>
@@ -123,7 +123,7 @@ const Hero = () => {
               setCopiedEmailTimer(timer);
             }
           }}
-          className="z-10 block text-lg text-left text-foreground/70 transition-all border-b border-foreground/70 cursor-pointer w-fit lg:hidden hover:border-foreground/100 h-fit hover:text-foreground/100"
+          className="z-10 block mb-12 text-lg text-left text-foreground/70 transition-all border-b border-foreground/70 cursor-pointer w-fit lg:hidden hover:border-foreground/100 h-fit hover:text-foreground/100"
         >
           {!copiedEmail ? "Email?" : "Email Copied!"}
         </span>
