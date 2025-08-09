@@ -24,9 +24,9 @@ const Hero = () => {
         initial={{ opacity: 0, y: -25 }}
         animate={!loading ? { opacity: 1, y: 0 } : false}
         transition={{ duration: 1, type: "spring" }}
-        className="flex flex-col justify-center w-full pt-16 lg:pt-0 lg:w-1/2 lg:text-left max-w-[640px]"
+        className="flex sm:p-4 md:p-8 lg:p-8 xl:p-12 flex-col justify-center pt-8 w-full sm:pt-16 md:pt-24 lg:pt-0 lg:w-1/2 lg:text-left max-w-[640px]"
       >
-        <h1 className="max-w-[500px] font-semibold text-foreground/80 lg:text-left text-center text-2xl md:text-5xl">
+        <h1 className="font-semibold text-foreground/80 lg:text-left text-center text-2xl sm:text-4xl md:text-5xl">
           I&apos;m
           <span className="text-foreground/100"> Lance Ellis</span>
           <br />

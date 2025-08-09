@@ -33,7 +33,7 @@ const AnimatedBackground = ({
   return (
     <div
       className={cn(
-        "relative h-full w-full flex flex-col overflow-hidden ",
+        "relative grain h-full w-full flex flex-col overflow-hidden ",
         containerClassName,
       )}
     >
