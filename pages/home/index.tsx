@@ -53,72 +53,10 @@ const Home: NextPage = () => {
         <Hero />
       </AnimatedBackground>
       <AnimatedBackground target="gradient-canvas-2" gradientOpts={{ t: 0 }}>
-        <About />
-      </AnimatedBackground>
-      <AnimatedBackground target="gradient-canvas-3" gradientOpts={{ t: 4000 }}>
-        <div className="py-24 flex w-full flex-col items-center justify-center px-2">
-          <div className="max-w-5xl mx-auto w-full flex flex-col grow items-center md:items-end gap-16">
-            {HomeCards.map(([name, date, file, className, description]) => (
-              <div
-                key={name}
-                className="border backdrop-blur-xl bg-foreground/10 flex border-foreground/10 flex-col w-full justify-between"
-              >
-                <div className="border-b border-foreground/10 p-1 sm:p-2 pl-2 text-left flex justify-between font-code text-[.5rem] sm:text-xs gap-1">
-                  <span>{name}</span>
-                  <span className="text-foreground">{date}</span>
-                </div>
-                <div className="flex md:flex-row flex-col items-center md:items-start">
-                  {(file.endsWith("mp4") && (
-                    <video
-                      src={file}
-                      width={250}
-                      muted
-                      autoPlay
-                      className={cn("w-[250px]", className)}
-                    />
-                  )) || (
-                    <Image
-                      src={file}
-                      width={1024}
-                      height={1}
-                      alt={date}
-                      className={cn("w-full md:w-[450px]", className)}
-                    />
-                  )}
-                  <div className="line-container  w-full h-fit flex flex-col overflow-hidden">
-                    <div className="w-full flex h-full p-1 sm:p-2 text-[8px] sm:text-xs md:text-sm">
-                      <div className="h-full flex flex-col pr-4">
-                        {Array.from(
-                          {
-                            length:
-                              Math.floor(description.length / lineWidth) ===
-                              Infinity
-                                ? 0
-                                : Math.floor(description.length / lineWidth),
-                          },
-                          (_, i) => i + 1,
-                        ).map((line) => (
-                          <div className="flex">
-                            <p key={line} className=" dark:text-foreground w-8">
-                              {line}
-                            </p>
-                            <code className="dark:text-foreground">
-                              {description.slice(
-                                line * lineWidth,
-                                (line + 1) * lineWidth,
-                              )}
-                            </code>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
+        <div className="flex flex-col min-h-screen">
+          <About />
+          <Footer />
         </div>
-        <Footer />
       </AnimatedBackground>
     </LazyMotion>
   );
