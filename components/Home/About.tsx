@@ -25,7 +25,8 @@ and web development. I've also worked previously at Atlassian. In
 addition, I took a fellowship at Major League Hacking to learn
 about production engineering.
 
-I'm founded Linkage, a dev tooling company for workflow experiences.`,
+I'm founding Linkage, a dev tooling company for workflow
+experiences @ https://linkage.dev`,
   },
   "RESUME.md": {
     lastEdit: "10/09/25 2:20PM PST",
@@ -100,7 +101,7 @@ const About = () => {
               key={file}
               className={cn(
                 "flex font-mono gap-1 px-2 hover:bg-foreground/10 py-0.5",
-                file === selectedFile && "bg-foreground/10 text-foreground/100",
+                file === selectedFile && "bg-foreground/10 text-foreground/100"
               )}
               onClick={() => setSelectedFile(file as keyof typeof files)}
             >
@@ -120,7 +121,7 @@ const About = () => {
             <div className="h-full flex flex-col pr-4">
               {Array.from(
                 { length: files[selectedFile].content.split("\n").length },
-                (_, i) => i + 1,
+                (_, i) => i + 1
               ).map((line) => (
                 <span key={line} className="text-end dark:text-foreground">
                   {line}
