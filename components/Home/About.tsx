@@ -23,10 +23,7 @@ user-facing features for the Alexa app. My experience also includes
 contracting and freelancing for small startups primarily for mobile
 and web development. I've also worked previously at Atlassian. In
 addition, I took a fellowship at Major League Hacking to learn
-about production engineering.
-
-I'm founding Linkage, a dev tooling company for workflow
-experiences @ https://linkage.dev`,
+about production engineering.`,
   },
   "RESUME.md": {
     lastEdit: "10/09/25 2:20PM PST",
@@ -91,17 +88,17 @@ const About = () => {
       className="relative grow flex justify-center snap-center items-center overflow-hidden "
     >
       <div className="relative h-fit flex sm:flex-row flex-col">
-        <div className="text-[7.5px] sm:text-xs md:text-sm border-b-0 sm:border-r-0 flex flex-col flex-1 border bg-background/25 border-background/25 dark:border-foreground/10 dark:bg-foreground/10 shadow backdrop-blur-xl">
-          <span className="flex gap-1 items-center py-0.5 px-2 sm:py-2">
-            <ChevronDownIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:h-4 md:w-4" />
-            <span className="mt-0.5 sm:mt-0">λ</span>
+        <div className="text-[7.5px] sm:text-xs md:text-sm -mb-px sm:mb-0 border-b-0 sm:border-r-0 flex flex-col flex-1 border border-foreground/10 backdrop-blur-xl bg-foreground/10">
+          <span className="flex gap-1 items-center py-0.5 px-2 sm:py-2 text-[.5rem] sm:text-xs">
+            <ChevronDownIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:w-4 md:h-4" />
+            <span className="">λ</span>
           </span>
           {Object.keys(files).map((file) => (
             <button
               key={file}
               className={cn(
                 "flex font-mono gap-1 px-2 hover:bg-foreground/10 py-0.5",
-                file === selectedFile && "bg-foreground/10 text-foreground/100"
+                file === selectedFile && "bg-foreground/10 text-foreground/100",
               )}
               onClick={() => setSelectedFile(file as keyof typeof files)}
             >
@@ -121,7 +118,7 @@ const About = () => {
             <div className="h-full flex flex-col pr-4">
               {Array.from(
                 { length: files[selectedFile].content.split("\n").length },
-                (_, i) => i + 1
+                (_, i) => i + 1,
               ).map((line) => (
                 <span key={line} className="text-end dark:text-foreground">
                   {line}
