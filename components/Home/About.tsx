@@ -90,11 +90,11 @@ const About = () => {
       ref={ref}
       className="relative grow flex justify-center snap-center items-center overflow-hidden "
     >
-      <div className="relative h-fit flex">
-        <div className="text-xs border-r-0 flex flex-col flex-1 border bg-background/25 border-background/25 dark:border-foreground/10 dark:bg-foreground/10 shadow backdrop-blur-xl">
-          <span className="flex gap-1 items-center p-2">
-            <ChevronDownIcon />
-            <span>lancee</span>
+      <div className="relative h-fit flex sm:flex-row flex-col">
+        <div className="text-[7.5px] sm:text-xs md:text-sm border-b-0 sm:border-r-0 flex flex-col flex-1 border bg-background/25 border-background/25 dark:border-foreground/10 dark:bg-foreground/10 shadow backdrop-blur-xl">
+          <span className="flex gap-1 items-center py-0.5 px-2 sm:py-2">
+            <ChevronDownIcon className="w-2.5 h-2.5 sm:w-3 sm:h-3 md:h-4 md:w-4" />
+            <span className="mt-0.5 sm:mt-0">λ</span>
           </span>
           {Object.keys(files).map((file) => (
             <button
@@ -105,19 +105,19 @@ const About = () => {
               )}
               onClick={() => setSelectedFile(file as keyof typeof files)}
             >
-              <MarkdownIcon />
-              <span>{file}</span>
+              <MarkdownIcon className="w-5 sm:w-6 md:w-7" />
+              <span className="mt-px sm:mt-0">{file}</span>
             </button>
           ))}
         </div>
-        <div className="w-[622px] h-max flex flex-col border border-foreground/10 backdrop-blur-xl bg-foreground/10">
+        <div className="max-w-[622px] h-max flex flex-col border border-foreground/10 backdrop-blur-xl bg-foreground/10">
           <div className="border-b flex justify-between border-foreground/10 p-1 sm:p-2 pl-2 text-left font-code text-[.5rem] sm:text-xs">
             <span>{selectedFile}</span>
             <span className="dark:text-foreground">
               {files[selectedFile].lastEdit}
             </span>
           </div>
-          <pre className="flex h-full p-1 sm:p-2 text-[8px] sm:text-xs md:text-sm w-fit">
+          <pre className="flex h-full p-1 sm:p-2 text-[7.5px] sm:text-xs md:text-sm w-fit">
             <div className="h-full flex flex-col pr-4">
               {Array.from(
                 { length: files[selectedFile].content.split("\n").length },
