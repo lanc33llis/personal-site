@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 192 192" role="img" aria-label="MLH and Meta mark">
+  <rect width="192" height="192" rx="32" fill="#0668e1"/>
+  <path d="M35 126V66h18l17 27 17-27h18v60H84V96l-14 21-14-21v30H35Z" fill="#ffffff"/>
+  <path d="M111 126V66h21v42h25v18h-46Z" fill="#ffffff" opacity=".9"/>
+  <path d="M47 149c18-25 36-25 54 0 18-25 36-25 54 0" fill="none" stroke="#ffffff" stroke-width="9" stroke-linecap="round"/>
+</svg>
