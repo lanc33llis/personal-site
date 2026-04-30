@@ -32,8 +32,8 @@ const projects = [
 const Gallery = () => {
   return (
     <Container className="">
-      <div className=" flex items-end justify-between pb-6">
-        <h2 className="text-4xl font-medium tracking-normal sm:text-5xl">
+      <div className="flex items-end justify-between pb-5 sm:pb-6">
+        <h2 className="text-3xl font-medium tracking-normal sm:text-5xl">
           Selected Work
         </h2>
       </div>
@@ -55,23 +55,25 @@ const Gallery = () => {
               />
             </div>
 
-            <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
-              <div>
-                <h3 className="text-2xl font-medium">{project.title}</h3>
+            <div className="mt-3 flex min-w-0 flex-wrap gap-1.5">
+              {project.meta.map((item) => (
+                <span
+                  key={item}
+                  className="rounded-xs border px-2 py-1 font-mono text-[11px] leading-none text-muted-foreground"
+                >
+                  {item}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-3">
+              <div className="min-w-0">
+                <h3 className="text-xl font-medium sm:text-2xl">
+                  {project.title}
+                </h3>
                 <p className="mt-1 max-w-2xl text-sm leading-relaxed text-muted-foreground">
                   {project.description}
                 </p>
-              </div>
-
-              <div className="flex shrink-0 flex-wrap gap-1.5 sm:justify-end">
-                {project.meta.map((item) => (
-                  <span
-                    key={item}
-                    className="border rounded-xs px-2 py-1 font-mono text-[11px] text-muted-foreground"
-                  >
-                    {item}
-                  </span>
-                ))}
               </div>
             </div>
           </article>

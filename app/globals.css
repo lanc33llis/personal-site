@@ -85,6 +85,7 @@
 
 body {
   font-family: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  overflow-x: clip;
 }
 
 html {

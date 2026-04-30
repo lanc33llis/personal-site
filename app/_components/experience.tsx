@@ -105,7 +105,7 @@ const ParallaxChip = ({
   return (
     <motion.span
       className={cn(
-        "z-10 select-none whitespace-nowrap rounded-full border px-3 py-1.5 text-sm font-medium will-change-transform sm:px-4 sm:py-2 sm:text-base",
+        "z-10 select-none whitespace-nowrap rounded-full border px-2.5 py-1 text-[11px] font-medium leading-none will-change-transform sm:px-3 sm:py-1.5 sm:text-sm md:px-4 md:py-2 md:text-base",
         item.kind === "company"
           ? "border-foreground bg-foreground text-background"
           : "border-border bg-background text-foreground",
@@ -171,19 +171,19 @@ const ResumeGravity = () => {
         <div
           ref={stageRef}
           aria-label="Technologies and companies from Lance Ellis's resume"
-          className="relative h-screen overflow-hidden"
+          className="relative h-dvh min-h-[640px] overflow-hidden sm:min-h-[720px]"
         >
           <motion.div
             aria-hidden="true"
             className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center px-6 text-center"
             style={{ opacity: centerTextOpacity, y: centerTextY }}
           >
-            <p className="max-w-3xl text-4xl font-medium leading-none tracking-normal sm:text-6xl">
+            <p className="max-w-[18rem] text-3xl font-medium leading-none tracking-normal sm:max-w-2xl sm:text-4xl md:text-5xl lg:max-w-3xl lg:text-6xl">
               Freelancing and developing for 5 years
             </p>
           </motion.div>
 
-          <div className="absolute inset-0 flex flex-wrap content-evenly justify-evenly gap-x-3 gap-y-2 px-4 py-8 sm:gap-x-5 sm:gap-y-4 sm:px-8">
+          <div className="absolute inset-0 flex flex-wrap content-evenly justify-evenly gap-x-1.5 gap-y-1 px-3 py-6 sm:gap-x-5 sm:gap-y-4 sm:px-8">
             {fallingItems.map((item, index) => (
               <ParallaxChip
                 key={item.label}
