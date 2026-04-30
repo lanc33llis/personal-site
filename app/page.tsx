@@ -20,7 +20,8 @@ export default function Home() {
             <div className="w-1/2 h-fit px-7 sm:px-12 flex flex-col gap-4">
               <h1 className="font-sans font-medium tracking-[-0.15rem] text-5xl ">
                 I&apos;m a web designer and developer that helps startups go
-                from ZERO to ONE
+                from <span className="font-mono">ZER0</span> to{" "}
+                <span className="font-mono">0NE</span>
               </h1>
               <div className="flex gap-2">
                 <Button className="text-base w-fit py-1.5 font-medium h-fit">

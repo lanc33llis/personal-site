@@ -12,6 +12,7 @@ const experiences = [
     skills: ["Next.js", "TypeScript", "AWS", "DynamoDB", "Postgres", "MCP"],
     icon: "/atlassian.svg",
     hoverColor: "#0052cc",
+    imageStyle: {},
   },
   {
     org: "Y'all Corporation",
@@ -26,8 +27,9 @@ const experiences = [
       "PostgreSQL",
       "WebSockets",
     ],
-    icon: "/yall.svg",
-    hoverColor: "#111827",
+    icon: "",
+    hoverColor: "#0f766e",
+    imageStyle: {},
   },
 
   {
@@ -37,6 +39,11 @@ const experiences = [
     skills: ["React Native", "TypeScript", "Redux", "Apollo", "Jest", "QA"],
     icon: "/amazon.svg",
     hoverColor: "#232f3e",
+    imageStyle: {
+      transform: "scale(0.55) translate(0%, -182px)",
+      height: "182px",
+      width: "415px",
+    },
   },
 ] as const;
 
@@ -53,7 +60,7 @@ const Experience = () => {
             )}
             whileHover={{
               backgroundColor: experience.hoverColor,
-              color: "white",
+              color: "#fff",
             }}
             transition={{ duration: 0.3 }}
           >
@@ -70,9 +77,15 @@ const Experience = () => {
                 </span>
               ))}
             </p>
-            <div className="absolute z-10 -bottom-8 group-hover:opacity-100 opacity-0 transition-opacity transform-[rotate(45deg)] right-0">
-              <img src={experience.icon} className="w-48 h-48" />
-            </div>
+            {experience.icon && (
+              <div className="absolute z-10 -bottom-8 group-hover:opacity-100 opacity-0 transition-opacity rotate-45 right-0">
+                <img
+                  src={experience.icon}
+                  className="size-48"
+                  style={experience.imageStyle}
+                />
+              </div>
+            )}
           </motion.div>
         ))}
       </div>
