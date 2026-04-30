@@ -9,7 +9,7 @@ import CopyEmailButton from "./_components/copy-email-button";
 export default function Home() {
   return (
     <main id="top" className="min-h-screen">
-      <section className="flex min-h-dvh flex-col lg:h-dvh">
+      <section className="flex min-h-svh flex-col lg:h-dvh">
         <header className="border-b">
           <Container className="py-4 sm:py-6">
             <p className="font-medium leading-none text-foreground">
