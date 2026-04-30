@@ -1,14 +1,18 @@
 import Container from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { WaterBackground } from "@/components/water-background";
-import Experience from "./_components/experience";
+import ResumeGravity from "./_components/experience";
+import Footer from "./_components/footer";
+import Gallery from "./_components/gallery";
+import { toast } from "sonner";
+import CopyEmailButton from "./_components/copy-email-button";
 
 export default function Home() {
   return (
     <main id="top" className="min-h-screen">
       <section className="h-screen flex flex-col">
         <header className="border-b">
-          <Container className="py-4">
+          <Container className="py-6">
             <p className="font-medium leading-none text-foreground">
               Lance Ellis
             </p>
@@ -24,14 +28,14 @@ export default function Home() {
                 <span className="font-mono">0NE</span>
               </h1>
               <div className="flex gap-2">
-                <Button className="text-base w-fit py-1.5 font-medium h-fit">
+                <CopyEmailButton className="text-base w-fit py-1.5 font-medium h-fit">
                   Contact
-                </Button>
+                </CopyEmailButton>
                 <Button
                   variant="outline"
                   className="text-base w-fit py-1.5 font-medium h-fit"
                 >
-                  Gallery
+                  Selected Work
                 </Button>
               </div>
             </div>
@@ -43,8 +47,14 @@ export default function Home() {
       </section>
 
       <section className="border-t">
-        <Experience />
+        <ResumeGravity />
       </section>
+
+      <section className="">
+        <Gallery />
+      </section>
+
+      <Footer />
     </main>
   );
 }
