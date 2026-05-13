@@ -20,7 +20,7 @@ export default function Home() {
 
         <div className="flex w-full flex-1">
           <div className="flex w-full flex-1 flex-col lg:flex-row lg:items-stretch">
-            <div className="flex flex-1 flex-col gap-4 px-5 pt-8 sm:px-8 lg:w-1/2 lg:justify-center lg:px-12 lg:py-0">
+            <div className="flex flex-1 flex-col gap-4 px-5 pt-2.5 sm:pt-8 sm:px-8 lg:w-1/2 lg:justify-center lg:px-12 lg:py-0">
               <h1 className="max-w-3xl font-sans text-4xl font-medium leading-[0.95] tracking-normal sm:text-5xl lg:text-6xl">
                 I&apos;m a web designer and developer that helps startups go
                 from <span className="font-mono">ZER0</span> to{" "}
