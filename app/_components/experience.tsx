@@ -171,7 +171,7 @@ const ResumeGravity = () => {
         <div
           ref={stageRef}
           aria-label="Technologies and companies from Lance Ellis's resume"
-          className="relative h-dvh min-h-[640px] overflow-hidden sm:min-h-[720px]"
+          className="relative h-svh min-h-[640px] overflow-hidden sm:min-h-[720px] lg:h-dvh"
         >
           <motion.div
             aria-hidden="true"
