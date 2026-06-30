@@ -26,7 +26,7 @@ export default function Home() {
                 from <span className="font-mono">ZER0</span> to{" "}
                 <span className="font-mono">0NE</span>
               </h1>
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-2 sm:pb-8">
                 <CopyEmailButton className="h-9 w-fit py-1.5 text-base font-medium">
                   Contact
                 </CopyEmailButton>
@@ -38,7 +38,7 @@ export default function Home() {
                   <a href="#selected-work">Selected Work</a>
                 </Button>
               </div>
-              <div className="relative left-1/2 min-h-56 flex-1 w-screen -translate-x-1/2 overflow-hidden border-y lg:hidden">
+              <div className="relative left-1/2 min-h-56 flex-1 w-screen -translate-x-1/2 overflow-hidden border-t  lg:hidden">
                 <WaterBackground />
               </div>
             </div>
