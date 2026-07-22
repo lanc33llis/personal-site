@@ -1,7 +1,9 @@
 "use client";
 
 import Container from "@/components/container";
+import { WaterBackground } from "@/components/water-background";
 import { cn } from "@/lib/utils";
+import { Water } from "@paper-design/shaders-react";
 import {
   motion,
   type MotionValue,
@@ -175,11 +177,11 @@ const ResumeGravity = () => {
         >
           <motion.div
             aria-hidden="true"
-            className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center px-6 text-center"
+            className="pointer-events-none absolute inset-0 z-20 flex items-center justify-center  text-center"
             style={{ opacity: centerTextOpacity, y: centerTextY }}
           >
-            <p className="max-w-[18rem] text-3xl font-medium leading-none tracking-normal sm:max-w-2xl sm:text-4xl md:text-5xl lg:max-w-3xl lg:text-6xl">
-              Freelancing and developing for 5 years
+            <p className="border-y bg-background py-6 w-full inline-block text-3xl font-medium leading-none tracking-normal sm:text-4xl md:text-5xl  lg:text-6xl">
+              Freelancing and developing <br /> for 5 years
             </p>
           </motion.div>
 
