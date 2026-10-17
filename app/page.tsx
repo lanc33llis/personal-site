@@ -11,7 +11,7 @@ export default function Home() {
     <main id="top" className="min-h-screen">
       <section className="flex min-h-svh flex-col lg:h-dvh">
         <header className="border-b">
-          <Container className="py-4 sm:py-6">
+          <Container className="py-3">
             <p className="font-medium leading-none text-foreground">
               Lance Ellis
             </p>

@@ -13,7 +13,7 @@ const links = [
 const Footer = () => {
   return (
     <footer className="border-t">
-      <Container className="border-x py-6">
+      <Container className="border-x py-3">
         <div className="flex flex-col gap-3 sm:gap-6 sm:flex-row sm:items-center sm:justify-between">
           <div>
             <p className="text-muted-foreground">
