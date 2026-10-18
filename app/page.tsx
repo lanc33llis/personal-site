@@ -1,22 +1,16 @@
-import Container from "@/components/container";
 import { Button } from "@/components/ui/button";
 import { WaterBackground } from "@/components/water-background";
 import ResumeGravity from "./_components/experience";
 import Footer from "./_components/footer";
 import Gallery from "./_components/gallery";
 import CopyEmailButton from "./_components/copy-email-button";
+import SiteHeader from "./_components/site-header";
 
 export default function Home() {
   return (
     <main id="top" className="min-h-screen">
       <section className="flex min-h-svh flex-col lg:h-dvh">
-        <header className="border-b">
-          <Container className="py-3">
-            <p className="font-medium leading-none text-foreground">
-              Lance Ellis
-            </p>
-          </Container>
-        </header>
+        <SiteHeader />
 
         <div className="flex w-full flex-1">
           <div className="flex w-full flex-1 flex-col lg:flex-row lg:items-stretch">
