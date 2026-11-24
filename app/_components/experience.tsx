@@ -1,9 +1,7 @@
 "use client";
 
 import Container from "@/components/container";
-import { WaterBackground } from "@/components/water-background";
 import { cn } from "@/lib/utils";
-import { Water } from "@paper-design/shaders-react";
 import {
   motion,
   type MotionValue,
@@ -13,17 +11,25 @@ import {
 import { useEffect, useRef } from "react";
 
 const fallingItems = [
+  { label: "Q2", kind: "company" },
   { label: "Atlassian", kind: "company" },
   { label: "Amazon", kind: "company" },
   { label: "Meta", kind: "company" },
   { label: "Major League Hacking", kind: "company" },
   { label: "Trinity University", kind: "company" },
-  { label: "Y'all Corporation", kind: "company" },
+  { label: "Y’all Corporation", kind: "company" },
   { label: "Specra", kind: "company" },
   { label: "Longhorn Racing", kind: "company" },
+  { label: "Node.js", kind: "tech" },
+  { label: "Turborepo", kind: "tech" },
+  { label: "Biome", kind: "tech" },
+  { label: "MCP", kind: "tech" },
+  { label: "Confluence", kind: "tech" },
+  { label: "GitLab", kind: "tech" },
   { label: "Next.js", kind: "tech" },
   { label: "TypeScript", kind: "tech" },
   { label: "React Native", kind: "tech" },
+  { label: "Expo", kind: "tech" },
   { label: "AWS", kind: "tech" },
   { label: "DynamoDB", kind: "tech" },
   { label: "Postgres", kind: "tech" },
@@ -35,35 +41,34 @@ const fallingItems = [
   { label: "Java", kind: "tech" },
   { label: "GraphQL", kind: "tech" },
   { label: "Redux", kind: "tech" },
+  { label: "Apollo", kind: "tech" },
   { label: "Jest", kind: "tech" },
   { label: "Flask", kind: "tech" },
   { label: "MongoDB", kind: "tech" },
   { label: "Prometheus", kind: "tech" },
   { label: "Grafana", kind: "tech" },
   { label: "Scala", kind: "tech" },
-  { label: "Yjs", kind: "tech" },
-  { label: "LlamaIndex", kind: "tech" },
-  { label: "AWS Bedrock", kind: "tech" },
   { label: "React", kind: "tech" },
-  { label: "Expo", kind: "tech" },
-  { label: "OpenAI", kind: "tech" },
   { label: "AWS Lambda", kind: "tech" },
   { label: "API Gateway", kind: "tech" },
   { label: "EventBridge", kind: "tech" },
   { label: "CloudFormation", kind: "tech" },
   { label: "Boto3", kind: "tech" },
   { label: "Pytest", kind: "tech" },
-  { label: "Localstack", kind: "tech" },
   { label: "Tailwind CSS", kind: "tech" },
   { label: "Recoil", kind: "tech" },
   { label: "GitHub Actions", kind: "tech" },
   { label: "Nginx", kind: "tech" },
-  { label: "cAdvisor", kind: "tech" },
-  { label: "Jotai", kind: "tech" },
+  { label: "Linux", kind: "tech" },
+  { label: "Codex", kind: "tech" },
+  { label: "Claude Code", kind: "tech" },
   { label: "Neon", kind: "tech" },
   { label: "shadcn/ui", kind: "tech" },
+  { label: "Gymnasium", kind: "tech" },
+  { label: "PyBaMM", kind: "tech" },
   { label: "C++", kind: "tech" },
   { label: "NumPy", kind: "tech" },
+  { label: "Storybook", kind: "tech" },
 ] as const satisfies ReadonlyArray<{
   label: string;
   kind: "company" | "tech";
