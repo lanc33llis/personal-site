@@ -56,7 +56,7 @@ const screenshotPanelClassName =
 const Gallery = () => {
   return (
     <Container>
-      <div className="grid grid-cols-1 gap-x-4 gap-y-12 sm:gap-y-16 lg:auto-rows-fr lg:grid-cols-3 lg:gap-y-6">
+      <div className="grid grid-cols-1 gap-y-12 sm:gap-y-16 lg:auto-rows-fr lg:grid-cols-3 lg:gap-4">
         {projects.map((project) => (
           <article
             key={project.title}
