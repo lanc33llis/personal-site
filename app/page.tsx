@@ -28,7 +28,7 @@ export default function Home() {
                 </CopyEmailButton>
               </div>
             </div>
-            <div className="relative border-t [clip-path:inset(0_round_0_0_var(--radius-3xl)_var(--radius-3xl))] lg:border-t-0 lg:[clip-path:inset(0_round_0_0_0_var(--radius-3xl))]">
+            <div className="relative overflow-hidden border-t sm:[clip-path:inset(0_round_0_0_var(--radius-3xl)_var(--radius-3xl))] lg:border-t-0 lg:[clip-path:inset(0_round_0_0_0_var(--radius-3xl))]">
               <div className="absolute inset-0">
                 <WaterBackground />
               </div>

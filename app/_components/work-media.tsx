@@ -61,14 +61,16 @@ export function WorkMedia({
   if (project.video?.layout === "screen") {
     return (
       <ViewTransition {...transition}>
-        <div className={panelClassName}>
+        <div className={workMediaFrameClass}>
           <WorkVideo
             aria-label={project.video.label}
             src={project.video.src}
             poster={project.video.poster ?? project.image.src}
             controls={hero}
             loop={!hero}
-            className={cn("block w-full rounded-sm", !hero && "aspect-video object-cover lg:h-full")}
+            width={project.image.width}
+            height={project.image.height}
+            className="block h-auto w-full rounded-sm"
           />
         </div>
       </ViewTransition>
