@@ -1,5 +1,6 @@
 "use client";
 
+import { assetUrl } from "@/lib/cdn-assets.mjs";
 import { Water } from "@paper-design/shaders-react";
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
@@ -156,7 +157,7 @@ export function WaterBackground({ className }: { className?: string }) {
         <Water
           width={"100%"}
           height={"100%"}
-          image="/fluted-glass.png"
+          image={assetUrl("/fluted-glass.png")}
           colorBack="#8f8f8f"
           colorHighlight="#ffffff"
           highlights={0.4}
@@ -174,7 +175,7 @@ export function WaterBackground({ className }: { className?: string }) {
         aria-hidden="true"
         className="pointer-events-none absolute inset-0 opacity-100 mix-blend-overlay"
         style={{
-          background: "url(/grain.svg)",
+          background: `url(${assetUrl("/grain.svg")})`,
         }}
       />
       <div

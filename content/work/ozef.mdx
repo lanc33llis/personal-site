@@ -1,0 +1,26 @@
+import { OzefPreview } from "@/app/_components/ozef-preview"
+
+import { OzefPlayground } from "@/app/_components/ozef-playground"
+
+export const metadata = {
+  title: "Ozef",
+  description: "Define a field once in Zod and choose how its React input and validation error appear.",
+  tags: ["React forms", "API design"],
+  preview: OzefPreview,
+  heroCaption: "Try changing the email to ada and pressing Submit. Fix the address and submit again.",
+  order: 4,
+}
+
+I built Ozef because a form field kept making me describe the same requirement in several places. An email address had a type, a validation rule, and an input wired up to display the error. I wanted to define the rule once and still choose exactly how the field looked.
+
+## Edit the schema and try the form
+
+Start with a bug report or switch to a launch signup. Change the title minimum from five characters to two, or add a field such as `contact: z.email()`. The form updates as soon as the schema is valid. Submit it to see the values Ozef accepts.
+
+<OzefPlayground />
+
+## Where the library stops
+
+I left layout and rendering with the developer. In this example the two name fields share a row, the email field takes the full width, and a custom input places the error beneath its label and control. It links the error to the input with `aria-describedby` so assistive technology can pick up the relationship too.
+
+That split lets me use the same form logic with a product's own inputs, typography, and spacing. [Source on GitHub](https://github.com/lanc33llis/ozef) · [Package on npm](https://www.npmjs.com/package/ozef)

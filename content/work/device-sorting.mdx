@@ -1,0 +1,43 @@
+import { assetUrl, publicImage } from "@/lib/cdn-assets.mjs"
+import imageFile from "@/public/alexa-device-sorting.jpg"
+
+export const image = publicImage(imageFile, "/alexa-device-sorting.jpg")
+import sortOptionsFile from "@/public/alexa-sort-options.jpg"
+
+export const sortOptions = publicImage(sortOptionsFile, "/alexa-sort-options.jpg")
+
+export const metadata = {
+  title: "Device Sorting",
+  description: "Find a device by the name you remember or by when you added it. Shipped in Amazon Alexa.",
+  tags: ["Mobile UI", "List navigation"],
+  image,
+  imageAlt: "Amazon Alexa device list",
+  heroCaption: "Watch the Sort By label as the list switches from date added to alphabetical order.",
+  video: {
+    src: assetUrl("/alexa-device-sorting.mp4"),
+    poster: sortOptions.src,
+    label: "Amazon Alexa device sorting demonstration",
+  },
+  order: 2,
+}
+
+At Amazon, I shipped device sorting in the Alexa mobile app. Someone looking for a bulb they just added has a different starting point from someone who remembers its name. I worked on making both routes available from the device list.
+
+## Finding a device by date or by name
+
+The **Sort By** menu offers four choices. Someone setting up a new bulb can start with the most recently added device. Someone looking for a named speaker can switch to alphabetical order.
+
+<WorkFigure image={sortOptions} alt="Alexa’s Sort By sheet with Newest first, Oldest first, A to Z, and Z to A options." caption="Each row pairs a direction with the field it acts on. The first two use the date added and the last two use the device name." />
+
+Watch the control after the menu closes. Its label changes to **Oldest First**, then **A to Z** as the list reorders. You can tell why a particular device is at the top without reopening the menu.
+
+Here’s a simplified TypeScript sketch of how those visible labels map to sort rules.
+
+```ts
+const sortRules = {
+  "Newest first": { field: "dateAdded", direction: "descending" },
+  "Oldest first": { field: "dateAdded", direction: "ascending" },
+  "A to Z": { field: "deviceName", direction: "ascending" },
+  "Z to A": { field: "deviceName", direction: "descending" },
+} as const;
+```

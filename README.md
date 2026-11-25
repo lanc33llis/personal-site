@@ -34,3 +34,20 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+## Public assets on Cloudflare
+
+Vercel builds and serves the Next.js application. Production builds use
+`https://lanc3-portfolio-assets.pages.dev` for public media. Local development
+serves files from `public/`. Set `NEXT_PUBLIC_ASSET_ORIGIN` at build time to
+override the host or set it to an empty string to use local assets in production.
+
+After changing public media, publish the assets before releasing the site:
+
+```sh
+bun run assets:test
+npx wrangler@4 pages deploy build/assets --project-name lanc3-portfolio-assets --branch main
+```
+
+The preparation script stages public files, responsive WebP images and the
+video byte-range handler. The Next.js build keeps application bundles on Vercel.

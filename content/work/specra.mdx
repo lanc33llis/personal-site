@@ -1,0 +1,65 @@
+import { assetUrl, publicImage } from "@/lib/cdn-assets.mjs"
+import imageFile from "@/public/specra-homepage-hero-poster.jpg"
+import selectionFile from "@/public/specra-button-selection-trimmed.png"
+
+export const image = publicImage(imageFile, "/specra-homepage-hero-poster.jpg")
+export const selection = publicImage(selectionFile, "/specra-button-selection-trimmed.png")
+
+export const metadata = {
+  title: "Specra",
+  description: "Click the element that feels off and give a coding agent the context to edit it.",
+  tags: ["AI design tools", "Agent evaluation"],
+  image,
+  imageAlt: "Still from the Specra product demonstration",
+  video: {
+    layout: "screen",
+    src: assetUrl("/specra-homepage-hero.mp4"),
+    label: "Specra product demonstration",
+  },
+  order: 1,
+}
+
+I built Specra because I kept noticing spacing issues while using an app. I could point to the exact gap I wanted to change. Asking a coding agent to fix it meant interrupting that thought to track down a component and a file. I wanted to click the element and say what felt off.
+
+## What travels with a click
+
+Say two controls feel too far apart. Selecting one gives the agent a target in the running app, a short excerpt of its HTML, and measured styles including gap, padding, and margin. When the app exposes component or source information, Specra passes that along as a hint. The agent can use those clues to find the owning component before editing. I can stay in the interface where I noticed the issue.
+
+<WorkFigure
+  image={selection}
+  alt="Specra outlines the Request early access button in blue. The composer shows LinkComponent attached to the draft request."
+  caption="I selected the button in the preview and typed “Make this button bigger.” Specra attached LinkComponent, so I could say “this” without looking up the file."
+/>
+
+## Choosing what the agent sees
+
+I spent much of my time on what happens after the click. An agent looking at a shared component may need to know what it imports and which design tokens it already uses. Sending the whole component library with every request would make a small edit expensive.
+
+There are two “Request early access” buttons in the screenshot. The words alone could refer to either one. The click identifies the lower button, and the component index helps narrow the search from there. Each candidate gets four scores. The first score that differs decides the order, so even a widely used button elsewhere in the app ranks below a direct import of the selected file.
+
+<WorkFigure caption="Specra keeps up to 16 component paths. Prompt terms and usage count break ties after source matches and direct imports.">
+
+```ts
+const components = rank(componentPaths, (component) => {
+  const path = modulePath(component);
+  const metadata = metadataByPath.get(path);
+  const name = path.split("/").at(-1) ?? path;
+  return [
+    Number(sources.some((source) => matchesSource(path, source))),
+    Number(directDependencies.has(component)),
+    overlap(
+      [name, metadata?.name, ...(metadata?.exports ?? [])].join(" "),
+      query,
+    ),
+    metadata?.usageCount ?? 0,
+  ];
+}).slice(0, componentLimit);
+```
+
+</WorkFigure>
+
+## Testing our eye for detail
+
+We tested functionality in the browser and rated visual quality from rendered screenshots. We also tested the visual judge itself. We deliberately degraded typography in five reference designs to see whether the scores would move. The judge picked up the large defects in all five. For smaller, localized changes, only one of five produced a clear shift in the overall score.
+
+That result matters for the kind of detail that got me building Specra. I can use an eval to spot a broad regression and still want to open the app, look at those two controls together, and judge the spacing myself.

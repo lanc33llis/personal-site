@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Toaster } from "@/components/ui/sonner";
+import { WorkHistoryNavigation } from "./_components/work-navigation";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,19 +16,23 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+const portfolioTitle = "Lance Ellis | Design Engineer";
+const portfolioDescription =
+  "Lance Ellis is a design engineer building Specra, a tool for editing interfaces with AI agents. His work includes device sorting for Amazon Alexa.";
+
 export const metadata: Metadata = {
+  metadataBase: new URL("https://lanc3.dev"),
   title: {
-    default: "Lance Ellis | Web Designer & Developer",
+    default: portfolioTitle,
     template: "%s | Lance Ellis",
   },
-  description:
-    "Portfolio for Lance Ellis, a web designer and developer helping startups build polished full-stack products, AI tools, and scalable systems.",
+  description: portfolioDescription,
   applicationName: "Lance Ellis Portfolio",
   authors: [{ name: "Lance Ellis" }],
   creator: "Lance Ellis",
   keywords: [
     "Lance Ellis",
-    "web designer",
+    "design engineer",
     "web developer",
     "software engineer",
     "full-stack developer",
@@ -36,18 +41,16 @@ export const metadata: Metadata = {
     "Next.js developer",
   ],
   openGraph: {
-    title: "Lance Ellis | Web Designer & Developer",
-    description:
-      "Portfolio for Lance Ellis, focused on web design, full-stack products, AI tools, and scalable systems.",
+    title: portfolioTitle,
+    description: portfolioDescription,
     siteName: "Lance Ellis Portfolio",
     type: "website",
     locale: "en_US",
   },
   twitter: {
-    card: "summary",
-    title: "Lance Ellis | Web Designer & Developer",
-    description:
-      "Portfolio for Lance Ellis, focused on web design, full-stack products, AI tools, and scalable systems.",
+    card: "summary_large_image",
+    title: portfolioTitle,
+    description: portfolioDescription,
   },
   robots: {
     index: true,
@@ -66,6 +69,7 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col">
+        <WorkHistoryNavigation />
         {children}
         <Toaster />
         <Analytics />
