@@ -1,3 +1,4 @@
+import { socialMetadata } from "@/lib/social-metadata";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Footer from "@/app/_components/footer";
@@ -19,7 +20,19 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const project = await getWorkProject(slug);
 
-  return project ? { title: project.title, description: project.description } : {};
+  if (!project) return {};
+
+  return {
+    title: project.title,
+    ...socialMetadata({
+      title: `${project.title} | Lance Ellis`,
+      description: project.description,
+      path: `/work/${slug}`,
+      image: project.shareImage,
+      alt: project.shareImageAlt,
+      article: true,
+    }),
+  };
 }
 
 export default async function WorkPage({ params }: Props) {

@@ -11,6 +11,8 @@ type WorkMetadata = {
   tags: readonly string[];
   order?: number;
   heroCaption?: string;
+  shareImage?: StaticImageData;
+  shareImageAlt?: string;
 } & (
   | {
       preview?: never;

@@ -1,3 +1,4 @@
+import { socialMetadata } from "@/lib/social-metadata";
 import type { Metadata } from "next";
 import { GeistPixelSquare } from "geist/font/pixel";
 import Footer from "@/app/_components/footer";
@@ -8,8 +9,11 @@ export const metadata: Metadata = {
     default: "Blog",
     template: "%s | Lance Ellis",
   },
-  description:
-    "Notes from Lance Ellis on web design, product development, and building thoughtful software.",
+  ...socialMetadata({
+    title: "Writing | Lance Ellis",
+    description: "Notes from Lance Ellis on web design, product development, and building thoughtful software.",
+    path: "/blog",
+  }),
 };
 
 export default function BlogLayout({ children }: { children: React.ReactNode }) {

@@ -40,18 +40,6 @@ export const metadata: Metadata = {
     "startup product development",
     "Next.js developer",
   ],
-  openGraph: {
-    title: portfolioTitle,
-    description: portfolioDescription,
-    siteName: "Lance Ellis Portfolio",
-    type: "website",
-    locale: "en_US",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: portfolioTitle,
-    description: portfolioDescription,
-  },
   robots: {
     index: true,
     follow: true,

@@ -4,7 +4,11 @@ import imageFile from "@/public/linkage.png"
 
 export const image = publicImage(imageFile, "/linkage.png")
 
+import shareImage from "@/content/social/linkage.jpg"
+
 export const metadata = {
+  shareImage,
+  shareImageAlt: "Linkage workflow definition alongside the node it renders.",
   title: "Linkage",
   description: "Build a workflow, run it, and see which step failed on the same canvas.",
   tags: ["Workflow editors", "SDK design"],

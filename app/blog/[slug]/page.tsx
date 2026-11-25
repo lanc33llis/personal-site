@@ -1,4 +1,5 @@
-import type { Metadata, ResolvingMetadata } from "next";
+import { socialMetadata } from "@/lib/social-metadata";
+import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -18,7 +19,6 @@ export async function generateStaticParams() {
 
 export async function generateMetadata(
   { params }: Props,
-  parent: ResolvingMetadata,
 ): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPost(slug);
@@ -29,14 +29,13 @@ export async function generateMetadata(
 
   return {
     title: post.metadata.title,
-    description: post.metadata.description,
-    openGraph: {
+    ...socialMetadata({
       title: post.metadata.title,
       description: post.metadata.description,
-      type: "article",
+      path: `/blog/${slug}`,
+      article: true,
       publishedTime: post.metadata.publishedAt,
-      images: (await parent).openGraph?.images,
-    },
+    }),
   };
 }
 

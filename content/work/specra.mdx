@@ -5,7 +5,11 @@ import selectionFile from "@/public/specra-button-selection-trimmed.png"
 export const image = publicImage(imageFile, "/specra-homepage-hero-poster.jpg")
 export const selection = publicImage(selectionFile, "/specra-button-selection-trimmed.png")
 
+import shareImage from "@/content/social/specra.jpg"
+
 export const metadata = {
+  shareImage,
+  shareImageAlt: "Specra with a button selected in the preview and attached to an agent prompt.",
   title: "Specra",
   description: "Click the element that feels off and give a coding agent the context to edit it.",
   tags: ["AI design tools", "Agent evaluation"],

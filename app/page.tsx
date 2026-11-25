@@ -1,3 +1,4 @@
+import { socialMetadata } from "@/lib/social-metadata";
 import type { Viewport } from "next";
 import { Libertinus_Serif_Display } from "next/font/google";
 import { WaterBackground } from "@/components/water-background";
@@ -5,6 +6,12 @@ import { HomeHero } from "./_components/home-hero";
 import Footer from "./_components/footer";
 import Gallery from "./_components/gallery";
 import CopyEmailButton from "./_components/copy-email-button";
+
+export const metadata = socialMetadata({
+  title: "Lance Ellis | Design Engineer",
+  description: "I design and build software. Explore how I built Specra for editing interfaces with AI agents and designed device sorting for Amazon Alexa.",
+  path: "/",
+});
 
 export const viewport: Viewport = {
   width: "device-width",
