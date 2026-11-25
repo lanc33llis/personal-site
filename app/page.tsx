@@ -1,3 +1,5 @@
+import { stagger } from "motion";
+import headingStyles from "./hero-heading.module.css";
 import { socialMetadata } from "@/lib/social-metadata";
 import type { Viewport } from "next";
 import { Libertinus_Serif_Display } from "next/font/google";
@@ -40,6 +42,12 @@ const libertinusDisplay = Libertinus_Serif_Display({
   subsets: ["latin"],
 });
 
+const headline = "I design and build software.";
+const words = headline.split(" ");
+const staggerSeconds = 0.12;
+const wordDelay = stagger(staggerSeconds, { ease: [0.25, 0.1, 0.25, 1] });
+const contactDelay = wordDelay(words.length - 1, words.length) + staggerSeconds;
+
 export default function Home() {
   return (
     <div className="mx-auto w-full max-w-7xl">
@@ -54,16 +62,29 @@ export default function Home() {
               <p className="font-sans text-lg leading-6 text-foreground">
                 I’m Lance.
               </p>
-              <h1 className={`${libertinusDisplay.className} max-w-3xl text-4xl leading-[1.05] tracking-normal sm:text-5xl lg:text-6xl`}>
-                I design and build software.
+              <h1 aria-label={headline} className={`${libertinusDisplay.className} max-w-3xl text-4xl leading-[1.05] tracking-normal sm:text-5xl lg:text-6xl`}>
+                {words.map((word, index) => (
+                  <span key={word} aria-hidden="true">
+                    <span
+                      className={headingStyles.word}
+                      style={{ animationDelay: `${wordDelay(index, words.length)}s` }}
+                    >
+                      {word}
+                    </span>
+                    {index < words.length - 1 && " "}
+                  </span>
+                ))}
               </h1>
               <div className="mt-3 flex sm:pb-8">
-                <CopyEmailButton className="h-9 w-fit rounded-[18px] py-1.5 text-base font-medium">
+                <CopyEmailButton
+                  className={`${headingStyles.contact} h-9 w-fit rounded-[18px] py-1.5 text-base font-medium`}
+                  style={{ animationDelay: `${contactDelay}s` }}
+                >
                   Contact
                 </CopyEmailButton>
               </div>
             </div>
-            <div className="relative overflow-hidden border-t sm:[clip-path:inset(0_round_0_0_var(--radius-3xl)_var(--radius-3xl))] lg:border-t-0 lg:[clip-path:inset(0_round_0_0_0_var(--radius-3xl))]">
+            <div className="relative overflow-hidden border-t sm:max-lg:rounded-br-3xl lg:border-t-0">
               <div className="absolute inset-0">
                 <WaterBackground />
               </div>

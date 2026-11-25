@@ -1,0 +1,37 @@
+.word {
+  display: inline-block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .word,
+  .contact {
+    --settle-duration: 0.5s;
+    animation: focus 1.5s ease-out backwards, settle var(--settle-duration) ease-out backwards;
+  }
+
+  .contact:focus-visible {
+    opacity: 1 !important;
+    filter: none !important;
+    transform: none !important;
+  }
+}
+
+@keyframes focus {
+  from {
+    opacity: 0;
+    filter: blur(12px);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes settle {
+  from {
+    transform: translateY(-4px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
