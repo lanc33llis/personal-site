@@ -1,8 +1,15 @@
+import type { Viewport } from "next";
 import { Libertinus_Serif_Display } from "next/font/google";
 import { WaterBackground } from "@/components/water-background";
 import Footer from "./_components/footer";
 import Gallery from "./_components/gallery";
 import CopyEmailButton from "./_components/copy-email-button";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+};
 
 const libertinusDisplay = Libertinus_Serif_Display({
   weight: "400",
@@ -13,8 +20,8 @@ export default function Home() {
   return (
     <div className="mx-auto w-full max-w-7xl">
       <main id="top" className="min-h-screen">
-        <section className="flex min-h-svh flex-col lg:h-dvh">
-          <div className="grid flex-1 grid-rows-[1fr_1fr] lg:grid-cols-2 lg:grid-rows-1">
+        <section className="flex min-h-svh flex-col max-sm:min-h-lvh lg:h-dvh">
+          <div className="grid flex-1 grid-rows-[1fr_1fr] max-sm:grid-rows-[minmax(50svh,auto)_1fr] lg:grid-cols-2 lg:grid-rows-1">
             <div className="flex flex-col gap-3 px-5 pt-2.5 max-sm:items-center max-sm:justify-center max-sm:pb-2.5 max-sm:text-center sm:px-8 sm:pt-8 lg:justify-center lg:px-12 lg:py-0">
               <p className="font-sans text-lg leading-6 text-foreground">
                 I’m Lance.
