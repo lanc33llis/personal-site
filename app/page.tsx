@@ -17,6 +17,22 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
+  themeColor: "#ffffff",
+};
+
+const profile = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  url: "https://lanc3.dev/",
+  name: "Lance Ellis | Design Engineer",
+  description: metadata.description,
+  mainEntity: {
+    "@type": "Person",
+    "@id": "https://lanc3.dev/#lance-ellis",
+    name: "Lance Ellis",
+    jobTitle: "Design Engineer",
+    url: "https://lanc3.dev/",
+  },
 };
 
 const libertinusDisplay = Libertinus_Serif_Display({
@@ -27,6 +43,10 @@ const libertinusDisplay = Libertinus_Serif_Display({
 export default function Home() {
   return (
     <div className="mx-auto w-full max-w-7xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profile).replace(/</g, "\\u003c") }}
+      />
       <main id="top" className="min-h-screen">
         <HomeHero>
           <div className="grid flex-1 grid-rows-[1fr_1fr] max-sm:grid-rows-[minmax(50svh,auto)_1fr] lg:grid-cols-2 lg:grid-rows-1">
