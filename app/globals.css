@@ -198,3 +198,10 @@ a {
   font-size: 0.875rem;
   line-height: 1.5;
 }
+
+@media (width < 40rem) {
+  /* Let Safari sample the scrolling hero behind its bottom toolbar. */
+  html:has(#selected-work) {
+    height: auto;
+  }
+}
