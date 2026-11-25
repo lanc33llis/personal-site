@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <div className="mx-auto w-full max-w-7xl">
       <main id="top" className="min-h-screen">
-        <section className="flex min-h-svh flex-col max-sm:min-h-[calc(100lvh+(100lvh-100svh)+env(safe-area-inset-bottom,0px))] lg:h-dvh">
+        <section className="flex min-h-svh flex-col max-sm:min-h-[calc(100lvh+(50lvh-50svh)+env(safe-area-inset-bottom,0px))] lg:h-dvh">
           <div className="grid flex-1 grid-rows-[1fr_1fr] max-sm:grid-rows-[minmax(50svh,auto)_1fr] lg:grid-cols-2 lg:grid-rows-1">
             <div className="flex flex-col gap-3 px-5 pt-2.5 max-sm:items-center max-sm:justify-center max-sm:pb-2.5 max-sm:text-center sm:px-8 sm:pt-8 lg:justify-center lg:px-12 lg:py-0">
               <p className="font-sans text-lg leading-6 text-foreground">
