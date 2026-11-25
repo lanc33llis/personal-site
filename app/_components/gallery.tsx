@@ -1,12 +1,12 @@
 import Container from "@/components/container";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-import specraScreenshot from "@/public/specra.png";
+import { assetUrl } from "@/lib/cdn-assets.mjs";
 
 const projects = [
   {
     title: "Specra",
-    image: specraScreenshot,
+    image: assetUrl("/specra.png"),
     imagePosition: "object-top",
     description:
       "Design directly in your codebase with AI agents.",
@@ -18,7 +18,7 @@ const projects = [
   {
     title: "Device Sorting",
     image: null,
-    video: "/alexa-device-sorting.mp4",
+    video: assetUrl("/alexa-device-sorting.mp4"),
     imagePosition: "object-top",
     description: "Device sorting for Amazon Alexa Mobile App.",
     meta: ["Amazon", "React Native", "Native Animations"],
@@ -28,7 +28,7 @@ const projects = [
   },
   {
     title: "Linkage",
-    image: "/linkage.png",
+    image: assetUrl("/linkage.png"),
     imagePosition: "object-top",
     description:
       "Drop-in editor for workflow app UI, validation, collaboration, and run visualization.",
@@ -39,7 +39,7 @@ const projects = [
   },
   {
     title: "Recruiting Platform",
-    image: "/rp.png",
+    image: assetUrl("/rp.png"),
     imagePosition: "object-top-left",
     description:
       "High-volume application portal built for Longhorn Racing recruiting.",
