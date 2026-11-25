@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import createMDX from "@next/mdx";
 
 import { readdirSync } from "node:fs";
 import { assetUrl, deviceWidths, imageWidths } from "./lib/cdn-assets.mjs";
@@ -23,7 +24,19 @@ const nextConfig: NextConfig = {
         .map((source) => ({ source, destination: assetUrl(source, assetOrigin), permanent: false }));
     },
   }),
+  pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   reactCompiler: true,
+  turbopack: {
+    rules: {
+      "*.wgsl": { loaders: ["@vgpu/wgsl/loader-webpack"], as: "*.js" },
+    },
+  },
+  experimental: { viewTransition: true },
 };
 
-export default nextConfig;
+const withMDX = createMDX({
+  extension: /\.mdx?$/,
+  options: { rehypePlugins: ["rehype-highlight"] },
+});
+
+export default withMDX(nextConfig);

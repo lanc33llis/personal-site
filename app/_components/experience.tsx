@@ -18,7 +18,7 @@ const fallingItems = [
   { label: "Major League Hacking", kind: "company" },
   { label: "Trinity University", kind: "company" },
   { label: "Y’all Corporation", kind: "company" },
-  { label: "Specra", kind: "company" },
+  { label: "Specra", kind: "project" },
   { label: "Longhorn Racing", kind: "company" },
   { label: "Node.js", kind: "tech" },
   { label: "Turborepo", kind: "tech" },
@@ -71,7 +71,7 @@ const fallingItems = [
   { label: "Storybook", kind: "tech" },
 ] as const satisfies ReadonlyArray<{
   label: string;
-  kind: "company" | "tech";
+  kind: "company" | "project" | "tech";
 }>;
 
 type FallingItem = (typeof fallingItems)[number];
@@ -177,7 +177,7 @@ const ResumeGravity = () => {
       <section className="border-x">
         <div
           ref={stageRef}
-          aria-label="Technologies and companies from Lance Ellis's resume"
+          aria-label="Technologies, projects, and companies from Lance Ellis's resume"
           className="relative h-svh min-h-[640px] overflow-hidden sm:min-h-[720px] lg:h-dvh"
         >
           <motion.div

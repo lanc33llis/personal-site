@@ -3,6 +3,9 @@ import CopyEmailButton from "./copy-email-button";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
+const footerButtonClassName =
+  "rounded-[18px] py-1.5 text-base font-normal text-muted-foreground";
+
 const links = [
   {
     label: "LinkedIn",
@@ -10,19 +13,19 @@ const links = [
   },
 ] as const;
 
-const Footer = () => {
+const Footer = ({ className }: { className?: string }) => {
   return (
-    <footer className="border-t">
-      <Container className="border-x py-3">
-        <div className="flex flex-col gap-3 sm:gap-6 sm:flex-row sm:items-center sm:justify-between">
+    <footer>
+      <Container className={cn("py-3", className)}>
+        <div className="flex items-center justify-between gap-3 sm:gap-6">
           <div>
-            <p className="text-muted-foreground">
+            <p className="text-muted-foreground whitespace-nowrap">
               © {new Date().getFullYear()}
             </p>
           </div>
 
-          <nav aria-label="Footer links" className="flex flex-wrap gap-3">
-            <CopyEmailButton variant="outline" size="sm" className="rounded-xs">
+          <nav aria-label="Footer links" className="flex gap-3">
+            <CopyEmailButton variant="ghost" className={footerButtonClassName}>
               Email
             </CopyEmailButton>
             {links.map((link) => (
@@ -30,8 +33,8 @@ const Footer = () => {
                 key={link.label}
                 href={link.href}
                 className={cn(
-                  buttonVariants({ variant: "outline", size: "sm" }),
-                  "rounded-xs",
+                  buttonVariants({ variant: "ghost" }),
+                  footerButtonClassName,
                 )}
               >
                 {link.label}

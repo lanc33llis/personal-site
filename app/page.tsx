@@ -1,57 +1,81 @@
-import { Button } from "@/components/ui/button";
+import { socialMetadata } from "@/lib/social-metadata";
+import type { Viewport } from "next";
+import { Libertinus_Serif_Display } from "next/font/google";
 import { WaterBackground } from "@/components/water-background";
-import ResumeGravity from "./_components/experience";
+import { HomeHero } from "./_components/home-hero";
 import Footer from "./_components/footer";
 import Gallery from "./_components/gallery";
 import CopyEmailButton from "./_components/copy-email-button";
-import SiteHeader from "./_components/site-header";
+
+export const metadata = socialMetadata({
+  title: "Lance Ellis | Design Engineer",
+  description: "I design and build software. Explore how I built Specra for editing interfaces with AI agents and designed device sorting for Amazon Alexa.",
+  path: "/",
+});
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: "#ffffff",
+};
+
+const profile = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  url: "https://lanc3.dev/",
+  name: "Lance Ellis | Design Engineer",
+  description: metadata.description,
+  mainEntity: {
+    "@type": "Person",
+    "@id": "https://lanc3.dev/#lance-ellis",
+    name: "Lance Ellis",
+    jobTitle: "Design Engineer",
+    url: "https://lanc3.dev/",
+  },
+};
+
+const libertinusDisplay = Libertinus_Serif_Display({
+  weight: "400",
+  subsets: ["latin"],
+});
 
 export default function Home() {
   return (
-    <main id="top" className="min-h-screen">
-      <section className="flex min-h-svh flex-col lg:h-dvh">
-        <SiteHeader />
-
-        <div className="flex w-full flex-1">
-          <div className="flex w-full flex-1 flex-col lg:flex-row lg:items-stretch">
-            <div className="flex flex-1 flex-col gap-4 px-5 pt-2.5 sm:pt-8 sm:px-8 lg:w-1/2 lg:justify-center lg:px-12 lg:py-0">
-              <h1 className="max-w-3xl font-sans text-4xl font-medium leading-[0.95] tracking-normal sm:text-5xl lg:text-6xl">
-                I design and build products from{" "}
-                <span className="font-mono">ZER0</span> to{" "}
-                <span className="font-mono">0NE</span>
+    <div className="mx-auto w-full max-w-7xl">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profile).replace(/</g, "\\u003c") }}
+      />
+      <main id="top" className="min-h-screen">
+        <HomeHero>
+          <div className="grid flex-1 grid-rows-[1fr_1fr] max-sm:grid-rows-[minmax(50svh,auto)_1fr] lg:grid-cols-2 lg:grid-rows-1">
+            <div className="flex flex-col gap-3 px-5 pt-2.5 max-sm:items-center max-sm:justify-center max-sm:pb-2.5 max-sm:text-center sm:px-8 sm:pt-8 lg:justify-center lg:px-12 lg:py-0">
+              <p className="font-sans text-lg leading-6 text-foreground">
+                I’m Lance.
+              </p>
+              <h1 className={`${libertinusDisplay.className} max-w-3xl text-4xl leading-[1.05] tracking-normal sm:text-5xl lg:text-6xl`}>
+                I design and build software.
               </h1>
-              <div className="flex flex-wrap gap-2 sm:pb-8">
-                <CopyEmailButton className="h-9 w-fit py-1.5 text-base font-medium">
+              <div className="mt-3 flex sm:pb-8">
+                <CopyEmailButton className="h-9 w-fit rounded-[18px] py-1.5 text-base font-medium">
                   Contact
                 </CopyEmailButton>
-                <Button
-                  asChild
-                  variant="outline"
-                  className="h-9 w-fit py-1.5 text-base font-medium"
-                >
-                  <a href="#selected-work">Selected Work</a>
-                </Button>
               </div>
-              <div className="relative left-1/2 min-h-56 flex-1 w-screen -translate-x-1/2 overflow-hidden border-t  lg:hidden">
+            </div>
+            <div className="relative overflow-hidden border-t sm:[clip-path:inset(0_round_0_0_var(--radius-3xl)_var(--radius-3xl))] lg:border-t-0 lg:[clip-path:inset(0_round_0_0_0_var(--radius-3xl))]">
+              <div className="absolute inset-0">
                 <WaterBackground />
               </div>
             </div>
-            <div className="hidden w-1/2 self-stretch border-l lg:flex">
-              <WaterBackground className="min-h-full flex-1" />
-            </div>
           </div>
-        </div>
-      </section>
+        </HomeHero>
 
-      <section className="border-t">
-        <ResumeGravity />
-      </section>
-
-      <section id="selected-work">
-        <Gallery />
-      </section>
-
-      <Footer />
-    </main>
+        <section id="selected-work" tabIndex={-1} className="mt-2 mb-12 sm:mt-6 sm:mb-16 lg:mt-10">
+          <Gallery />
+        </section>
+      </main>
+      <Footer className="sm:px-0" />
+    </div>
   );
 }

@@ -1,0 +1,29 @@
+import { publicImage } from "@/lib/cdn-assets.mjs"
+import imageFile from "@/public/rp.png"
+
+export const image = publicImage(imageFile, "/rp.png")
+
+import shareImage from "@/content/social/recruiting-platform.jpg"
+
+export const metadata = {
+  shareImage,
+  shareImageAlt: "The Longhorn Racing recruiting portal.",
+  title: "Recruiting Platform",
+  description: "A mobile recruiting portal that handled more than 2,000 applications for Longhorn Racing.",
+  tags: ["Application forms", "Draft autosave"],
+  image,
+  imagePosition: "top left",
+  order: 5,
+}
+
+I built Longhorn Racing's recruiting portal for students applying to the team, including people filling out the application on a phone. Two actions in that flow needed to feel different. You should be able to put down a draft and come back to it. Sending it to the team is final.
+
+## Saving as you go
+
+The form waits for a short pause after an edit, then saves the draft when the current values pass validation. Someone ranking their preferred systems or writing an answer can leave and return to their saved work without having to find a save button.
+
+## Making the final tap deliberate
+
+Applicants can rank up to three systems. The form checks for duplicate choices so the team gets a meaningful set of preferences. At submission, a confirmation explains that the answers will be locked and gives the applicant a chance to go back. That's the point in the flow where an extra tap earns its place.
+
+I built the interface in Next.js and backed it with Postgres. The portal processed more than 2,000 applications and handled about 20,000 site visits.

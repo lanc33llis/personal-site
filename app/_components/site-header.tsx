@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Container from "@/components/container";
+import { Button } from "@/components/ui/button";
 
 export default function SiteHeader() {
   return (
@@ -11,6 +12,11 @@ export default function SiteHeader() {
         >
           Lance Ellis
         </Link>
+        <nav aria-label="Primary navigation">
+          <Button asChild variant="outline" size="sm" className="rounded-xs">
+            <Link href="/blog">Blog</Link>
+          </Button>
+        </nav>
       </Container>
     </header>
   );

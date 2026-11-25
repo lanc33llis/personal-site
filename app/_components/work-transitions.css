@@ -1,0 +1,99 @@
+::view-transition-group(.work-media),
+::view-transition-group(.work-preview-frame),
+::view-transition-group(.work-preview) {
+  z-index: 1;
+  animation-duration: 540ms;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+:root:active-view-transition-type(close-work)::view-transition-group(.work-media),
+:root:active-view-transition-type(close-work)::view-transition-group(.work-preview-frame),
+:root:active-view-transition-type(close-work)::view-transition-group(.work-preview) {
+  animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+::view-transition-group(.work-preview-frame) {
+  border-radius: calc(var(--radius-sm) + 6px);
+  background: var(--muted);
+}
+
+::view-transition-image-pair(.work-preview-frame) {
+  display: none;
+}
+
+::view-transition-old(.work-preview) {
+  opacity: 0;
+  animation: none;
+}
+
+::view-transition-group(.work-preview) {
+  z-index: 2;
+}
+
+::view-transition-new(.work-preview) {
+  width: 100%;
+  height: 100%;
+  object-fit: scale-down;
+  animation: none;
+}
+
+::view-transition-group(work-media-recruiting-platform) {
+  overflow: clip;
+  border-radius: calc(var(--radius-sm) + 6px);
+}
+
+@supports selector(:active-view-transition-type(open-work)) {
+  /* Reveal the wide screenshot through the moving frame in both directions. */
+  :root:active-view-transition-type(open-work)::view-transition-old(work-media-recruiting-platform),
+  :root:not(:active-view-transition-type(open-work))::view-transition-new(work-media-recruiting-platform) {
+    display: none;
+  }
+
+  ::view-transition-old(work-media-recruiting-platform),
+  ::view-transition-new(work-media-recruiting-platform) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: left top;
+    animation: none;
+  }
+}
+
+:root:is(:active-view-transition-type(open-work), :active-view-transition-type(close-work)) .work-details {
+  view-transition-name: work-details;
+}
+
+::view-transition-new(work-details) {
+  animation: work-details-reveal 200ms ease-out both;
+}
+
+::view-transition-old(work-details) {
+  animation: work-details-reveal 120ms ease-in reverse both;
+}
+
+@keyframes work-details-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(.work-media),
+  ::view-transition-group(.work-preview-frame),
+  ::view-transition-group(.work-preview),
+  ::view-transition-old(.work-media),
+  ::view-transition-new(.work-media),
+  ::view-transition-old(work-details),
+  ::view-transition-new(work-details),
+  :root:is(:active-view-transition-type(open-work), :active-view-transition-type(close-work))::view-transition-group(root),
+  :root:is(:active-view-transition-type(open-work), :active-view-transition-type(close-work))::view-transition-old(root),
+  :root:is(:active-view-transition-type(open-work), :active-view-transition-type(close-work))::view-transition-new(root) {
+    animation-duration: 1ms;
+    animation-delay: 0ms;
+  }
+}
