@@ -3,7 +3,7 @@ import headingStyles from "./hero-heading.module.css";
 import { socialMetadata } from "@/lib/social-metadata";
 import type { Viewport } from "next";
 import { Libertinus_Serif_Display } from "next/font/google";
-import { WaterBackground } from "@/components/water-background";
+import { HeroWater } from "./_components/hero-water";
 import { HomeHero } from "./_components/home-hero";
 import Footer from "./_components/footer";
 import Gallery from "./_components/gallery";
@@ -85,9 +85,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative overflow-hidden border-t sm:max-lg:rounded-br-3xl lg:border-t-0">
-              <div className="absolute inset-0">
-                <WaterBackground />
-              </div>
+              <HeroWater />
             </div>
           </div>
         </HomeHero>

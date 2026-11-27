@@ -57,6 +57,7 @@ export function WorkMedia({
   const desktopSize = wideCard
     ? "calc((100vw - 128px) * 2 / 3 + 4px)"
     : "calc((100vw - 128px) / 3 - 12px)";
+  const videoPoster = project.video?.poster ?? project.image;
 
   if (project.video?.layout === "screen") {
     return (
@@ -65,7 +66,11 @@ export function WorkMedia({
           <WorkVideo
             aria-label={project.video.label}
             src={project.video.src}
-            poster={project.video.poster ?? project.image.src}
+            poster={hero ? videoPoster.src : undefined}
+            previewPoster={hero ? undefined : {
+              image: videoPoster,
+              sizes: "(max-width: 639px) calc(100vw - 52px), (max-width: 1023px) calc(100vw - 108px), (max-width: 1279px) calc(66.67vw - 16px), 836px",
+            }}
             controls={hero}
             loop={!hero}
             width={project.image.width}
@@ -94,7 +99,11 @@ export function WorkMedia({
               <WorkVideo
                 aria-label={project.video.label}
                 src={project.video.src}
-                poster={project.video.poster ?? project.image.src}
+                poster={hero ? videoPoster.src : undefined}
+                previewPoster={hero ? undefined : {
+                  image: videoPoster,
+                  sizes: "(max-width: 639px) 154px, (max-width: 1023px) 190px, clamp(128px, 13vw, 220px)",
+                }}
                 controls={hero}
                 loop={!hero}
                 className="h-full w-full rounded-[24px] bg-black object-cover"

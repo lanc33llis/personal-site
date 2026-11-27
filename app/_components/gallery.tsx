@@ -1,4 +1,3 @@
-import { workMediaFrameClass } from "./work-media-frame";
 import { Fragment } from "react";
 import Container from "@/components/container";
 import { getWorkProjects } from "@/lib/work";
@@ -39,7 +38,7 @@ const Gallery = async () => {
               {isUnpaired && (
                 <div
                   aria-hidden="true"
-                  className={`${workMediaFrameClass} ${workCardMediaHeightClass} pointer-events-none hidden min-w-0 lg:col-span-2 lg:col-start-1 lg:block`}
+                  className={`${workCardMediaHeightClass} pointer-events-none hidden min-w-0 overflow-hidden rounded-[calc(var(--radius-sm)+6px)] lg:col-span-2 lg:col-start-1 lg:block`}
                 >
                   <GalleryWater />
                 </div>

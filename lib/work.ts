@@ -19,7 +19,7 @@ type WorkMetadata = {
       image: StaticImageData;
       imageAlt?: string;
       imagePosition?: string;
-      video?: { src: string; label: string; layout?: "screen"; poster?: string };
+      video?: { src: string; label: string; layout?: "screen"; poster?: StaticImageData };
     }
   | { preview: ComponentType; image?: never }
 );

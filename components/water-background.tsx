@@ -26,7 +26,7 @@ type PixelStyle = CSSProperties & {
   transitionTimingFunction: string;
 };
 
-type PixelPhase = "clearing" | "transparentPause" | "filling" | "whitePause";
+type PixelPhase = "firstReveal" | "clearing" | "transparentPause" | "filling" | "whitePause";
 
 type GridState = {
   columns: number;
@@ -54,13 +54,24 @@ function getPixelStyle(
   return {
     transitionDelay: `${rowDelay + stagger}s`,
     transitionDuration: `${PIXEL_TRANSITION_DURATION}s`,
-    transitionTimingFunction: "steps(1, end)",
+    transitionTimingFunction: phase === "firstReveal" ? "steps(1, start)" : "steps(1, end)",
   };
 }
 
-export function WaterBackground({ className }: { className?: string }) {
+export function WaterBackground({
+  className,
+  revealImmediately = false,
+  revealReady = true,
+  texture = assetUrl("/fluted-glass.webp"),
+}: {
+  className?: string;
+  revealImmediately?: boolean;
+  revealReady?: boolean;
+  texture?: HTMLImageElement | string;
+}) {
   const containerRef = useRef<HTMLDivElement>(null);
   const [pixelPhase, setPixelPhase] = useState<PixelPhase>("whitePause");
+  const [waterMoving, setWaterMoving] = useState(!revealImmediately);
   const [grid, setGrid] = useState<GridState>({
     columns: 0,
     rows: 0,
@@ -105,7 +116,7 @@ export function WaterBackground({ className }: { className?: string }) {
   }, []);
 
   useEffect(() => {
-    if (grid.rows === 0) {
+    if (grid.rows === 0 || !revealReady) {
       return;
     }
 
@@ -123,30 +134,47 @@ export function WaterBackground({ className }: { className?: string }) {
       timers.push(setTimeout(callback, delay * 1000));
     };
 
-    const runCycle = () => {
-      setPixelPhase("clearing");
-
+    function clear(phase: "firstReveal" | "clearing" = "clearing") {
+      setPixelPhase(phase);
       schedule(() => {
         setPixelPhase("transparentPause");
-
-        schedule(() => {
-          setPixelPhase("filling");
-
-          schedule(() => {
-            setPixelPhase("whitePause");
-
-            schedule(runCycle, PIXEL_PAUSE_BEFORE_LOOP);
-          }, fillDuration);
-        }, PIXEL_PAUSE_BEFORE_REVERSE);
+        schedule(fill, PIXEL_PAUSE_BEFORE_REVERSE);
       }, clearDuration);
-    };
+    }
 
-    schedule(runCycle, PIXEL_PAUSE_BEFORE_LOOP);
+    function fill() {
+      setPixelPhase("filling");
+      schedule(() => {
+        setPixelPhase("whitePause");
+        schedule(clear, PIXEL_PAUSE_BEFORE_LOOP);
+      }, fillDuration);
+    }
+
+    let revealFrame: number | undefined;
+    if (revealImmediately) {
+      // Let the white grid paint before changing its opacity.
+      revealFrame = requestAnimationFrame(() => {
+        revealFrame = requestAnimationFrame(() => clear("firstReveal"));
+      });
+    } else {
+      schedule(clear, PIXEL_PAUSE_BEFORE_LOOP);
+    }
 
     return () => {
+      if (revealFrame !== undefined) cancelAnimationFrame(revealFrame);
       timers.forEach(clearTimeout);
     };
-  }, [grid.rows]);
+  }, [grid.rows, revealImmediately, revealReady]);
+
+  useEffect(() => {
+    if (pixelPhase !== "firstReveal" || waterMoving) return;
+
+    // Show the first opening tiles before starting continuous shader rendering.
+    let frame = requestAnimationFrame(() => {
+      frame = requestAnimationFrame(() => setWaterMoving(true));
+    });
+    return () => cancelAnimationFrame(frame);
+  }, [pixelPhase, waterMoving]);
 
   return (
     <div
@@ -157,7 +185,7 @@ export function WaterBackground({ className }: { className?: string }) {
         <Water
           width={"100%"}
           height={"100%"}
-          image={assetUrl("/fluted-glass.png")}
+          image={texture}
           colorBack="#8f8f8f"
           colorHighlight="#ffffff"
           highlights={0.4}
@@ -166,7 +194,7 @@ export function WaterBackground({ className }: { className?: string }) {
           waves={0}
           caustic={0.2}
           size={0.7}
-          speed={0.1}
+          speed={waterMoving ? 0.1 : 0}
           scale={1.5}
           fit="cover"
         />
@@ -194,7 +222,8 @@ export function WaterBackground({ className }: { className?: string }) {
             key={index}
             className={cn(
               "bg-white transition-[opacity] ease-linear",
-              (pixelPhase === "clearing" ||
+              (pixelPhase === "firstReveal" ||
+                pixelPhase === "clearing" ||
                 pixelPhase === "transparentPause") &&
                 "opacity-0",
               (pixelPhase === "filling" || pixelPhase === "whitePause") &&
