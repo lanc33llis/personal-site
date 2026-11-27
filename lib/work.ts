@@ -21,7 +21,7 @@ type WorkMetadata = {
       imagePosition?: string;
       video?: { src: string; label: string; layout?: "screen"; poster?: StaticImageData };
     }
-  | { preview: ComponentType; image?: never }
+  | { preview: ComponentType; galleryPreview?: ComponentType; image?: never }
 );
 
 export type WorkProject = WorkMetadata & { slug: string };

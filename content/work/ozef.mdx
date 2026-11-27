@@ -1,6 +1,5 @@
-import { OzefPreview } from "@/app/_components/ozef-preview"
-
-import { OzefPlayground } from "@/app/_components/ozef-playground"
+import { OzefGalleryPreview } from "@/app/_components/ozef-gallery-preview"
+import { OzefPlayground, OzefPreview } from "@/app/_components/ozef-interactive"
 
 import shareImage from "@/content/social/ozef.jpg"
 
@@ -11,6 +10,7 @@ export const metadata = {
   description: "Define a field once in Zod and choose how its React input and validation error appear.",
   tags: ["React forms", "API design"],
   preview: OzefPreview,
+  galleryPreview: OzefGalleryPreview,
   heroCaption: "Try changing the email to ada and pressing Submit. Fix the address and submit again.",
   order: 4,
 }

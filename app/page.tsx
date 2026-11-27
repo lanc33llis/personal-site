@@ -58,7 +58,7 @@ export default function Home() {
       <main id="top" className="min-h-screen">
         <HomeHero>
           <div className="grid flex-1 grid-rows-[1fr_1fr] max-sm:grid-rows-[minmax(50svh,auto)_1fr] lg:grid-cols-2 lg:grid-rows-1">
-            <div className="flex flex-col gap-3 px-5 pt-2.5 max-sm:items-center max-sm:justify-center max-sm:pb-2.5 max-sm:text-center sm:px-8 sm:pt-8 lg:justify-center lg:px-12 lg:py-0">
+            <div className="flex flex-col justify-center gap-3 px-5 pt-2.5 max-lg:items-center max-lg:text-center max-sm:pb-2.5 sm:px-8 sm:pt-8 lg:px-12 lg:py-0">
               <p className="font-sans text-lg leading-6 text-foreground">
                 I’m Lance.
               </p>

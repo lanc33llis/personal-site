@@ -12,6 +12,8 @@ export function HeroWater() {
   const [texture, setTexture] = useState<HTMLImageElement | null>(null);
 
   useEffect(() => {
+    if (!motionEnabled || texture) return;
+
     const image = new Image();
     image.crossOrigin = "anonymous";
     image.src = assetUrl("/fluted-glass.webp");
@@ -24,7 +26,7 @@ export function HeroWater() {
     });
 
     return () => { active = false; };
-  }, []);
+  }, [motionEnabled, texture]);
 
   useEffect(() => {
     const element = panel.current;

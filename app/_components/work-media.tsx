@@ -29,7 +29,7 @@ export function WorkMedia({
   );
 
   if (project.preview) {
-    const Preview = project.preview;
+    const Preview = hero ? project.preview : project.galleryPreview ?? project.preview;
 
     return (
       <ViewTransition {...transition} share="work-preview-frame">
